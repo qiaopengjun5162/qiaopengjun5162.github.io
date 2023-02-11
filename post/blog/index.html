@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Blog | My New Hugo Site</title>
+    <meta property="og:title" content="Blog - My New Hugo Site">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-02-11T10:25:06&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-02-11T10:25:06&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Blog">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/blog/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://qiaopengjun5162.github.io/">
+                        My New Hugo Site
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://qiaopengjun5162.github.io/">Home</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Blog</h1>
+        </header>
+        
+  <time datetime="2023-02-11T02:25:06Z" class="post-meta meta-date dt-published">
+    2023-02-11
+  </time>
+
+
+
+        
+        
+        <div class="post-content">
+            <ul>
+<li>
+<p>博客地址：https://www.cnblogs.com/bobo-zhang/p/10514873.html</p>
+</li>
+<li>
+<p>算法</p>
+<ul>
+<li>
+<p>所谓的算法就是对问题进行处理且求解的一种实现思路或者思想。</p>
+</li>
+<li>
+<p>案例： a+b+c = 1000 a<strong>2 + b</strong>2 = c**2 (a,b,c均为自然数)，求出a,b,c可能的组合？</p>
+</li>
+<li>
+<pre tabindex="0"><code>for a in range(0,1001):
+    for b in range(0,1001):
+        for c in range(0,1001):
+            if a**2+b**2 == c**2 and a+b+c==1000:
+                print(a,b,c)
+</code></pre></li>
+<li>
+<pre tabindex="0"><code>for a in range(0,1001):
+    for b in range(0,1001):
+        c = 1000 - a - b
+        if a**2+b**2 == c**2 and a+b+c==1000:
+                print(a,b,c)
+</code></pre></li>
+<li>
+<p>如何取衡量一个算法性能的好坏优劣？</p>
+<ul>
+<li>计算算法执行的耗时</li>
+<li>量化算法执行消耗计算机的资源大小</li>
+<li>时间复杂度（推荐）</li>
+</ul>
+</li>
+<li>
+<p>时间复杂度</p>
+<ul>
+<li>
+<p>量化执法执行步骤的数量。</p>
+</li>
+<li>
+<p>案例：</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">1</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> b<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> c<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>       x <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> i
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span>       y <span style="color:#f92672">=</span> j <span style="color:#f92672">*</span> j
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span>       z <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> j
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>    w <span style="color:#f92672">=</span> a<span style="color:#f92672">*</span>k <span style="color:#f92672">+</span> <span style="color:#ae81ff">45</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>    v <span style="color:#f92672">=</span> b<span style="color:#f92672">*</span>b
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">33</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>执行步骤：4+2n+3n**2</p>
+</li>
+<li>
+<p>时间复杂度的表示方法：大O记法</p>
+<ul>
+<li>
+<p>将执行步骤数量表示的表达式中最有意义的一项取出，放置在大O后面的括号即可。</p>
+</li>
+<li>
+<pre tabindex="0"><code>4+2n+3n**2最有意义的一项是 n**2,大O记法：O(n**2)
+</code></pre></li>
+<li>
+<p>常见的时间复杂度： O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n) &lt; O(n!) &lt; O(n^n)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据结构</p>
+<ul>
+<li>
+<p>对组织方式就被称作为数据结构 。或者，认为所有不同形式的数据结构都可以表示一种容器，容器是用来装载数据。</p>
+</li>
+<li>
+<p>案例： 需要存储一些学生的学生信息（name,score）,那么这些数据应该如何组织呢？查询某一个具体学生的时间复杂度是什么呢？</p>
+</li>
+<li>
+<pre tabindex="0"><code>#方式1
+[{&#39;name&#39;:&#39;zhangsan&#39;,&#39;score&#39;:100},
+ {&#39;name&#39;:&#39;lisi&#39;,&#39;score&#39;:99}
+] 
+
+#方式2
+[(&#39;zhangsan&#39;,100),
+ (&#39;lisi&#39;,99)
+] 
+
+#方式3
+{&#39;zhangsan&#39;:{&#39;score&#39;:100},
+ &#39;lisi&#39;:{&#39;score&#39;:99}
+} 
+</code></pre></li>
+<li>
+<p>需求：对指定学生的成绩进行查询？上述的数据结构那种形式是最好的？</p>
+<ul>
+<li>方式3最好，因为时间复杂度为O(1),剩下两个为O(n)</li>
+</ul>
+</li>
+<li>
+<p>算法和数据结构之间的关系？</p>
+<ul>
+<li>因此认为算法是为了解决实际问题而设计的，数据结构是算法需要处理问题的载体 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>栈：先进后出</p>
+<ul>
+<li>栈顶，栈底</li>
+<li>元素的添加和提取都是从栈顶向栈底的方向进行。</li>
+</ul>
+</li>
+<li>
+<p>案例：浏览器的回退按钮。</p>
+</li>
+<li>
+<p>实现：</p>
+</li>
+<li>
+<pre tabindex="0"><code>class Stack():
+	def __init__(self):
+		self.items = [] #构建一个空栈
+	def push(self,item): #添加元素
+		self.items.append(item)
+	def pop(self):#取出元素
+		return self.items.pop()
+	def isEmpty(self):
+		return self.items == []
+	def length(self):
+		return len(self.items)
+
+
+s = Stack()
+s.push(1)
+s.push(2)
+s.push(3)
+
+for i in range(s.length()):
+	print(s.pop())
+</code></pre></li>
+<li>
+<p>队列：先进先出</p>
+<ul>
+<li>队头，队尾</li>
+<li>元素必须是从队尾向队头的方向进行添加，且必须从队头以此取出元素。</li>
+</ul>
+</li>
+<li>
+<p>案例：一个教室有10台电脑和一台打印机联网。电脑给打印机发送的打印任务必须放置在队列中。</p>
+</li>
+<li>
+<p>队列的实现：</p>
+</li>
+<li>
+<pre tabindex="0"><code>class Queue():
+	def __init__(self):
+		self.items = []
+	def enqueue(self,item):#添加元素
+		self.items.insert(0,item)
+	def dequeue(self):#取出元素
+		return self.items.pop()
+	def isEmpty(self):
+		return self.items == []
+</code></pre></li>
+<li>
+<p>面试题：烫手的山芋</p>
+<ul>
+<li>
+<p>6个孩子围城一个圈，排列顺序孩子们自己指定。第一个孩子手里有一个烫手的山芋，需要在计时器计时1秒后将山芋传递给下一个孩子，依次类推。规则是，在计时器每计时7秒时，手里有山芋的孩子退出游戏。该游戏直到剩下一个孩子时结束，最后剩下的孩子获胜。请使用队列实现该游戏策略，排在第几个位置最终会获胜。</p>
+<ul>
+<li>找已知的条件：
+<ul>
+<li>把圈屡直了就是一个队列的结构
+<ul>
+<li>只可以从队头取元素，从队尾添加元素</li>
+</ul>
+</li>
+<li>山芋是1s中向后传递一次</li>
+<li>一轮游戏是7s的时长，一轮游戏山芋需要被传递6次</li>
+<li>当队列中只剩下一个孩子的时候游戏结束</li>
+<li>核心：必须要让手中有山芋的孩子作为队头元素！
+<ul>
+<li>如何实现：山芋不动，人动</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<pre tabindex="0"><code>class Queue():
+	def __init__(self):
+		self.items = []
+	def enqueue(self,item):#添加元素
+		self.items.insert(0,item)
+	def dequeue(self):#取出元素
+		return self.items.pop()
+	def isEmpty(self):
+		return self.items == []
+	def length(self):
+		return len(self.items)
+
+
+kids = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;]
+queue = Queue()
+for kid in kids:#将孩子入队列
+	queue.enqueue(kid)
+
+while queue.length() &gt; 1: #多轮游戏进行时
+	#实现一轮游戏策略
+	for i in range(6): #一轮游戏山芋被传递的次数
+		item = queue.dequeue()
+		queue.enqueue(item)
+	queue.dequeue() #一轮游戏后将队头元素淘汰
+
+print(&#39;最终的获胜者是：&#39;,queue.dequeue())
+</code></pre></li>
+<li>
+<p>如何使用两个队列实现一个栈？（使用两个先进先出的数据结构实现一种先进后出的效果）</p>
+<ul>
+<li>
+<pre tabindex="0"><code>q1 = Queue()
+q2 = Queue()
+#数据存储到q1中
+alist = [1,2,3,4,5]
+for item in alist:
+	q1.enqueue(item)
+
+while q1.length() &gt;= 1:
+	for i in range(q1.length()-1):
+		item = q1.dequeue()
+		q2.enqueue(item)
+	print(q1.dequeue())
+	q1,q2 = q2,q1
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>链表</p>
+<ul>
+<li>
+<p>计算机本质作用是什么？</p>
+<ul>
+<li>存储和运算二进制的数据！</li>
+</ul>
+</li>
+<li>
+<p>变量表示的是什么？</p>
+<ul>
+<li>
+<p>面向对象的语言中所有的变量都是引用。</p>
+</li>
+<li>
+<p>a = 10表示什么？</p>
+<ul>
+<li>在计算机的内存中开启一块内存空间，然后将10这个数据存储到该块内存空间中。a就是用来引用这个块内存空间的。通俗理解，所谓的变量或者引用表示的就是计算机内存中某一块内存空间。</li>
+<li>在计算机中开辟的每一块内存空间都拥有两个默认的属性：
+<ul>
+<li>大小：决定可以存储最大的数据范围是什么
+<ul>
+<li>bit位：只能存放以为二进制的数。最大可以存储的数据是1，最小是0</li>
+<li>byte字节：8bit。</li>
+</ul>
+</li>
+<li>地址：用来让cpu寻址</li>
+</ul>
+</li>
+<li>指向：如果一个变量引用了某一块内存空间，则该变量指向该块内存空间。</li>
+</ul>
+</li>
+<li>
+<p>计算机在为数据开辟内存的时候，内存空间大小是根据数据实际值的大小开辟呢还是统一大小开辟呢？</p>
+<ul>
+<li>统一开辟固定大小的内存
+<ul>
+<li>整型数据：4字节</li>
+<li>字符串：一个字符一个字节</li>
+<li>小数：4、8字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>为什么要有链表数据结构呢？</p>
+<ul>
+<li>顺序表：内存开辟是连续
+<ul>
+<li>集合中存储的元素是有顺序的。顺序表的结构可以分为两种形式：单数据类型和多数据类型。</li>
+</ul>
+</li>
+<li>弊端： 顺序表的结构需要预先知道数据大小来申请连续的存储空间，而在进行扩充时又需要进行数据的搬迁。</li>
+</ul>
+</li>
+<li>
+<p>实现：</p>
+</li>
+<li>
+<pre tabindex="0"><code>class Node():
+	#构建一个节点
+	def __init__(self,item):
+		self.item = item
+		self.next = None
+
+class Link():
+	def __init__(self): #构建空链表
+		self.head = None
+	def add(self,item):#向链表头部插入节点：类比于列表的insert(0,item)
+		node = Node(item)
+		node.next = self.head
+		self.head = node
+
+	def travle(self):
+		# print(self.head.item)
+		# print(self.head.next.item)
+		# print(self.head.next.next.item)
+		cur = self.head  #head要永远指向头结点
+		while cur:
+			print(cur.item)
+			cur = cur.next
+	def isEmpty(self):
+		return self.head == None
+
+	def size(self):
+		cur = self.head
+		count = 0
+		while cur:
+			count += 1
+			cur = cur.next
+		return count
+	def append(self,item): #向链表尾部添加新的节点
+		node = Node(item)
+		if self.isEmpty():#链表为空
+			self.head = node
+			return
+		#链表为非空
+		pre = None #pre永远指向cur前一个节点
+		cur = self.head
+		while cur:
+			pre = cur
+			cur = cur.next
+		pre.next = node
+
+	def insert(self,pos,item):#向pos表示的指定位置添加节点
+		if pos == 0:
+			self.add(item)
+			return
+		node = Node(item)
+		#pos的位置的值刚好可以作为pre和cur向后偏移次数的值
+		pre = None
+		cur = self.head
+		for i in range(pos):
+			pre = cur
+			cur = cur.next
+		pre.next = node
+		node.next = cur
+
+	def remove(self,item): #删除item表示的节点
+		pre = None
+		cur = self.head
+		#如果删除的是第一个节点
+		if item == self.head.item:
+			self.head = self.head.next
+			return
+		while cur:
+			pre = cur
+			cur = cur.next
+			if cur:
+				if cur.item == item:
+					pre.next = cur.next
+					return
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            No tags
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://qiaopengjun5162.github.io/">My New Hugo Site By </a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://qiaopengjun5162.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/blog/" title="Blog" target="_blank">Blog</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="https://qiaopengjun5162.github.io/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
