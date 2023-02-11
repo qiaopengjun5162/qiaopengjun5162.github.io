@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-us">
+<html lang="zh-CN">
 <head>
 
     <meta charset="utf-8">
@@ -222,12 +222,14 @@
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site myblog
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>创建项目
+</span></span><span style="display:flex;"><span>hugo new site myblog
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#0086b3">cd</span> myblog
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>安装主题
 </span></span><span style="display:flex;"><span>git clone https://github.com/flysnow-org/maupassant-hugo themes/maupassant
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
@@ -248,7 +250,44 @@
 </span></span><span style="display:flex;"><span>git push -u origin main
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>创建博客
+创建第一篇博客</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/first_blog.md
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>在本地启动网站</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动server时应用主题</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server --theme<span style="color:#000;font-weight:bold">=</span>LoveIt --watch
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数说明：</p>
+<pre tabindex="0"><code>* --theme 用于选择主题，如果在配置文件中选择了主题，这里就不需要使用了
+* --buildDrafts 用于是否显示草稿文章
+* --watch 用于实时监控变化，方便调试
+</code></pre><p>访问：http://localhost:1313/</p>
+<ul>
+<li>在项目根目录下使用 hugo 命令，会生成 public 目录</li>
+<li>该目录下是有关 markdown 编译完成的 html 静态页面</li>
+</ul>
+
         </div>
 
         
