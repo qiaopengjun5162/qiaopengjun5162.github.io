@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Python笔记 | 小乔的博客</title>
+    <meta property="og:title" content="Python笔记 - 小乔的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-02-12T18:40:06&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-02-12T18:40:06&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
+    <meta name="description" content="Python笔记">
+        
+    <meta name="author" content="小乔">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/python_study/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://qiaopengjun5162.github.io/">
+                        小乔的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go、Rust、数据库、Linux、软件架构、软件工程、数据结构、算法、操作系统</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://qiaopengjun5162.github.io/">Home</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Python笔记</h1>
+        </header>
+        
+  <time datetime="2023-02-12T10:40:06Z" class="post-meta meta-date dt-published">
+    2023-02-12
+  </time>
+
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>reads</span>
+            </span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="1今日内容大纲">1.今日内容大纲</h2>
+<ul>
+<li>pycharm的安装以及简单使用
+<ul>
+<li>辅助开发软件，代码逐行调试，设置高端，书写代码时会提示、debug模式，最好用的pycharm</li>
+</ul>
+</li>
+<li>格式化输出</li>
+<li>while循环</li>
+<li>运算符</li>
+<li>编码的初识</li>
+</ul>
+<h2 id="2昨日内容回顾">2.昨日内容回顾</h2>
+<ul>
+<li>编译型与解释型
+<ul>
+<li>编译型：一次性编译成二进制，再执行
+<ul>
+<li>优点：执行效率高</li>
+<li>缺点：不能跨平台，开发效率低</li>
+<li>代表语言：C</li>
+</ul>
+</li>
+<li>解释型：逐行解释成二进制，再执行
+<ul>
+<li>优点：可以跨平台，开发效率高</li>
+<li>缺点：执行效率低</li>
+<li>代表语言：python</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>变量
+<ul>
+<li>数字，字母，下划线任意组合</li>
+<li>不能以数字开头</li>
+<li>不能用python的关键字：print if &hellip;</li>
+<li>不能使用中文</li>
+<li>描述性</li>
+<li>区分变量与数据类型的区别</li>
+</ul>
+</li>
+<li>常量
+<ul>
+<li>一直不变的量，与变量几乎一样</li>
+</ul>
+</li>
+<li>注释：解释说明</li>
+<li>基础数据类型
+<ul>
+<li>int  +-*/%**&hellip;  数字整型</li>
+<li>str str + *int  字符串</li>
+<li>bool  True  False  布尔值</li>
+<li>float   浮点数</li>
+</ul>
+</li>
+<li>用户输入input
+<ul>
+<li>name = input(&rsquo;&raquo;&gt;&rsquo;)  print(type(name))</li>
+</ul>
+</li>
+<li>if
+<ul>
+<li>if 条件</li>
+<li>if else</li>
+<li>if elif elif &hellip;</li>
+<li>if elif elif &hellip; else</li>
+<li>if 嵌套</li>
+</ul>
+</li>
+</ul>
+<h3 id="3今日内容">3.今日内容</h3>
+<p>1.while循环</p>
+<ul>
+<li>
+<p>why：大气循环 吃饭 上课 睡觉 日复一日 歌曲列表循环 程序中：输入用户名密码</p>
+</li>
+<li>
+<p>what：while 无限循环</p>
+</li>
+<li>
+<p>how:</p>
+<ol>
+<li>
+<p>基本结构</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> 条件:
+</span></span><span style="display:flex;"><span>    循环体
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>初识循环</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">True</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;狼的诱惑&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;我们不一样&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;月亮之上&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;庐州月&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;人间&#39;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>基本原理</p>
+<p>1.先判断条件是否为True</p>
+<p>2.如果是True进入循环体</p>
+<p>3.执行到循环体的底部</p>
+<p>4.继续判断条件，条件成立，进入循环体</p>
+<p>&hellip;&hellip;</p>
+</li>
+<li>
+<p>循环如何终止？</p>
+<ol>
+<li>
+<p>改变条件</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>flag <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> flag:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;狼的诱惑&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;我们不一样&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;月亮之上&#39;</span>)
+</span></span><span style="display:flex;"><span>    flag <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;庐州月&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;人间&#39;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>break</p>
+</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># break：循环中遇到break直接退出循环</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># while True:</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(&#39;狼的诱惑&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(&#39;我们不一样&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(&#39;月亮之上&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     break</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(&#39;庐州月&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(&#39;人间&#39;)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>
+<p>系统命令(今天不讲)</p>
+</li>
+<li>
+<p>continue</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># continue  退出本次循环 继续下一次循环</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># flag = True</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># while flag:</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># # while True:</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(111)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(222)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     flag = False</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     continue</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     print(333)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># while else: while 循环如果被break打断，则不执行else语句</span>
+</span></span><span style="display:flex;"><span>count <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> count <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">5</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(count)
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> count <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">2</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>    count <span style="color:#000;font-weight:bold">=</span> count <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#099">666</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>where：你需要重复之前的动作，输入用户名密码，考虑到while循环</p>
+</li>
+</ul>
+<p>2.格式化输出</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 制作一个公共的模板</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 让一个字符串的某些位置变成动态可传入的</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 格式化输出</span>
+</span></span><span style="display:flex;"><span>name <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">input</span>(<span style="color:#d14">&#39;请输入你的姓名：&#39;</span>)
+</span></span><span style="display:flex;"><span>age <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">input</span>(<span style="color:#d14">&#39;请输入你的年龄：&#39;</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">input</span>(<span style="color:#d14">&#39;请输入你的工作：&#39;</span>)
+</span></span><span style="display:flex;"><span>hobby <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">input</span>(<span style="color:#d14">&#39;请输入你的爱好：&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># % 占位符 s --&gt; str</span>
+</span></span><span style="display:flex;"><span>msg <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;&#39;&#39;----------- info of </span><span style="color:#d14">%s</span><span style="color:#d14"> ----------
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">Name : </span><span style="color:#d14">%s</span><span style="color:#d14">
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">Age : </span><span style="color:#d14">%s</span><span style="color:#d14">
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">Job : </span><span style="color:#d14">%s</span><span style="color:#d14">
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">Hobbie : </span><span style="color:#d14">%s</span><span style="color:#d14">
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">-------------------- end ----------------&#39;&#39;&#39;</span> <span style="color:#000;font-weight:bold">%</span> (name,name,age,job,hobby)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(msg)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>当你遇到这样的需求：字符串中想让某些位置变成动态可传入的，首先要考虑到格式化输出</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 坑:在格式化输出中，%只想表示一个百分号，而不是作为占位符使用</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># mag = &#39;我叫%s,今年%s,学习进度%1&#39; % (&#39;太白金星&#39;,18)</span>
+</span></span><span style="display:flex;"><span>msg <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;我叫</span><span style="color:#d14">%s</span><span style="color:#d14">,今年</span><span style="color:#d14">%s</span><span style="color:#d14">,学习进度</span><span style="color:#d14">%%</span><span style="color:#d14">1&#39;</span> <span style="color:#000;font-weight:bold">%</span> (<span style="color:#d14">&#39;太白金星&#39;</span>,<span style="color:#099">18</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(msg)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ValueError: incomplete format</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>3.运算符：</p>
+<ul>
+<li>
+<p>算术运算符  + - * /  % **  //</p>
+</li>
+<li>
+<p>比较运算符  &gt; &lt; &gt;= &lt;= !=</p>
+</li>
+<li>
+<p>赋值运算符 = += -= *= /= **=  %= //=</p>
+</li>
+<li>
+<p>逻辑运算符  and 与  or 或  not 非</p>
+<ul>
+<li>在没有()的情况下 优先级：not &gt; and &gt; or</li>
+<li>同一优先级从左至右依次计算</li>
+</ul>
+</li>
+<li>
+<p>成员运算符</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>i1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>i2 <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(i1 <span style="color:#000;font-weight:bold">**</span> i2)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#099">10</span> <span style="color:#000;font-weight:bold">//</span> <span style="color:#099">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#099">10</span> <span style="color:#000;font-weight:bold">%</span> <span style="color:#099">3</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>非0即True, 0为False</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># str ---&gt; int : 只能是纯数字组成的字符串</span>
+</span></span><span style="display:flex;"><span>s1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;00100&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">int</span>(s1))
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># int ---&gt; str</span>
+</span></span><span style="display:flex;"><span>i1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">str</span>(i1),<span style="color:#0086b3">type</span>(<span style="color:#0086b3">str</span>(i1)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># int ---&gt; bool : 非零即True, 0为False</span>
+</span></span><span style="display:flex;"><span>i <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">bool</span>(i))
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># bool ---&gt; int</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">int</span>(<span style="color:#000;font-weight:bold">True</span>)) <span style="color:#998;font-style:italic"># 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">int</span>(<span style="color:#000;font-weight:bold">False</span>)) <span style="color:#998;font-style:italic"># 0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<ol start="4">
+<li>编码的初识</li>
+</ol>
+<p>计算机存储文件，存储数据，以及将一些数据信息通过网络发送出去，存储发送数据什么内容？底层都是01010101</p>
+<p>ASCII码：只包含英文字母，数字，特殊字符  7位  128位</p>
+<p>8bit == 1byte</p>
+<p>gbk：只包含英文字母，数字，特殊字符 和中文 国标</p>
+<p>一个英文字母：1byte</p>
+<p>一个中文：2byte</p>
+<p>Unicode：万国码：把世界上所有的文字都记录到这个密码本</p>
+<p>起初一个字符用2个字节表示</p>
+<p>后来为了涵盖全部文字：4个字节 浪费空间 浪费资源</p>
+<p>Utf-8升级：最少用8bit1个字节表示一个字符</p>
+<p>a 1字节  欧洲 2 字节  中  3个字节</p>
+<p>8bit = 1byte</p>
+<p>1024byte = 1KB</p>
+<p>1024KB = 1MB</p>
+<p>1024MB = 1GB</p>
+<p>1024GB = 1TB</p>
+<p>明日内容：</p>
+<ol>
+<li>二进制与十进制之间的转换</li>
+<li>str bool int 转换</li>
+<li>str具体操作方法：索引切片步长，常用操作方法</li>
+<li>for循环</li>
+</ol>
+<h3 id="day03课程大纲">day03课程大纲</h3>
+<p>一、今日内容大纲</p>
+<ol>
+<li>基础数据类型总览</li>
+<li>int</li>
+<li>bool</li>
+<li>str
+<ul>
+<li>索引、切片</li>
+<li>常用操作方法</li>
+</ul>
+</li>
+<li>for循环</li>
+</ol>
+<p>二、</p>
+<p>`</p>
+<h2 id="类">类</h2>
+<blockquote>
+<h3 id="面向对象编程">面向对象编程</h3>
+</blockquote>
+<ul>
+<li>
+<p>通过类获取一个对象的过程 - 实例化</p>
+</li>
+<li>
+<p>类名()会自动调用类中的__init__方法</p>
+</li>
+<li>
+<p>类和对象之间的关系？</p>
+<ul>
+<li>类  是一个大范围 是一个模子 它约束了事务有哪些属性  但是不能约束具体的值</li>
+<li>对象 是一个具体的内容 是模子的产物 它遵循了类的约束 同时给属性赋上具体的值</li>
+</ul>
+</li>
+<li>
+<p>类有一个空间 存储的是定义在class中的所有名字</p>
+</li>
+<li>
+<p>每一个对象又拥有自己的空间 通过对象名.__dict__就可以查看这个对象的属性和值</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(alex<span style="color:#000;font-weight:bold">.</span>name)  <span style="color:#998;font-style:italic"># print(alex.__dict__[&#39;name&#39;])  属性的查看</span>
+</span></span><span style="display:flex;"><span>alex<span style="color:#000;font-weight:bold">.</span>name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;alexsb&#39;</span>  <span style="color:#998;font-style:italic"># 属性的修改</span>
+</span></span><span style="display:flex;"><span>alex<span style="color:#000;font-weight:bold">.</span>money <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">100</span>  <span style="color:#998;font-style:italic"># 属性的增加</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">del</span> alex<span style="color:#000;font-weight:bold">.</span>money  <span style="color:#998;font-style:italic"># 属性的删除</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>练习类的创建和实例化</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;k&#39;</span>:<span style="color:#d14">&#39;v&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(d,<span style="color:#0086b3">id</span>(d))
+</span></span><span style="display:flex;"><span>d[<span style="color:#d14">&#39;k&#39;</span>] <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;vvvv&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(d,<span style="color:#0086b3">id</span>(d))
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改列表\字典中的某个值，或者是对象的某一个属性 都不会影响这个对象\字典\列表所在的内存空间</p>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 实例化所经历的步骤</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#099">1.</span>类名() 之后的第一个事儿<span style="color:#a61717;background-color:#e3d2d2">：</span>开辟一块儿内存空间
+</span></span><span style="display:flex;"><span>	<span style="color:#099">2.</span>调用__init__把空间的内存地址作为self参数传递到函数内部
+</span></span><span style="display:flex;"><span>	<span style="color:#099">3.</span>所有的这一个对象需要使用的属性都需要和self关联起来
+</span></span><span style="display:flex;"><span>	<span style="color:#099">4.</span>执行完init中的逻辑之后<span style="color:#a61717;background-color:#e3d2d2">，</span>self变量会自动的被返回到调用处(发生实例化的地方)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>dog类 实现狗的属性 名字 品种 血量 攻击力 都是可以被通过实例化被定制的</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Dog</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>,name,blood,aggr,kind):
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>dog_name <span style="color:#000;font-weight:bold">=</span> name
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>hp <span style="color:#000;font-weight:bold">=</span> blood
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>ad <span style="color:#000;font-weight:bold">=</span> aggr
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>kind <span style="color:#000;font-weight:bold">=</span> kind
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>小白 <span style="color:#000;font-weight:bold">=</span> Dog(<span style="color:#d14">&#39;小白&#39;</span>,<span style="color:#099">5000</span>,<span style="color:#099">249</span>,<span style="color:#d14">&#39;柴犬&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(小白<span style="color:#000;font-weight:bold">.</span>dog_name)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(小白<span style="color:#000;font-weight:bold">.</span>__dict__)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>对象/实例 = 类名()    =&gt;  实例化的过程</p>
+</li>
+<li>
+<p>对象的属性/实例变量</p>
+</li>
+<li>
+<p>类中的方法(函数) 有一个必须传的参数    self 对象</p>
+</li>
+<li>
+<p>hasattr  getattr setattr delattr 反射</p>
+<ul>
+<li>实例对象</li>
+<li>类</li>
+<li>本模块 sys.modules[_<em>name</em>_]</li>
+<li>其他模块</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">hasattr</span>(obj,<span style="color:#d14">&#39;name&#39;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">getattr</span>(obj,<span style="color:#d14">&#39;name&#39;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>找到tbjx对象 的c类 实例化一个对象</p>
+<pre tabindex="0"><code class="language-pyhton" data-lang="pyhton">obj = getattr(tbjx,&#39;C&#39;)()
+</code></pre></li>
+<li>
+<p>找到tbjx对象 的c类 通过对c类这个对象使用反射取到area</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">getattr</span>(tbjx<span style="color:#000;font-weight:bold">.</span>C,<span style="color:#d14">&#39;area&#39;</span>))
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>找到tbjx对象 的c类 实例化一个对象 对对象进行反射取值</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>obj <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">getattr</span>(tbjx,<span style="color:#d14">&#39;C&#39;</span>)(<span style="color:#d14">&#39;赵海狗&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(obj<span style="color:#000;font-weight:bold">.</span>name)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">getattr</span>(obj,<span style="color:#d14">&#39;name&#39;</span>))
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>一次执行多个函数</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">func1</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;in func1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func_lst <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">f</span><span style="color:#d14">&#39;func</span><span style="color:#d14">{</span>i<span style="color:#d14">}</span><span style="color:#d14">&#39;</span> <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">range</span>(<span style="color:#099">1</span>,<span style="color:#099">5</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> func <span style="color:#000;font-weight:bold">in</span> func_lst:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">getattr</span>(sys<span style="color:#000;font-weight:bold">.</span>modules[__name__],func)()
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>反射应用</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">User</span>:
+</span></span><span style="display:flex;"><span>    user_list <span style="color:#000;font-weight:bold">=</span> [(<span style="color:#d14">&#39;login&#39;</span>,<span style="color:#d14">&#39;登录&#39;</span>),(<span style="color:#d14">&#39;register&#39;</span>,<span style="color:#d14">&#39;注册&#39;</span>),(<span style="color:#d14">&#39;save&#39;</span>,<span style="color:#d14">&#39;存储&#39;</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">login</span>(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;欢迎来到登录页面&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">register</span>(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;欢迎来到注册页面&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">save</span>(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;欢迎来到存储页面&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># choose_dic = {</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     1: User.login,</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     2: User.register,</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     3: User.save,</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> <span style="color:#099">1</span>:
+</span></span><span style="display:flex;"><span>    choose <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">input</span>(<span style="color:#d14">&#39;请输入序号:</span><span style="color:#d14">\n</span><span style="color:#d14">1:登录</span><span style="color:#d14">\n</span><span style="color:#d14">2:注册</span><span style="color:#d14">\n</span><span style="color:#d14">3:存储</span><span style="color:#d14">\n</span><span style="color:#d14">&#39;</span>)<span style="color:#000;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>    obj <span style="color:#000;font-weight:bold">=</span> User()
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># choose_dic[int(choose)](obj)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">getattr</span>(obj,obj<span style="color:#000;font-weight:bold">.</span>user_list[<span style="color:#0086b3">int</span>(choose)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>][<span style="color:#099">0</span>])()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># getattr(obj,obj.user_list[int(1)-1][0])()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<blockquote>
+<p>###函数与方法的区别</p>
+</blockquote>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">func1</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">A</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">func</span>(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 1.通过打印函数名的方式区别什么是方法，什么是函数 (了解)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># print(func1)  # &lt;function func1 at 0x000001EE93C3F040&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># # 通过类名调用的类中的实例方法叫做函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># print(A.func)  # &lt;function A.func at 0x000001EEAE73D670&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># # 通过对象调用的类中的实例方法叫做方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># obj = A()</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># print(obj.func)  # &lt;bound method A.func of &lt;__main__.A object at 0x000001A98AE13C10&gt;&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 2.可以借助模块判断是方法还是函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">types</span> <span style="color:#000;font-weight:bold">import</span> FunctionType
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">types</span> <span style="color:#000;font-weight:bold">import</span> MethodType
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 总结: 如何判断类中的是方法还是函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 函数都是显性传参 方法都是隐性传参</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>python中一切皆对象，类在某种意义上也是一个对象，python中自己定义的类，以及大部分内置类，都是由type元类(构建类)实例化得来的</li>
+<li>python中一切皆对象，函数在某种意义上也是一个对象，函数这个对象是从FunctionType这个类实例化出来的</li>
+<li>python中一切皆对象，方法在某种意义上也是一个对象，方法 这个对象是从MethodType这个类实例化出来的</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">A</span>:
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    company_name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;老男孩教育&#39;</span>  <span style="color:#998;font-style:italic"># 静态变量（静态字段）</span>
+</span></span><span style="display:flex;"><span>    __iphone <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;135&#39;</span>  <span style="color:#998;font-style:italic"># 私有静态变量（私有静态字段）</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>,name,age):  <span style="color:#998;font-style:italic"># 特殊方法</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>name <span style="color:#000;font-weight:bold">=</span> name  <span style="color:#998;font-style:italic"># 对象属性（普通字段）</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>__age <span style="color:#000;font-weight:bold">=</span> age  <span style="color:#998;font-style:italic"># 私有对象属性（私有普通字段）</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">func1</span>(<span style="color:#999">self</span>):  <span style="color:#998;font-style:italic"># 普通方法</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">__func</span>(<span style="color:#999">self</span>):  <span style="color:#998;font-style:italic"># 私有方法</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#099">666</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@classmethod</span>  <span style="color:#998;font-style:italic"># 类方法</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">class_func</span>(<span style="color:#999">cls</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;定义类方法 至少有一个cls参数&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;类方法&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@staticmethod</span>  <span style="color:#998;font-style:italic"># 静态方法</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">static_func</span>():
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;定义静态方法 无默认参数&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;静态方法&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@property</span>  <span style="color:#998;font-style:italic"># 属性</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">prop</span>(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">pass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<h3 id="特殊的双下方法">特殊的双下方法</h3>
+</blockquote>
+<ul>
+<li>
+<p>特殊的双下方法：原本是开发python这个语言的程序员用的，源码中使用的，我们不能轻易使用。慎用！</p>
+</li>
+<li>
+<p>双下方法：你不知道你干了什么就触发了某个双下方法</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __len__  使用len() 触发</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">B</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>,name,age):
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>name <span style="color:#000;font-weight:bold">=</span> name
+</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>age <span style="color:#000;font-weight:bold">=</span> age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __len__(<span style="color:#999">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>__dict__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>b <span style="color:#000;font-weight:bold">=</span> B(<span style="color:#d14">&#39;liye&#39;</span>,<span style="color:#099">28</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">len</span>(b))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __hash__</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __str__  必须return一个字符串类型   打印时触发print  打印对象触发  直接str转化也可以触发 </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __repr__  str优先级高于repr</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;我叫</span><span style="color:#d14">%s</span><span style="color:#d14">&#39;</span> <span style="color:#000;font-weight:bold">%</span> (<span style="color:#d14">&#39;alex&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;我叫</span><span style="color:#d14">%r</span><span style="color:#d14">&#39;</span> <span style="color:#000;font-weight:bold">%</span> (<span style="color:#d14">&#39;alex&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;我叫</span><span style="color:#d14">{}</span><span style="color:#d14">&#39;</span><span style="color:#000;font-weight:bold">.</span>format(<span style="color:#d14">&#39;alex&#39;</span>))
+</span></span><span style="display:flex;"><span>a <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;alex&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">f</span><span style="color:#d14">&#39;我叫</span><span style="color:#d14">{</span>a<span style="color:#d14">}</span><span style="color:#d14">&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#0086b3">repr</span>(<span style="color:#d14">&#39;ting&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __call__  对象后面加括号，触发执行  这个对象从属于类(父类)的__call__方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __eq__ </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __del__ 析构方法 当对象在内存中被释放时 自动触发执行</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __new__  new一个对象  对象是object类的__new__方法 产生了一个对象  构造方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 类名加括号先要触发object的__new__方法，object的__new__产生一个对象空间并返回给类名加括号，再触发__init__给对象封装属性 </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 类名() </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 1. 先触发 object的__new__方法，此方法在内存中开辟一个对象空间</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 2. 执行__init__方法，给对象封装属性</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># __init__ 不允许有return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 单例模式  python中的设计模式  方便对实例个数的控制</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 一个类只允许实例化一个对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">A</span>:
+</span></span><span style="display:flex;"><span>    __instance <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __new__(<span style="color:#999">cls</span>, <span style="color:#000;font-weight:bold">*</span>args, <span style="color:#000;font-weight:bold">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#999">cls</span><span style="color:#000;font-weight:bold">.</span>__instance:
+</span></span><span style="display:flex;"><span>            <span style="color:#999">cls</span><span style="color:#000;font-weight:bold">.</span>__instance <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">object</span><span style="color:#000;font-weight:bold">.</span>__new__(<span style="color:#999">cls</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic"># return cls.__instance</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># else:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">#     return cls.__instance</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#999">cls</span><span style="color:#000;font-weight:bold">.</span>__instance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>obj <span style="color:#000;font-weight:bold">=</span> A()
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(obj)
+</span></span><span style="display:flex;"><span>obj1 <span style="color:#000;font-weight:bold">=</span> A()
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(obj1)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/python_study/">https://qiaopengjun5162.github.io/post/python_study/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/python%E5%9F%BA%E7%A1%80/">Python基础</a></li>
+        
+        <li><a href="/post/hugoblog/">Hugo博客之路快速开始</a></li>
+        
+        <li><a href="/post/github/">GitHub 配置SSH密钥</a></li>
+        
+        <li><a href="/post/blog/">Blog</a></li>
+        
+        <li><a href="/archives/">归档</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            No tags
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "qiaopengjun5162"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://qiaopengjun5162.github.io/">小乔的博客 By 小乔</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://qiaopengjun5162.github.io/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://qiaopengjun5162.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySQL学习笔记" target="_blank">MySQL学习笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Python之Django学习笔记" target="_blank">Python之Django学习笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python_study/" title="Python笔记" target="_blank">Python笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python%E5%9F%BA%E7%A1%80/" title="Python基础" target="_blank">Python基础</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/hugoblog/" title="Hugo博客之路快速开始" target="_blank">Hugo博客之路快速开始</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/github/" title="GitHub 配置SSH密钥" target="_blank">GitHub 配置SSH密钥</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/blog/" title="Blog" target="_blank">Blog</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://www.yuan316.com/" title="Yuan的博客">Yuan的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="https://qiaopengjun5162.github.io/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -6,7 +6,43 @@
     <description>Recent content on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 Feb 2023 16:18:31 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Feb 2023 18:55:27 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL学习笔记</title>
+      <link>https://qiaopengjun5162.github.io/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 12 Feb 2023 18:55:27 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>数据库 一、数据库介绍 1.数据库相关概念 程序是由数据加功能组成的，其中数据是重中之重。 文件管理数据弊端： 远程 套接字 数据库管理软件：本质就是个c</description>
+    </item>
+    
+    <item>
+      <title>Python之Django学习笔记</title>
+      <link>https://qiaopengjun5162.github.io/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 12 Feb 2023 18:44:29 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>Django 软件开发架构 1.C/S 2.B/S B/S本质也是一种C/S架构 HTTP协议 &amp;ldquo;&amp;ldquo;&amp;ldquo;规定了浏览器与服务器之间数据交互的格式&amp;</description>
+    </item>
+    
+    <item>
+      <title>Python笔记</title>
+      <link>https://qiaopengjun5162.github.io/post/python_study/</link>
+      <pubDate>Sun, 12 Feb 2023 18:40:06 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/python_study/</guid>
+      <description>1.今日内容大纲 pycharm的安装以及简单使用 辅助开发软件，代码逐行调试，设置高端，书写代码时会提示、debug模式，最好用的pychar</description>
+    </item>
+    
+    <item>
+      <title>Python基础</title>
+      <link>https://qiaopengjun5162.github.io/post/python%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 12 Feb 2023 18:30:53 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/python%E5%9F%BA%E7%A1%80/</guid>
+      <description>Python基础 一、 计算机介绍 1.1、 计算机发展 ​ 电子管-晶体管-集成电路-大规模集成电路计算机时代 ​ 世界上第一台通用计算机ENIAC于19</description>
+    </item>
+    
     <item>
       <title>Hugo博客之路快速开始</title>
       <link>https://qiaopengjun5162.github.io/post/hugoblog/</link>
