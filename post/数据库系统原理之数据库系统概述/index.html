@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>Hugo博客之路快速开始 | 小乔的博客</title>
-    <meta property="og:title" content="Hugo博客之路快速开始 - 小乔的博客">
+    <title>数据库系统原理之数据库系统概述 | 小乔的博客</title>
+    <meta property="og:title" content="数据库系统原理之数据库系统概述 - 小乔的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:published_time" content='2023-02-12T19:13:45&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:modified_time" content='2023-02-12T19:13:45&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="Hugo博客之路快速开始">
+    <meta name="description" content="数据库系统原理之数据库系统概述">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/hugoblog/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -79,11 +79,11 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">Hugo博客之路快速开始</h1>
+            <h1 class="post-title">数据库系统原理之数据库系统概述</h1>
         </header>
         
-  <time datetime="2023-02-11T08:18:31Z" class="post-meta meta-date dt-published">
-    2023-02-11
+  <time datetime="2023-02-12T11:13:45Z" class="post-meta meta-date dt-published">
+    2023-02-12
   </time>
 
 
@@ -97,99 +97,149 @@
         
         
         <div class="post-content">
-            <h1 id="hugo-博客">Hugo 博客</h1>
-<p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
-<p>Hugo中文文档：<a href="https://www.gohugo.org/">https://www.gohugo.org/</a></p>
-<p>Hugo官网: <a href="https://gohugo.io/">https://gohugo.io/</a></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>创建项目
-</span></span><span style="display:flex;"><span>hugo new site myblog
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">cd</span> myblog
-</span></span><span style="display:flex;"><span>安装主题
-</span></span><span style="display:flex;"><span>git clone https://github.com/flysnow-org/maupassant-hugo themes/maupassant
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo new post/blog.md
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo --theme<span style="color:#000;font-weight:bold">=</span>maupassant --baseUrl<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://qiaopengjun5162.github.io/&#34;</span> --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">cd</span> public
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;# qiaopengjun5162.github.io&#34;</span> &gt;&gt; README.md
-</span></span><span style="display:flex;"><span>git init
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#d14">&#34;first commit&#34;</span>
-</span></span><span style="display:flex;"><span>git branch -M main
-</span></span><span style="display:flex;"><span>git remote add origin https://github.com/qiaopengjun5162/qiaopengjun5162.github.io.git
-</span></span><span style="display:flex;"><span>git push -u origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建博客
-创建第一篇博客</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/first_blog.md
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在本地启动网站</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动server时应用主题</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server --theme<span style="color:#000;font-weight:bold">=</span>LoveIt --watch
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>参数说明：</p>
-<pre tabindex="0"><code>* --theme 用于选择主题，如果在配置文件中选择了主题，这里就不需要使用了
-* --buildDrafts 用于是否显示草稿文章
-* --watch 用于实时监控变化，方便调试
-</code></pre><p>访问：http://localhost:1313/</p>
+            <h1 id="数据库系统概述">数据库系统概述</h1>
+<h2 id="一数据库基本概念">一、数据库基本概念</h2>
+<h3 id="1-数据">1 数据</h3>
+<p>数据（Data）是描述事物的符号记录，是指用物理符号记录下来的、可以鉴别的信息。</p>
+<p>数据以及关于该数据的解释是密切相关的。</p>
+<p>数据的解释是对数据含义的说明，也称为数据的语义，即数据所蕴含的信息。</p>
+<p>数据与其语义密不可分，没有语义的数据是没有意义和不完整的。</p>
+<p>数据是信息存在的一种形式，只有通过解释或处理的数据才能成为有用的信息。</p>
+<h3 id="2-数据库">2 数据库</h3>
+<p>数据库（Database，DB）通俗地被称为存储数据的仓库，只是这个仓库是存储在计算机存储设备上的，并且其所存储的数据是按一定的格式进行存储的。</p>
+<p>若从严格意义上讲，所谓数据库是指长期储存在计算机中的有组织的、可共享的数据集合，且数据库中的数据按一定的数据模型组织、描述和存储，具有较小的冗余度、较高的数据独立性，系统易于扩展，并可以被多个用户共享。</p>
+<p>数据库中存储的数据具有永久存储、有组织和可共享三个基本特点。</p>
+<h3 id="3-数据库管理系统">3 数据库管理系统</h3>
+<p>数据库管理系统（Database Management System，DBMS）是专门用于建立和管理数据库的一套软件，介于应用程序和操作系统之间。它负责科学有效地组织和存储数据，并帮助数据库的使用者能够从大量的数据中快速地获取所需数据，以及提供必要的安全性和完整性等统一控制机制，实现对数据有效的管理和维护。</p>
+<p>数据库管理系统主要功能：</p>
 <ul>
-<li>在项目根目录下使用 hugo 命令，会生成 public 目录</li>
-<li>该目录下是有关 markdown 编译完成的 html 静态页面</li>
+<li>数据定义功能：数据定义语言（Data Definition Language，DDL）</li>
+<li>数据操纵功能：数据操纵语言（Data Manipulation Language，DML）</li>
+<li>数据库的远行管理功能</li>
+<li>数据库的建立和维护功能</li>
+<li>数据组织、存储和管理功能</li>
+<li>其他功能</li>
 </ul>
+<h3 id="4-数据库系统">4 数据库系统</h3>
+<p>数据库系统（Database System，DBS）是指在计算机中引入数据库技术之后的系统。</p>
+<p>一个完整的数据库系统包括数据库、数据库管理系统及相关实用工具、应用程序、数据库管理员和用户。</p>
+<p>数据库管理员（Database Administrator，DBA）不同于普通数据库用户，他们是专门负责对数据库进行维护，并保证数据库正常、高效运行的人员。</p>
+<p>用户是数据库系统的服务对象，通常包括程序员和数据库终端用户两类用户。</p>
+<p>程序员通过高级程序设计语言（如SQL）编写数据库应用程序，应用程序会根据需要向数据库管理系统发出适当的请求，再由数据库管理系统对数据库执行相应的操作。</p>
+<p>终端用户是从客户机或联机终端上以交互方式向数据库系统提出各种操作请求，并由数据库管理系统响应执行，而后访问数据库中的数据。</p>
+<p>一般在不引起混淆的情况下，常常将数据库系统简称为数据库。</p>
+<h2 id="二数据管理技术的发展">二、数据管理技术的发展</h2>
+<p>数据管理</p>
+<ol>
+<li>针对组织业务的需要，负责制定并执行整个组织中关于数据的定义、组织、保护与有效使用的策略、过程和计划</li>
+<li>依靠技术，负责实现数据作为一种资源的集中控制管理</li>
+</ol>
+<p>数据组织</p>
+<ol>
+<li>逻辑组织：数据的逻辑组织是用户或应用程序所使用的数据结构形式</li>
+<li>物理组织：数据在物理存储设备上的结构形式</li>
+</ol>
+<p>检索：为了向用户提供信息，存储的数据要能够方便地被选择提取</p>
+<p>数据管理的任务：进行数据的收集、组织、控制、存储、选取、维护，实现在适当的时刻、以适当的形式、给适当的人、提供适当的数据，是数据处理的中心问题</p>
+<p>数据处理：对各种数据进行收集、存储、加工和传播的一系列活动的总和</p>
+<p>数据管理技术的三个阶段：</p>
+<ul>
+<li>人工管理阶段： 20世纪50年代中期以前 批处理
+<ul>
+<li>数据不保存</li>
+<li>应用程序管理数据</li>
+<li>数据面向应用：不能共享、存在大量冗余、数据的独立性差</li>
+</ul>
+</li>
+<li>文件系统阶段：20世纪50年代后期到60年代中期  文件系统 记录内有结构 整体无
+<ul>
+<li>数据的物理独立性</li>
+<li>数据可长期保存和专门管理</li>
+<li>数据共享成为可能 文件级共享</li>
+<li>存在大量的数据冗余</li>
+</ul>
+</li>
+<li>数据库系统阶段 20世纪60年代后期以来 数据库管理系统
+<ul>
+<li>数据集成  最大程度共享 冗余最小</li>
+<li>数据共享性高 用户视图 并发共享</li>
+<li>数据冗余小 冗余是受控的</li>
+<li>数据一致性</li>
+<li>数据独立性高</li>
+<li>实施统一管理与控制
+<ul>
+<li>数据的安全性（Security）</li>
+<li>数据的完整性（Intergrity）</li>
+<li>并发控制（Concurrency）</li>
+<li>故障恢复（Recovery）</li>
+</ul>
+</li>
+<li>减少应用程序开发与维护的工作量</li>
+</ul>
+</li>
+</ul>
+<p>数据独立：数据定义与使用数据的应用程序分离（逻辑独立、物理独立）</p>
+<h2 id="三数据库系统的结构">三、数据库系统的结构</h2>
+<p>数据系统（数据库管理员（DBA视角））：</p>
+<ul>
+<li>内部系统结构
+<ul>
+<li>三级模式结构</li>
+</ul>
+</li>
+<li>外部系统结构
+<ul>
+<li>集中式结构</li>
+<li>分布式结构</li>
+<li>并行结构</li>
+</ul>
+</li>
+</ul>
+<p>数据系统（数据库应用的用户（如应用程序的编写人员视角））：</p>
+<ul>
+<li>客户/服务器结构</li>
+<li>浏览器/服务器结构</li>
+</ul>
+<h3 id="数据库系统的三级模式结构">数据库系统的三级模式结构</h3>
+<ul>
+<li>模式（Schema）</li>
+<li>外模式（External Schema）</li>
+<li>内模式（Internal Schema）</li>
+</ul>
+<h4 id="1-模式">1 模式</h4>
+<p>模式：也称为概念模式或逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</p>
+<p>DBMS提供模式描述语言（Schema DDL）来严格地定义模式，不仅要定义数据的逻辑结构，还要定义数据之间的联系，定义与数据相关的安全性、完整性等要求。</p>
+<h4 id="2-外模式">2 外模式</h4>
+<p>外模式：也称为子模式（Subschema）或用户模式，是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是与某一应用有关的数据的逻辑表示。</p>
+<p>外模式实际上是用于满足不同数据库用户需求的数据视图，即用户视图，其通常是模式的子集，是对数据库整体数据结构的局部重构。</p>
+<p>DBMS提供来子模式描述语言（Subschema DDL）来严格地定义子模式。</p>
+<h4 id="3-内模式">3 内模式</h4>
+<p>内模式：也称为存储模式（Storage Schema），是对数据库中数据物理结构和存储方式的描述，是数据在数据库内部的表示形式。</p>
+<p>内部视图 存储视图</p>
+<p>DBMS提供内模式描述语言（内模式DDL，或者存储模式DDL）来严格地定义内模式，即定义所有内部记录类型、索引和文件的组织方式，以及所有数据控制方面的细节。</p>
+<h4 id="4-三级模式结构的两层映像与数据独立性">4 三级模式结构的两层映像与数据独立性</h4>
+<ol>
+<li>一个数据库的整体逻辑结构和特征的描述（概念模式）是独立于数据库其他层次结构（内/外模式）的描述，其是数据库的核心，也是数据库设计的关键。</li>
+<li>一个数据库的内部存储模式依赖于概念模式，但存储模式独立于外部模式，也独立于具体的存储设备。</li>
+<li>用户逻辑结构（外模式）是在全局逻辑结构描述的基础上定义的，它是面向具体的应用程序，独立于内部模式和存储设备。</li>
+<li>特定的应用程序是在外模式的逻辑结构上编写的，它依赖于特定的外模式，与数据库的模式和存储结构独立。</li>
+</ol>
+<h5 id="1外模式模式映像">（1）外模式/模式映像</h5>
+<p>映像：一种对应规则，指出映像双方是如何进行转换的。</p>
+<p>数据与程序的逻辑独立性</p>
+<h5 id="2模式内模式映像">（2）模式/内模式映像</h5>
+<p>唯一的</p>
+<p>数据与程序的物理独立性</p>
+<h3 id="数据库系统的运行与应用结构">数据库系统的运行与应用结构</h3>
+<h4 id="1-客户服务器结构">1 客户/服务器结构</h4>
+<p>客户/服务器（Client/Server，C/S）模式</p>
+<p>单机方式 网络方式</p>
+<h4 id="2-浏览器服务器结构">2 浏览器/服务器结构</h4>
+<p>三层客户/服务器结构</p>
+<p>表示层</p>
+<p>处理层 中间层</p>
+<p>浏览器/服务器（Browser/Server，B/S）模式</p>
+<h2 id="四-数据模型">四 数据模型</h2>
 
         </div>
 
@@ -197,7 +247,7 @@
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/hugoblog/">https://qiaopengjun5162.github.io/post/hugoblog/</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/</a></li>
         <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
     </ul>
 </div>
@@ -211,13 +261,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/github/">GitHub 配置SSH密钥</a></li>
+        <li><a href="/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">MySQL学习笔记</a></li>
         
-        <li><a href="/post/blog/">Blog</a></li>
+        <li><a href="/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python之Django学习笔记</a></li>
         
-        <li><a href="/archives/">归档</a></li>
+        <li><a href="/post/python_study/">Python笔记</a></li>
         
-        <li><a href="/search/">搜索</a></li>
+        <li><a href="/post/python%E5%9F%BA%E7%A1%80/">Python基础</a></li>
+        
+        <li><a href="/post/hugoblog/">Hugo博客之路快速开始</a></li>
         
     </ul>
 </div>
