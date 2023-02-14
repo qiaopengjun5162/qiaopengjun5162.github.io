@@ -6,7 +6,16 @@
     <description>Recent content in Tags on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 12 Feb 2023 19:13:45 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Feb 2023 21:16:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust</title>
+      <link>https://qiaopengjun5162.github.io/tags/Rust/</link>
+      <pubDate>Tue, 14 Feb 2023 21:16:03 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/tags/Rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>MySQL</title>
       <link>https://qiaopengjun5162.github.io/tags/MySQL/</link>

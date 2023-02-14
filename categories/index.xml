@@ -6,7 +6,16 @@
     <description>Recent content in Categories on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 12 Feb 2023 19:13:45 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Feb 2023 21:16:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust</title>
+      <link>https://qiaopengjun5162.github.io/categories/Rust/</link>
+      <pubDate>Tue, 14 Feb 2023 21:16:03 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/categories/Rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>数据库</title>
       <link>https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>

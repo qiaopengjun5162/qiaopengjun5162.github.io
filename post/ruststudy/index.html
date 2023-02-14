@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>Ruststudy | 小乔的博客</title>
-    <meta property="og:title" content="Ruststudy - 小乔的博客">
+    <title>Rust学习之路 | 小乔的博客</title>
+    <meta property="og:title" content="Rust学习之路 - 小乔的博客">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2023-02-14T21:16:03&#43;08:00'>
@@ -19,7 +19,7 @@
     <meta property="article:modified_time" content='2023-02-14T21:16:03&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="Ruststudy">
+    <meta name="description" content="Rust学习之路">
         
     <meta name="author" content="小乔">
     <meta property="og:url" content="https://qiaopengjun5162.github.io/post/ruststudy/">
@@ -79,13 +79,20 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">Ruststudy</h1>
+            <h1 class="post-title">Rust学习之路</h1>
         </header>
         
   <time datetime="2023-02-14T13:16:03Z" class="post-meta meta-date dt-published">
     2023-02-14
   </time>
 
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/Rust' target="_blank">Rust</a>
+  
+</div>
 
 
         
@@ -211,7 +218,46 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><ul>
+<li>定义函数：<code>fn main(){}</code>
+<ul>
+<li>没有参数，没有返回</li>
+</ul>
+</li>
+<li><code>main</code>函数很特别：它是每个Rust可执行程序最先运行的代码</li>
+<li>打印文本：<code>printIn!(&quot;Hello, world!&quot;);</code>
+<ul>
+<li>Rust的缩进是4个空格而不是tab</li>
+<li>printIn!是一个Rust macro（宏）
+<ul>
+<li>如果是函数的话，就没有!</li>
+</ul>
+</li>
+<li>&ldquo;Hello World&rdquo; 是字符串，它是printIn!的参数</li>
+<li>这行代码以;结尾</li>
+</ul>
+</li>
+</ul>
+<h2 id="编译和运行是单独的两步">编译和运行是单独的两步</h2>
+<ul>
+<li>运行Rust程序之前必须先编译，命令为：<code>rustc</code>源文件名
+<ul>
+<li><code>rustc main.rs</code></li>
+</ul>
+</li>
+<li>编译成功后，会生成一个二进制文件
+<ul>
+<li>在Windows上还会生产一个<code>.pdb</code>文件，里面包含调试信息</li>
+</ul>
+</li>
+<li>Rust是ahead-of-time编译的语言（预先编译）
+<ul>
+<li>可以先编译程序，然后把可执行文件交给别人运行（无需安装Rust）</li>
+</ul>
+</li>
+<li>Rustc 只适合简单的Rust程序&hellip;</li>
+</ul>
+
         </div>
 
         
@@ -232,7 +278,7 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">数据库系统原理之数据库系统概述</a></li>
+        <li><a href="/post/databse_mysql_1/">数据库系统原理之数据库系统概述</a></li>
         
         <li><a href="/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">MySQL学习笔记</a></li>
         
@@ -248,7 +294,11 @@
 
         <div class="post-meta meta-tags">
             
-            No tags
+            <ul class="clearfix">
+                
+                <li><a href='/tags/Rust' target="_blank">Rust</a></li>
+                
+            </ul>
             
         </div>
     </article>
@@ -425,11 +475,11 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://qiaopengjun5162.github.io/post/ruststudy/" title="Ruststudy" target="_blank">Ruststudy</a>
+        <a href="https://qiaopengjun5162.github.io/post/ruststudy/" title="Rust学习之路" target="_blank">Rust学习之路</a>
     </li>
     
     <li>
-        <a href="https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" title="数据库系统原理之数据库系统概述" target="_blank">数据库系统原理之数据库系统概述</a>
+        <a href="https://qiaopengjun5162.github.io/post/databse_mysql_1/" title="数据库系统原理之数据库系统概述" target="_blank">数据库系统原理之数据库系统概述</a>
     </li>
     
     <li>
@@ -469,6 +519,8 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
+    <li><a href="https://qiaopengjun5162.github.io/categories/Rust/">Rust (1)</a></li>
+    
     <li><a href="https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库 (1)</a></li>
     
 </ul>
@@ -479,6 +531,8 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <div class="tagcloud">
     
     <a href="https://qiaopengjun5162.github.io/tags/MySQL/">MySQL</a>
+    
+    <a href="https://qiaopengjun5162.github.io/tags/Rust/">Rust</a>
     
     <a href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
     
