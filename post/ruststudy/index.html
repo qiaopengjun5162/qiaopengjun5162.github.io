@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>GitHub 配置SSH密钥 | 小乔的博客</title>
-    <meta property="og:title" content="GitHub 配置SSH密钥 - 小乔的博客">
+    <title>Ruststudy | 小乔的博客</title>
+    <meta property="og:title" content="Ruststudy - 小乔的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2023-02-11T15:46:08&#43;08:00'>
+    <meta property="article:published_time" content='2023-02-14T21:16:03&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2023-02-11T15:46:08&#43;08:00'>
+    <meta property="article:modified_time" content='2023-02-14T21:16:03&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="GitHub 配置SSH密钥">
+    <meta name="description" content="Ruststudy">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/github/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/ruststudy/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -79,11 +79,11 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">GitHub 配置SSH密钥</h1>
+            <h1 class="post-title">Ruststudy</h1>
         </header>
         
-  <time datetime="2023-02-11T07:46:08Z" class="post-meta meta-date dt-published">
-    2023-02-11
+  <time datetime="2023-02-14T13:16:03Z" class="post-meta meta-date dt-published">
+    2023-02-14
   </time>
 
 
@@ -97,50 +97,128 @@
         
         
         <div class="post-content">
-            <h1 id="github-配置ssh密钥">GitHub 配置SSH密钥</h1>
-<h2 id="查看已存在的-ssh-密钥">查看已存在的 SSH 密钥</h2>
+            <h1 id="rust">Rust</h1>
+<h2 id="rust-安装">Rust 安装</h2>
+<p>官网：<a href="https://www.rust-lang.org/zh-CN/learn/get-started">https://www.rust-lang.org/zh-CN/learn/get-started</a></p>
+<p>Mac 安装：</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat ~/.ssh/id_rsa.pub
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --proto <span style="color:#d14">&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="生成ssh密钥">生成SSH密钥</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#d14">&#34;GitHub/gitee邮箱地址&#34;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ cargo --version
+</span></span><span style="display:flex;"><span>cargo 1.67.1 <span style="color:#000;font-weight:bold">(</span>8ecd4f20a 2023-01-10<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>➜ rustc --version
+</span></span><span style="display:flex;"><span>rustc 1.67.1 <span style="color:#000;font-weight:bold">(</span>d5a82bbd2 2023-02-07<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>➜ rustup doc
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>
-        <img class="mx-auto" alt="" src="assets/ssh_keygen_add.png" />   
-    </p>
-<p>密钥默认生成路径：<code>/home/user/.ssh/id_rsa</code>，公钥与之对应为：<code>/home/user/.ssh/id_rsa.pub</code>。</p>
-<h2 id="查看公钥并把公钥复制到github中">查看公钥并把公钥复制到GitHub中</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ mkdir rust
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>➜ <span style="color:#0086b3">cd</span> rust
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ mkdir hello_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ <span style="color:#0086b3">cd</span> hello_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust/hello_world
+</span></span><span style="display:flex;"><span>➜ code .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust/hello_world
+</span></span><span style="display:flex;"><span>➜ <span style="color:#0086b3">pwd</span>
+</span></span><span style="display:flex;"><span>/Users/qiaopengjun/rust/hello_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust/hello_world via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ mv hello_world.rs main.rs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust/hello_world via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ rustc main.rs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust/hello_world via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ ls
+</span></span><span style="display:flex;"><span>main    main.rs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>➜ ./main
+</span></span><span style="display:flex;"><span>Hello World!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /Users/qiaopengjun/.ssh/id_rsa.pub
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>println!(<span style="color:#d14">&#34;Hello World!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>![截屏2023-02-11 13.16.25](assets/截屏2023-02-11 13.16.25.png)</p>
-<p>![截屏2023-02-11 13.16.25](assets/截屏2023-02-11 13.16.25.png)</p>
-<p>GitHub中settings页面</p>
-<p>![截屏2023-02-11 14.04.48](assets/截屏2023-02-11 14.04.48.png)</p>
-
+</div>
         </div>
 
         
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/github/">https://qiaopengjun5162.github.io/post/github/</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/ruststudy/">https://qiaopengjun5162.github.io/post/ruststudy/</a></li>
         <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
     </ul>
 </div>
@@ -154,11 +232,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/blog/">Blog</a></li>
+        <li><a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">数据库系统原理之数据库系统概述</a></li>
         
-        <li><a href="/archives/">归档</a></li>
+        <li><a href="/post/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">MySQL学习笔记</a></li>
         
-        <li><a href="/search/">搜索</a></li>
+        <li><a href="/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python之Django学习笔记</a></li>
+        
+        <li><a href="/post/python_study/">Python笔记</a></li>
+        
+        <li><a href="/post/python%E5%9F%BA%E7%A1%80/">Python基础</a></li>
         
     </ul>
 </div>

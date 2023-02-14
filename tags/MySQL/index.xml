@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on 小乔的博客</title>
+    <link>https://qiaopengjun5162.github.io/tags/MySQL/</link>
+    <description>Recent content in MySQL on 小乔的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 12 Feb 2023 19:13:45 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/MySQL/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据库系统原理之数据库系统概述</title>
+      <link>https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Sun, 12 Feb 2023 19:13:45 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/</guid>
+      <description>数据库系统概述 一、数据库基本概念 1 数据 数据（Data）是描述事物的符号记录，是指用物理符号记录下来的、可以鉴别的信息。 数据以及关于该数据的解</description>
+    </item>
+    
+  </channel>
+</rss>
