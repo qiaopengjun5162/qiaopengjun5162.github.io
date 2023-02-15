@@ -257,6 +257,203 @@
 </li>
 <li>Rustc 只适合简单的Rust程序&hellip;</li>
 </ul>
+<h3 id="cargo">Cargo</h3>
+<ul>
+<li>Cargo 是Rust的构建系统和包管理工具
+<ul>
+<li>构建代码、下载依赖的库、构建这些苦&hellip;</li>
+</ul>
+</li>
+<li>安装Rust的时候会安装Cargo
+<ul>
+<li>Cargo &ndash;version</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">~/</span>rust<span style="color:#000;font-weight:bold">/</span>hello_world<span style="color:#bbb"> </span>via<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">🦀</span><span style="color:#bbb"> </span><span style="color:#099">1.67.1</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a61717;background-color:#e3d2d2">➜</span><span style="color:#bbb"> </span>cargo<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">--</span>version<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>cargo<span style="color:#bbb"> </span><span style="color:#099">1.67.1</span><span style="color:#bbb"> </span>(<span style="color:#099">8</span>ecd4f20a<span style="color:#bbb"> </span><span style="color:#099">2023</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">01</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">10</span>)<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="使用cargo创建项目">使用Cargo创建项目</h3>
+<ul>
+<li>创建项目：<code>cargo new hello_cargo</code>
+<ul>
+<li>项目名称也是<code>hello_cargo</code></li>
+<li>会创建一个新的目录<code>hello_cargo</code>
+<ul>
+<li>Cargo.toml</li>
+<li>src目录
+<ul>
+<li><code>main.rs</code></li>
+</ul>
+</li>
+<li>初始化了一个新的Git仓库 <code>.gitignore</code>
+<ul>
+<li>可以使用其它的VCS或不使用VCS：cargo new 的时候使用 &ndash;vcs 这个flag</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ cargo new hello_cargo
+</span></span><span style="display:flex;"><span>     Created binary <span style="color:#000;font-weight:bold">(</span>application<span style="color:#000;font-weight:bold">)</span> <span style="color:#d14">`</span>hello_cargo<span style="color:#d14">`</span> package
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>➜ ls
+</span></span><span style="display:flex;"><span>hello_cargo hello_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ <span style="color:#0086b3">cd</span> hello_cargo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello_cargo on  master <span style="color:#000;font-weight:bold">[</span>?<span style="color:#000;font-weight:bold">]</span> via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ ls
+</span></span><span style="display:flex;"><span>Cargo.toml src
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello_cargo on  master <span style="color:#000;font-weight:bold">[</span>?<span style="color:#000;font-weight:bold">]</span> via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ ➜ ls
+</span></span><span style="display:flex;"><span>Cargo.toml src
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="cargotoml"><code>Cargo.toml</code></h4>
+<ul>
+<li>TOML（Tom&rsquo;s Obvious, Minimal Language）格式，是Cargo的配置格式</li>
+<li>[package]，是一个区域标题，表示下方内容是用来配置包（package）的
+<ul>
+<li>name 项目名</li>
+<li>version 项目版本</li>
+<li>authors 项目作者</li>
+<li>edition 使用的Rust版本</li>
+</ul>
+</li>
+<li>[dependencies] 另一个区域的开始，它会列出项目的依赖项</li>
+<li>在Rust里面，代码的包称作crate</li>
+</ul>
+<p>![截屏2023-02-15 23.38.33](/Users/qiaopengjun/Desktop/截屏2023-02-15 23.38.33.png)</p>
+<h4 id="srcmainrs"><code>src/main.rs</code></h4>
+<ul>
+<li>cargo 生成的main.rs在src目录下</li>
+<li>而Cargo.toml在项目顶层下</li>
+<li>源代码都应该在src目录下</li>
+<li>顶层目录可以放置：README、许可信息、配置文件和其它与程序源码无关的文件</li>
+<li>如果创建项目时没有使用cargo，也可以把项目转化为使用cargo：
+<ul>
+<li>把源代码文件移动到src下</li>
+<li>创建Cargo.toml并填写相应的配置</li>
+</ul>
+</li>
+</ul>
+<h3 id="构建cargo项目-cargo-build">构建Cargo项目 cargo build</h3>
+<ul>
+<li>cargo build
+<ul>
+<li>创建可执行文件：target/debug/hello_cargo或target\debug\hello_cargo.exe(Windows)</li>
+<li>运行可执行文件：<code>./target/debug/hello_cargo</code>或<code>.\target\debug\hello_cargo.exe(Windows)</code></li>
+</ul>
+</li>
+<li>第一次运行<code>cargo build</code>会在顶层目录生成cargo.lock文件
+<ul>
+<li>该文件负责追踪项目依赖的精确版本</li>
+<li>不需要手动修改该文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="构建和运行cargo项目-cargo-run">构建和运行cargo项目 <code>cargo run</code></h3>
+<ul>
+<li>cargo run 编译代码 + 执行结果
+<ul>
+<li>如果之前编译成功过，并且源码没有改变，那么就会直接运行二进制文件</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>hello_cargo<span style="color:#bbb"> </span>on<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#bbb"> </span>master<span style="color:#bbb"> </span>[<span style="color:#000;font-weight:bold">?</span>]<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">📦</span><span style="color:#bbb"> </span><span style="color:#099">0.1.0</span><span style="color:#bbb"> </span>via<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">🦀</span><span style="color:#bbb"> </span><span style="color:#099">1.67.1</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a61717;background-color:#e3d2d2">➜</span><span style="color:#bbb"> </span>cargo<span style="color:#bbb"> </span>run<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span>Compiling<span style="color:#bbb"> </span>hello_cargo<span style="color:#bbb"> </span>v0.<span style="color:#099">1.0</span><span style="color:#bbb"> </span>(<span style="color:#000;font-weight:bold">/</span>Users<span style="color:#000;font-weight:bold">/</span>qiaopengjun<span style="color:#000;font-weight:bold">/</span>rust<span style="color:#000;font-weight:bold">/</span>hello_cargo)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Finished<span style="color:#bbb"> </span>dev<span style="color:#bbb"> </span>[unoptimized<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">+</span><span style="color:#bbb"> </span>debuginfo]<span style="color:#bbb"> </span>target(s)<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">in</span><span style="color:#bbb"> </span><span style="color:#099">0.38</span>s<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>Running<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">`</span>target<span style="color:#000;font-weight:bold">/</span>debug<span style="color:#000;font-weight:bold">/</span>hello_cargo<span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Hello,<span style="color:#bbb"> </span>world<span style="color:#000;font-weight:bold">!</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>hello_cargo<span style="color:#bbb"> </span>on<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#bbb"> </span>master<span style="color:#bbb"> </span>[<span style="color:#000;font-weight:bold">?</span>]<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">📦</span><span style="color:#bbb"> </span><span style="color:#099">0.1.0</span><span style="color:#bbb"> </span>via<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">🦀</span><span style="color:#bbb"> </span><span style="color:#099">1.67.1</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a61717;background-color:#e3d2d2">➜</span><span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>![截屏2023-02-16 00.07.42](assets/截屏2023-02-16 00.07.42.png)</p>
+<h4 id="cargo-check"><code>cargo check</code></h4>
+<ul>
+<li>cargo check 检查代码，确保能通过编译，但是不产生任何可执行文件</li>
+<li>cargo chekc 要比 cargo build 快得多
+<ul>
+<li>编写代码的时候可以连续反复的使用cargo chekc 检查代码，提高效率</li>
+</ul>
+</li>
+</ul>
+<h3 id="为发布构建">为发布构建</h3>
+<ul>
+<li>cargo build &ndash;release
+<ul>
+<li>编译时会进行优化
+<ul>
+<li>代码会运行的更快，但是编译时间更长</li>
+</ul>
+</li>
+<li>会在target/release而不是target/debug生成可执行文件</li>
+</ul>
+</li>
+<li>两种配置
+<ul>
+<li>开发</li>
+<li>正式发布</li>
+</ul>
+</li>
+</ul>
+<p>尽量用Cargo</p>
 
         </div>
 
@@ -550,6 +747,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         
         <li>
             <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liwenzhou.com/" title="李文周的博客">李文周的博客</a>
         </li>
         
     </ul>
