@@ -9,16 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>搜索 | 小乔的博客</title>
-    <meta property="og:title" content="搜索 - 小乔的博客">
+    <title>关系数据库 | 小乔的博客</title>
+    <meta property="og:title" content="关系数据库 - 小乔的博客">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2023-02-16T23:10:58&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-02-16T23:10:58&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="搜索页面">
+    <meta name="description" content="关系数据库">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/search/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/database_mysql_2/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -51,7 +55,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://qiaopengjun5162.github.io/">Home</a>
+                    <a class="current" href="https://qiaopengjun5162.github.io/">Home</a>
                     
                     <a  href="https://qiaopengjun5162.github.io/tools/" title="工具">工具</a>
                     
@@ -70,70 +74,113 @@
             <div class="col-group">
 
                 <div class="col-8" id="main">
-                    <div class="res-cons">
-    <h3 class="archive-title">
-        Search: 
-        <span class="keyword">Keyword</span>
-        results
-    </h3>
-
+                    
+<div class="res-cons">
+    
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="链接" target="_blank">标题</a>
-            </h1>
+            <h1 class="post-title">关系数据库</h1>
         </header>
         
-        <div class="post-content">
-            概要……
-            <p class="readmore"><a href="链接" target="_blank">Continue reading</a></p>
-        </div>
-    </article>
+  <time datetime="2023-02-16T15:10:58Z" class="post-meta meta-date dt-published">
+    2023-02-16
+  </time>
 
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>reads</span>
+            </span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h1 id="关系数据库">关系数据库</h1>
+<h2 id="一关系数据库概述">一、关系数据库概述</h2>
+<p>进入20世纪80年代后，在商用数据库管理系统中，关系模型逐渐取代早期的网状模型和层次模型，成为主流数据模型。</p>
+<h2 id="二关系数据模型">二、关系数据模型</h2>
+<h3 id="关系数据结构">关系数据结构</h3>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/database_mysql_2/">https://qiaopengjun5162.github.io/post/database_mysql_2/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/ruststudy/">Rust学习之路</a></li>
+        
+        <li><a href="/post/database_mysql_1/">数据库系统原理之数据库系统概述</a></li>
+        
+        <li><a href="/post/mysql_study_notes/">MySQL学习笔记</a></li>
+        
+        <li><a href="/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python之Django学习笔记</a></li>
+        
+        <li><a href="/post/python_study/">Python笔记</a></li>
+        
+    </ul>
 </div>
 
-<script type="text/javascript">
 
-    var getUrlParameter = function getUrlParameter (sParam) {
-        var sPageURL = window.location.search.substring(1),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
-
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
+        <div class="post-meta meta-tags">
+            
+            No tags
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
     };
-
-    $(document).ready(function () {
-        var q = getUrlParameter("q");
-        $("span.keyword").text(q);
-        $("article.post").remove();
-        $.ajax({
-            url: 'https:\/\/qiaopengjun5162.github.io\/index.xml',
-            dataType: "xml",
-            success: function (data) {
-                $(data).find("item").each(function () {
-                    var item = $(this);
-                    var title = item.find("title").text();
-                    if (title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
-                        var url = item.find("link").text();
-                        var searchItem = `<article class="post"><header><h1 class="post-title"><a href="` + url + `" target="_blank">` + title + `</a></h1></header>`;
-                        var pubDate = new Date(item.find("pubDate").text())
-                        searchItem += `<time class="post-meta meta-date">` + pubDate.getFullYear() + `-` + (pubDate.getMonth() + 1) + `-` + pubDate.getDate() + `</time>`;
-                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `" target="_blank">"Continue reading"</a></p></div></article>`;
-
-                        $("div.res-cons").append(searchItem);
-                    }
-                });
-            }
-        });
-    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "qiaopengjun5162/hugoblogtalks"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
 
                     <footer id="footer">
     <div>
@@ -169,6 +216,80 @@
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>

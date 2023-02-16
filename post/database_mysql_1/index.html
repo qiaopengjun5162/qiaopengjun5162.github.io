@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>数据库系统原理之数据库系统概述 | 小乔的博客</title>
+    <meta property="og:title" content="数据库系统原理之数据库系统概述 - 小乔的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-02-12T19:13:45&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-02-12T19:13:45&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
+    <meta name="description" content="数据库系统原理之数据库系统概述">
+        
+    <meta name="author" content="小乔">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/database_mysql_1/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://qiaopengjun5162.github.io/">
+                        小乔的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go、Rust、数据库、Linux、软件架构、软件工程、数据结构、算法、操作系统</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://qiaopengjun5162.github.io/">Home</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://qiaopengjun5162.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">数据库系统原理之数据库系统概述</h1>
+        </header>
+        
+  <time datetime="2023-02-12T11:13:45Z" class="post-meta meta-date dt-published">
+    2023-02-12
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>reads</span>
+            </span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h1 id="数据库系统概述">数据库系统概述</h1>
+<h2 id="一数据库基本概念">一、数据库基本概念</h2>
+<h3 id="1-数据">1 数据</h3>
+<p>数据（Data）是描述事物的符号记录，是指用物理符号记录下来的、可以鉴别的信息。</p>
+<p>数据以及关于该数据的解释是密切相关的。</p>
+<p>数据的解释是对数据含义的说明，也称为数据的语义，即数据所蕴含的信息。</p>
+<p>数据与其语义密不可分，没有语义的数据是没有意义和不完整的。</p>
+<p>数据是信息存在的一种形式，只有通过解释或处理的数据才能成为有用的信息。</p>
+<h3 id="2-数据库">2 数据库</h3>
+<p>数据库（Database，DB）通俗地被称为存储数据的仓库，只是这个仓库是存储在计算机存储设备上的，并且其所存储的数据是按一定的格式进行存储的。</p>
+<p>若从严格意义上讲，所谓数据库是指长期储存在计算机中的有组织的、可共享的数据集合，且数据库中的数据按一定的数据模型组织、描述和存储，具有较小的冗余度、较高的数据独立性，系统易于扩展，并可以被多个用户共享。</p>
+<p>数据库中存储的数据具有永久存储、有组织和可共享三个基本特点。</p>
+<h3 id="3-数据库管理系统">3 数据库管理系统</h3>
+<p>数据库管理系统（Database Management System，DBMS）是专门用于建立和管理数据库的一套软件，介于应用程序和操作系统之间。它负责科学有效地组织和存储数据，并帮助数据库的使用者能够从大量的数据中快速地获取所需数据，以及提供必要的安全性和完整性等统一控制机制，实现对数据有效的管理和维护。</p>
+<p>数据库管理系统主要功能：</p>
+<ul>
+<li>数据定义功能：数据定义语言（Data Definition Language，DDL）</li>
+<li>数据操纵功能：数据操纵语言（Data Manipulation Language，DML）</li>
+<li>数据库的远行管理功能</li>
+<li>数据库的建立和维护功能</li>
+<li>数据组织、存储和管理功能</li>
+<li>其他功能</li>
+</ul>
+<h3 id="4-数据库系统">4 数据库系统</h3>
+<p>数据库系统（Database System，DBS）是指在计算机中引入数据库技术之后的系统。</p>
+<p>一个完整的数据库系统包括数据库、数据库管理系统及相关实用工具、应用程序、数据库管理员和用户。</p>
+<p>数据库管理员（Database Administrator，DBA）不同于普通数据库用户，他们是专门负责对数据库进行维护，并保证数据库正常、高效运行的人员。</p>
+<p>用户是数据库系统的服务对象，通常包括程序员和数据库终端用户两类用户。</p>
+<p>程序员通过高级程序设计语言（如SQL）编写数据库应用程序，应用程序会根据需要向数据库管理系统发出适当的请求，再由数据库管理系统对数据库执行相应的操作。</p>
+<p>终端用户是从客户机或联机终端上以交互方式向数据库系统提出各种操作请求，并由数据库管理系统响应执行，而后访问数据库中的数据。</p>
+<p>一般在不引起混淆的情况下，常常将数据库系统简称为数据库。</p>
+<h2 id="二数据管理技术的发展">二、数据管理技术的发展</h2>
+<p>数据管理</p>
+<ol>
+<li>针对组织业务的需要，负责制定并执行整个组织中关于数据的定义、组织、保护与有效使用的策略、过程和计划</li>
+<li>依靠技术，负责实现数据作为一种资源的集中控制管理</li>
+</ol>
+<p>数据组织</p>
+<ol>
+<li>逻辑组织：数据的逻辑组织是用户或应用程序所使用的数据结构形式</li>
+<li>物理组织：数据在物理存储设备上的结构形式</li>
+</ol>
+<p>检索：为了向用户提供信息，存储的数据要能够方便地被选择提取</p>
+<p>数据管理的任务：进行数据的收集、组织、控制、存储、选取、维护，实现在适当的时刻、以适当的形式、给适当的人、提供适当的数据，是数据处理的中心问题</p>
+<p>数据处理：对各种数据进行收集、存储、加工和传播的一系列活动的总和</p>
+<p>数据管理技术的三个阶段：</p>
+<ul>
+<li>人工管理阶段： 20世纪50年代中期以前 批处理
+<ul>
+<li>数据不保存</li>
+<li>应用程序管理数据</li>
+<li>数据面向应用：不能共享、存在大量冗余、数据的独立性差</li>
+</ul>
+</li>
+<li>文件系统阶段：20世纪50年代后期到60年代中期  文件系统 记录内有结构 整体无
+<ul>
+<li>数据的物理独立性</li>
+<li>数据可长期保存和专门管理</li>
+<li>数据共享成为可能 文件级共享</li>
+<li>存在大量的数据冗余</li>
+</ul>
+</li>
+<li>数据库系统阶段 20世纪60年代后期以来 数据库管理系统
+<ul>
+<li>数据集成  最大程度共享 冗余最小</li>
+<li>数据共享性高 用户视图 并发共享</li>
+<li>数据冗余小 冗余是受控的</li>
+<li>数据一致性</li>
+<li>数据独立性高</li>
+<li>实施统一管理与控制
+<ul>
+<li>数据的安全性（Security）</li>
+<li>数据的完整性（Intergrity）</li>
+<li>并发控制（Concurrency）</li>
+<li>故障恢复（Recovery）</li>
+</ul>
+</li>
+<li>减少应用程序开发与维护的工作量</li>
+</ul>
+</li>
+</ul>
+<p>数据独立：数据定义与使用数据的应用程序分离（逻辑独立、物理独立）</p>
+<h2 id="三数据库系统的结构">三、数据库系统的结构</h2>
+<p>数据系统（数据库管理员（DBA视角））：</p>
+<ul>
+<li>内部系统结构
+<ul>
+<li>三级模式结构</li>
+</ul>
+</li>
+<li>外部系统结构
+<ul>
+<li>集中式结构</li>
+<li>分布式结构</li>
+<li>并行结构</li>
+</ul>
+</li>
+</ul>
+<p>数据系统（数据库应用的用户（如应用程序的编写人员视角））：</p>
+<ul>
+<li>客户/服务器结构</li>
+<li>浏览器/服务器结构</li>
+</ul>
+<h3 id="数据库系统的三级模式结构">数据库系统的三级模式结构</h3>
+<ul>
+<li>模式（Schema）</li>
+<li>外模式（External Schema）</li>
+<li>内模式（Internal Schema）</li>
+</ul>
+<h4 id="1-模式">1 模式</h4>
+<p>模式：也称为概念模式或逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</p>
+<p>DBMS提供模式描述语言（Schema DDL）来严格地定义模式，不仅要定义数据的逻辑结构，还要定义数据之间的联系，定义与数据相关的安全性、完整性等要求。</p>
+<h4 id="2-外模式">2 外模式</h4>
+<p>外模式：也称为子模式（Subschema）或用户模式，是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是与某一应用有关的数据的逻辑表示。</p>
+<p>外模式实际上是用于满足不同数据库用户需求的数据视图，即用户视图，其通常是模式的子集，是对数据库整体数据结构的局部重构。</p>
+<p>DBMS提供来子模式描述语言（Subschema DDL）来严格地定义子模式。</p>
+<h4 id="3-内模式">3 内模式</h4>
+<p>内模式：也称为存储模式（Storage Schema），是对数据库中数据物理结构和存储方式的描述，是数据在数据库内部的表示形式。</p>
+<p>内部视图 存储视图</p>
+<p>DBMS提供内模式描述语言（内模式DDL，或者存储模式DDL）来严格地定义内模式，即定义所有内部记录类型、索引和文件的组织方式，以及所有数据控制方面的细节。</p>
+<h4 id="4-三级模式结构的两层映像与数据独立性">4 三级模式结构的两层映像与数据独立性</h4>
+<ol>
+<li>一个数据库的整体逻辑结构和特征的描述（概念模式）是独立于数据库其他层次结构（内/外模式）的描述，其是数据库的核心，也是数据库设计的关键。</li>
+<li>一个数据库的内部存储模式依赖于概念模式，但存储模式独立于外部模式，也独立于具体的存储设备。</li>
+<li>用户逻辑结构（外模式）是在全局逻辑结构描述的基础上定义的，它是面向具体的应用程序，独立于内部模式和存储设备。</li>
+<li>特定的应用程序是在外模式的逻辑结构上编写的，它依赖于特定的外模式，与数据库的模式和存储结构独立。</li>
+</ol>
+<h5 id="1外模式模式映像">（1）外模式/模式映像</h5>
+<p>映像：一种对应规则，指出映像双方是如何进行转换的。</p>
+<p>数据与程序的逻辑独立性</p>
+<h5 id="2模式内模式映像">（2）模式/内模式映像</h5>
+<p>唯一的</p>
+<p>数据与程序的物理独立性</p>
+<h3 id="数据库系统的运行与应用结构">数据库系统的运行与应用结构</h3>
+<h4 id="1-客户服务器结构">1 客户/服务器结构</h4>
+<p>客户/服务器（Client/Server，C/S）模式</p>
+<p>单机方式 网络方式</p>
+<h4 id="2-浏览器服务器结构">2 浏览器/服务器结构</h4>
+<p>三层客户/服务器结构</p>
+<p>表示层</p>
+<p>处理层 中间层</p>
+<p>浏览器/服务器（Browser/Server，B/S）模式</p>
+<h2 id="四-数据模型">四 数据模型</h2>
+<p>模型（Model）是现实世界特征的模拟和抽象表达，其有助于人们更好地认识和理解客观世界中的事物、对象、过程等感兴趣的内容，例如汽车车模、飞机航模、建筑图纸、军事沙盘等。</p>
+<p>我们常使用数据模型（Data Model）这个工具来模拟和抽象现实世界中的数据特征。</p>
+<p>数据模型也是一种模型，它是对现实世界数据特征的抽象，描述的是数据的共性内容。</p>
+<h3 id="1-数据特征与数据模型组成要素">1 数据特征与数据模型组成要素</h3>
+<p>数据具有静态和动态两种特征：</p>
+<ul>
+<li>静态特征：数据的基本结构、数据间的联系以及对数据取值范围的约束</li>
+<li>动态特征：对数据可以进行符合一定规则的操作</li>
+</ul>
+<p>对现实世界数据特征进行抽象的数据模型，需要描述数据的静态特征与动态行为，并为数据的表示和操作提供框架。</p>
+<p>数据模型是用来描述数据的结构、定义在结构上的操纵以及数据间的约束的一组概念和定义。</p>
+<p>数据模型通常由数据结构、数据操作和数据约束三个要素组成。</p>
+<h4 id="1数据结构">（1）数据结构</h4>
+<p>数据结构描述的是系统的静态特性，即数据对象的数据类型、内容、属性以及数据对象之间的联系。</p>
+<p>层次结构、网状结构、关系结构</p>
+<p>层次模型、网状模型、关系模型、面向对象模型</p>
+<h4 id="2数据操作">（2）数据操作</h4>
+<p>数据操纵描述的是系统的动态特性，是对各种对象的实例允许执行的操作的集合，包括操作及有关的操作规则。</p>
+<p>数据操作：</p>
+<ul>
+<li>更新
+<ul>
+<li>插入</li>
+<li>删除</li>
+<li>修改</li>
+</ul>
+</li>
+<li>检索</li>
+</ul>
+<h4 id="3数据约束">（3）数据约束</h4>
+<p>数据约束描述数据结构中数据间的语法和语义关联，包括相互制约与依存关系以及数据动态变化规则，以保证数据的正确性、有效性与相容性。</p>
+<p>数据约束：</p>
+<ul>
+<li>数据完整性约束</li>
+<li>数据安全性约束</li>
+<li>并发控制约束</li>
+</ul>
+<h3 id="2-数据模型的分类">2 数据模型的分类</h3>
+<p>数据模型应满足三个方面的要求：</p>
+<ul>
+<li>能比较真实地模拟现实世界</li>
+<li>容易为人们所理解</li>
+<li>便于在计算机上实现</li>
+</ul>
+<p>逐步抽象</p>
+<p>现实世界客观对象 —抽象—&gt; 信息世界某一种信息结构(概念级的模型) —转换、组织—&gt; 机器世界某一数据库管理系统支持的数据模型</p>
+<p>数据模型是模型化数据和信息的工具，也是数据库系统的核心和基础。</p>
+<h4 id="概念层数据模型">概念层数据模型</h4>
+<p>概念层是数据抽象级别的最高层，其目的是按用户的观点来对世界建模。</p>
+<p>概念层数据模型，也称为数据的概念模型（Conceptual Model）或信息模型，它用来描述现实世界的事物，与具体的计算机系统无关，且独立于任何DBMS，但容易向DBMS所支持的逻辑数据模型转换。</p>
+<p>这类模型主要用于数据库的设计阶段，即在设计数据库时，通常用概念模型类抽象、表示现实世界的各种事物及其联系。</p>
+<h5 id="1信息世界中的基本概念">（1）信息世界中的基本概念</h5>
+<ul>
+<li>实体（Entity）：客观存在并可相互区别的事物称为实体。</li>
+<li>属性（Attribute）：实体所具有的某种特性称为实体的属性。一个实体可以由多个属性来描述。</li>
+<li>码或键（Key）：可唯一标识实体的属性集称为码或键。</li>
+<li>域（Domain）：属性的取值范围称为该属性的域。</li>
+<li>实体型（Entity Type）：具有相同属性的实体必然具有共同的特征和性质。用实体名域属性名集合来抽象和刻画同类实体，称为实体型。</li>
+<li>实体集（Entity Set）：同型实体的集合称为实体集。</li>
+<li>联系（Relationship）：在现实世界中，事物内部以及事物之间是有联系的，这些联系在信息世界中反映为实体（型）内部的联系和实体（型）之间的联系。</li>
+</ul>
+<p>实体内部的联系通常是指实体各属性之间的联系。</p>
+<p>实体之间的联系是指不同实体之间的联系。</p>
+<p>在数据模型中有“型”（type）和“值”（value）两个不同的概念。</p>
+<p>“型”指的是对某一类数据的结构和属性的说明。</p>
+<p>“值”是型的一个具体的赋值。</p>
+<h5 id="2概念模型的表示方法">（2）概念模型的表示方法</h5>
+<p>概念模型的表示方法中最为常用的是P.P.S.Chen于1976年提出的实体-联系方法（Entity-Relationship approach）。</p>
+<p>该方法用E-R图（E-R diagram）来描述现实世界的概念模型，E-R方法也称为E-R模型（E-R Model）。</p>
+<p>E-R图提供了表示信息世界中实体、属性和联系的方法。</p>
+<h4 id="逻辑层数据模型">逻辑层数据模型</h4>
+<p>逻辑层是数据抽象的中间层，描述数据整体的逻辑结构。</p>
+<p>逻辑层数据模型：也称为数据的逻辑模型（Logical Model），是用户通过数据库管理系统看到的现实世界，是基于计算机系统的观点来对数据进行建模和表示。</p>
+<ul>
+<li>
+<p>层次模型（Hierarchical Model）</p>
+<ul>
+<li>数据库系统最早使用的一种数据模型</li>
+<li>数据结构是一颗“有向树”</li>
+<li>树的每个结点对应一个记录集，也就是现实世界的实体集</li>
+<li>特点：有且仅有一个结点没有父结点，它称作根结点；其他结点有且仅有一个父结点</li>
+<li>难以表达实体之间比较复杂的关系</li>
+</ul>
+</li>
+<li>
+<p>网状模型（Network Model）</p>
+<ul>
+<li>以网状结构表示实体与实体之间的联系</li>
+<li>层次模型的扩展，允许结点有多于一个父结点，并可以有一个以上的结点没有父结点</li>
+<li>可以方便地表示实体间各种类型的联系，即可以表示从属的关系，也可以表示数据间的交叉关系，但结构复杂，实现的算法难以规范化</li>
+</ul>
+</li>
+<li>
+<p>关系模型（Relational Model）</p>
+<ul>
+<li>关系模型是用二维表结构来表示实体及实体间联系的模型，并以二维表格的形式组织数据库中的数据</li>
+<li>关系模型是建立在严格的数学概念的基础上的</li>
+<li>关系模型的概念单一，统一用关系来表示实体以及实体之间的关系，对数据的检索和更新结果同样也是用关系（即表）来表示。</li>
+<li>关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作</li>
+</ul>
+</li>
+<li>
+<p>面向对象模型（Object Oriented Model）</p>
+<ul>
+<li>面向对象方法与数据库相结合所构成的数据模型</li>
+<li>面向对象模型既是概念模型又是逻辑模型</li>
+<li>面向对象数据模型用面向对象观点来描述现实世界实体的逻辑组织、对象间的联系，其表达能力丰富，具有对象可复用、维护方便等优点，是正在发展的数据模型，也是数据库的发展方向之一</li>
+</ul>
+</li>
+</ul>
+<h4 id="物理层数据模型">物理层数据模型</h4>
+<p>物理层数据模型，也称为数据的物理模型（Physical Model），其描述数据在存储介质上的组织结构，是逻辑模型的物理实现，即每一种逻辑模型在实现时都有与其相对应的物理模型。</p>
+<p>物理模型是数据库最底层的抽象，它确定数据的物理存储结构、数据存取路径以及调整、优化数据库的性能。</p>
+<p>物理模型的设计目标是提高数据库性能和有效利用存储空间。</p>
+<p>数据库设计人员：现实世界 ——&gt; 概念模型的转换</p>
+<p>数据库设计人员/数据库设计工具协助设计人员：概念模型 ——&gt; 逻辑模型的转换</p>
+<p>数据库管理系统：逻辑模型 ——&gt; 物理模型的转换</p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/database_mysql_1/">https://qiaopengjun5162.github.io/post/database_mysql_1/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/mysql_study_notes/">MySQL学习笔记</a></li>
+        
+        <li><a href="/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python之Django学习笔记</a></li>
+        
+        <li><a href="/post/python_study/">Python笔记</a></li>
+        
+        <li><a href="/post/python%E5%9F%BA%E7%A1%80/">Python基础</a></li>
+        
+        <li><a href="/post/hugoblog/">Hugo博客之路快速开始</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a></li>
+                
+                <li><a href='/tags/MySQL' target="_blank">MySQL</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "qiaopengjun5162/hugoblogtalks"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://qiaopengjun5162.github.io/">小乔的博客 By 小乔</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://qiaopengjun5162.github.io/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://qiaopengjun5162.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/database_mysql_2/" title="关系数据库" target="_blank">关系数据库</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/ruststudy/" title="Rust学习之路" target="_blank">Rust学习之路</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/database_mysql_1/" title="数据库系统原理之数据库系统概述" target="_blank">数据库系统原理之数据库系统概述</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/mysql_study_notes/" title="MySQL学习笔记" target="_blank">MySQL学习笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python%E4%B9%8BDjango%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Python之Django学习笔记" target="_blank">Python之Django学习笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python_study/" title="Python笔记" target="_blank">Python笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/python%E5%9F%BA%E7%A1%80/" title="Python基础" target="_blank">Python基础</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/hugoblog/" title="Hugo博客之路快速开始" target="_blank">Hugo博客之路快速开始</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/github/" title="GitHub 配置SSH密钥" target="_blank">GitHub 配置SSH密钥</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/blog/" title="Blog" target="_blank">Blog</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://qiaopengjun5162.github.io/categories/Rust/">Rust (1)</a></li>
+    
+    <li><a href="https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://qiaopengjun5162.github.io/tags/MySQL/">MySQL</a>
+    
+    <a href="https://qiaopengjun5162.github.io/tags/Rust/">Rust</a>
+    
+    <a href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://www.yuan316.com/" title="Yuan的博客">Yuan的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liwenzhou.com/" title="李文周的博客">李文周的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="https://qiaopengjun5162.github.io/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
