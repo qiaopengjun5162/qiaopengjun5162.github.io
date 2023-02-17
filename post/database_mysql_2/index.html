@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>关系数据库 | 小乔的博客</title>
-    <meta property="og:title" content="关系数据库 - 小乔的博客">
+    <title>数据库系统原理之关系数据库 | 小乔的博客</title>
+    <meta property="og:title" content="数据库系统原理之关系数据库 - 小乔的博客">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2023-02-16T23:10:58&#43;08:00'>
@@ -19,7 +19,7 @@
     <meta property="article:modified_time" content='2023-02-16T23:10:58&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="关系数据库">
+    <meta name="description" content="数据库系统原理之关系数据库">
         
     <meta name="author" content="小乔">
     <meta property="og:url" content="https://qiaopengjun5162.github.io/post/database_mysql_2/">
@@ -79,13 +79,20 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">关系数据库</h1>
+            <h1 class="post-title">数据库系统原理之关系数据库</h1>
         </header>
         
   <time datetime="2023-02-16T15:10:58Z" class="post-meta meta-date dt-published">
     2023-02-16
   </time>
 
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a>
+  
+</div>
 
 
         
@@ -102,6 +109,47 @@
 <p>进入20世纪80年代后，在商用数据库管理系统中，关系模型逐渐取代早期的网状模型和层次模型，成为主流数据模型。</p>
 <h2 id="二关系数据模型">二、关系数据模型</h2>
 <h3 id="关系数据结构">关系数据结构</h3>
+<p>关系模型的数据结构只包含单一的数据结构，即关系。</p>
+<p>在用户看来，关系模型是把数据库表示为关系的集合，且关系数据库是以二维表格的形式组织数据。</p>
+<h3 id="关系数据库的基本术语">关系数据库的基本术语：</h3>
+<ul>
+<li>表（Table）：表，也称为关系，是一个二维的数据结构，它由表名、构成表的各个列及若干行数据组成。每个表有一个唯一的表名，表中每一行数据描述一条具体的记录值。</li>
+<li>关系（Relation）：一个关系逻辑上对应一张二维表，可以为每个关系取一个名称进行标识。
+<ul>
+<li>关系可以有三种类型，即基本关系、查询表和视图表</li>
+<li>基本关系通常又称为基本表或基表，是实际存在的表，它是实际存储数据的逻辑表示</li>
+<li>查询表是查询结果对应的表</li>
+<li>视图表是由基本表或其他视图表导出的表，是虚表，不对应实际存储的数据</li>
+</ul>
+</li>
+<li>列（Column）：表中的列，也称作字段（Field）或属性（Attribute）
+<ul>
+<li>表中每一列有一个名称，称为列名、字段名或属性名</li>
+<li>每一列表示实体的一个属性，具有相同的数据类型</li>
+<li>在一个数据库中，表名必须唯一</li>
+<li>在表中，字段名必须唯一，不同表中可以出现相同的字段名</li>
+<li>表和字段的命名应尽量有意义，并尽量简单</li>
+</ul>
+</li>
+<li>属性（Attribute）：表中的一列即为一个属性，给每一个属性起一个名称即属性名。
+<ul>
+<li>与之同一的术语是”列“。</li>
+<li>表中属性的个数称为关系的元或度</li>
+<li>列的值称为属性值</li>
+<li>属性值的取值范围称为值域</li>
+</ul>
+</li>
+<li>行（Row）：表中的行（Row）也称作元组（Tuple）或记录（Record）。
+<ul>
+<li>表中的数据是按行存储的</li>
+<li>表中的一行数据即为一个元组或一条记录，其每行由若干字段值组成，每个字段值描述该对象的一个属性或特征</li>
+</ul>
+</li>
+<li>元组（Tuple）：表中的一行即为一个元组。</li>
+<li>分量（Component）：元组中的一个属性值，称为分量。</li>
+<li>码或键（Key）：如果在一个关系中，存在这样的属性（或属性组），使得在该关系的任何一个关系状态中的两个元组，在该属性（或属性组）上值的组合都不相同，即这些属性（或属性组）的值都能用来唯一标识该关系的元组，则称这些属性（或属性组）为该关系的码或键。</li>
+<li></li>
+</ul>
 
         </div>
 
@@ -123,9 +171,9 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/ruststudy/">Rust学习之路</a></li>
-        
         <li><a href="/post/database_mysql_1/">数据库系统原理之数据库系统概述</a></li>
+        
+        <li><a href="/post/ruststudy/">Rust学习之路</a></li>
         
         <li><a href="/post/mysql_study_notes/">MySQL学习笔记</a></li>
         
@@ -139,7 +187,13 @@
 
         <div class="post-meta meta-tags">
             
-            No tags
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a></li>
+                
+                <li><a href='/tags/MySQL' target="_blank">MySQL</a></li>
+                
+            </ul>
             
         </div>
     </article>
@@ -316,7 +370,11 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://qiaopengjun5162.github.io/post/database_mysql_2/" title="关系数据库" target="_blank">关系数据库</a>
+        <a href="https://qiaopengjun5162.github.io/post/database_mysql_3/" title="数据库系统原理之数据库设计" target="_blank">数据库系统原理之数据库设计</a>
+    </li>
+    
+    <li>
+        <a href="https://qiaopengjun5162.github.io/post/database_mysql_2/" title="数据库系统原理之关系数据库" target="_blank">数据库系统原理之关系数据库</a>
     </li>
     
     <li>
@@ -351,10 +409,6 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <a href="https://qiaopengjun5162.github.io/post/github/" title="GitHub 配置SSH密钥" target="_blank">GitHub 配置SSH密钥</a>
     </li>
     
-    <li>
-        <a href="https://qiaopengjun5162.github.io/post/blog/" title="Blog" target="_blank">Blog</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -366,7 +420,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://qiaopengjun5162.github.io/categories/Rust/">Rust (1)</a></li>
     
-    <li><a href="https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库 (1)</a></li>
+    <li><a href="https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库 (3)</a></li>
     
 </ul>
     </section>
