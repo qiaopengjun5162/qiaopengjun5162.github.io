@@ -8,12 +8,12 @@
     <language>zh-CN</language>
     <lastBuildDate>Tue, 14 Feb 2023 21:16:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/Rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Rust学习之路</title>
+      <title>Rust编程语言入门</title>
       <link>https://qiaopengjun5162.github.io/post/ruststudy/</link>
       <pubDate>Tue, 14 Feb 2023 21:16:03 +0800</pubDate>
       
       <guid>https://qiaopengjun5162.github.io/post/ruststudy/</guid>
-      <description>Rust Rust 安装 官网：https://www.rust-lang.org/zh-CN/learn/get-started Mac 安装： 1 curl --proto &amp;#39;=https&amp;#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh 1</description>
+      <description>Rust 编程语言入门 Rust简介 为什么要用Rust？ Rust是一种令人兴奋的新编程语言，它可以让每个人编写可靠且高效的软件。 它可以用来替换C/C+</description>
     </item>
     
   </channel>
