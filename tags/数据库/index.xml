@@ -6,7 +6,16 @@
     <description>Recent content in 数据库 on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Feb 2023 22:40:50 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Feb 2023 16:16:22 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql设置远程连接</title>
+      <link>https://qiaopengjun5162.github.io/post/mysql_remote_conn/</link>
+      <pubDate>Thu, 23 Feb 2023 16:16:22 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/mysql_remote_conn/</guid>
+      <description>Mac下MySQL设置远程连接 登录MySQL数据库 1 mysql -uroot -p 进入MySQL库 1 use mysql; 执行更新权限SQL语句 1 update user set Host=&amp;#39;%&amp;#39; where User=&amp;#39;root&amp;#39;; 查看权限 1 select host, user from user; 修改</description>
+    </item>
+    
     <item>
       <title>数据库系统原理之数据库设计</title>
       <link>https://qiaopengjun5162.github.io/post/database_mysql_3/</link>

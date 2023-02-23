@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>Hugo博客之路快速开始 | 小乔的博客</title>
-    <meta property="og:title" content="Hugo博客之路快速开始 - 小乔的博客">
+    <title>Mysql设置远程连接 | 小乔的博客</title>
+    <meta property="og:title" content="Mysql设置远程连接 - 小乔的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:published_time" content='2023-02-23T16:16:22&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:modified_time" content='2023-02-23T16:16:22&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="Hugo博客之路快速开始">
+    <meta name="description" content="Mysql设置远程连接">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/hugoblog/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/mysql_remote_conn/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -79,13 +79,20 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">Hugo博客之路快速开始</h1>
+            <h1 class="post-title">Mysql设置远程连接</h1>
         </header>
         
-  <time datetime="2023-02-11T08:18:31Z" class="post-meta meta-date dt-published">
-    2023-02-11
+  <time datetime="2023-02-23T08:16:22Z" class="post-meta meta-date dt-published">
+    2023-02-23
   </time>
 
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a>
+  
+</div>
 
 
         
@@ -97,99 +104,97 @@
         
         
         <div class="post-content">
-            <h1 id="hugo-博客">Hugo 博客</h1>
-<p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
-<p>Hugo中文文档：<a href="https://www.gohugo.org/">https://www.gohugo.org/</a></p>
-<p>Hugo官网: <a href="https://gohugo.io/">https://gohugo.io/</a></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>创建项目
-</span></span><span style="display:flex;"><span>hugo new site myblog
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">cd</span> myblog
-</span></span><span style="display:flex;"><span>安装主题
-</span></span><span style="display:flex;"><span>git clone https://github.com/flysnow-org/maupassant-hugo themes/maupassant
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo new post/blog.md
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo --theme<span style="color:#000;font-weight:bold">=</span>maupassant --baseUrl<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://qiaopengjun5162.github.io/&#34;</span> --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">cd</span> public
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;# qiaopengjun5162.github.io&#34;</span> &gt;&gt; README.md
-</span></span><span style="display:flex;"><span>git init
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#d14">&#34;first commit&#34;</span>
-</span></span><span style="display:flex;"><span>git branch -M main
-</span></span><span style="display:flex;"><span>git remote add origin https://github.com/qiaopengjun5162/qiaopengjun5162.github.io.git
-</span></span><span style="display:flex;"><span>git push -u origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建博客
-创建第一篇博客</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/first_blog.md
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在本地启动网站</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动server时应用主题</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server --theme<span style="color:#000;font-weight:bold">=</span>LoveIt --watch
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>参数说明：</p>
-<pre tabindex="0"><code>* --theme 用于选择主题，如果在配置文件中选择了主题，这里就不需要使用了
-* --buildDrafts 用于是否显示草稿文章
-* --watch 用于实时监控变化，方便调试
-</code></pre><p>访问：http://localhost:1313/</p>
+            <h1 id="mac下mysql设置远程连接">Mac下MySQL设置远程连接</h1>
 <ul>
-<li>在项目根目录下使用 hugo 命令，会生成 public 目录</li>
-<li>该目录下是有关 markdown 编译完成的 html 静态页面</li>
+<li>
+<h3 id="登录mysql数据库">登录MySQL数据库</h3>
+</li>
 </ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">-</span>uroot<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">-</span>p<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h3 id="进入mysql库">进入MySQL库</h3>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">use</span><span style="color:#bbb"> </span>mysql;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h3 id="执行更新权限sql语句">执行更新权限SQL语句</h3>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">update</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">user</span><span style="color:#bbb"> </span><span style="color:#458;font-weight:bold">set</span><span style="color:#bbb"> </span>Host<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;%&#39;</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">where</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">User</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;root&#39;</span>;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h3 id="查看权限">查看权限</h3>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">select</span><span style="color:#bbb"> </span>host,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">user</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">from</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">user</span>;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+        <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/qiaopengjun5162/blogpicgo/master/img/202302221041404.png" />   
+    </p>
+<ul>
+<li>修改配置</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#0086b3">cd</span> /opt/homebrew/etc
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>vim my.cnf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 修改MySQL服务绑定的IP</span>
+</span></span><span style="display:flex;"><span>bind-address <span style="color:#000;font-weight:bold">=</span> 0.0.0.0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>重启MySQL</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew services restart mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+        <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/qiaopengjun5162/blogpicgo/master/img/202302221534041.png" />   
+    </p>
 
         </div>
 
@@ -197,7 +202,7 @@
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/hugoblog/">https://qiaopengjun5162.github.io/post/hugoblog/</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/mysql_remote_conn/">https://qiaopengjun5162.github.io/post/mysql_remote_conn/</a></li>
         <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
     </ul>
 </div>
@@ -211,13 +216,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/github/">GitHub 配置SSH密钥</a></li>
+        <li><a href="/post/database_mysql_3/">数据库系统原理之数据库设计</a></li>
         
-        <li><a href="/post/blog/">Blog</a></li>
+        <li><a href="/post/database_mysql_2/">数据库系统原理之关系数据库</a></li>
         
-        <li><a href="/archives/">归档</a></li>
+        <li><a href="/post/database_mysql_1/">数据库系统原理之数据库系统概述</a></li>
         
-        <li><a href="/search/">搜索</a></li>
+        <li><a href="/post/ruststudy/">Rust编程语言入门</a></li>
+        
+        <li><a href="/post/mysql_study_notes/">MySQL学习笔记</a></li>
         
     </ul>
 </div>
@@ -225,7 +232,13 @@
 
         <div class="post-meta meta-tags">
             
-            No tags
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93' target="_blank">数据库</a></li>
+                
+                <li><a href='/tags/MySQL' target="_blank">MySQL</a></li>
+                
+            </ul>
             
         </div>
     </article>
