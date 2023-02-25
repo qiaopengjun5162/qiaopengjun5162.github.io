@@ -210,7 +210,223 @@
 </ul>
 <p>数据库设计过程实际上是一个反复修改、反复设计的迭代过程</p>
 <h2 id="二数据库设计的基本步骤">二、数据库设计的基本步骤</h2>
-<h3 id="需求分析">需求分析</h3>
+<h3 id="1-需求分析">1 需求分析</h3>
+<ul>
+<li>需求分析的目标是了解与分析用户的信息及应用处理的要求，并将结果按一定格式整理而形成需求分析报告。</li>
+<li>数据库设计人员进行需求分析的基本方法是听取数据库应用部门工作人员的报告，并与之座谈。同时，需求分析人员可提交一份需求调查表，该表内容主要包括调查的内容和要求提供资料的格式，应用部门的业务人员则可根据该表进行准备和提交材料。此外，数据库设计人员还需查阅原始资料，以及跟班作业等。</li>
+</ul>
+<ol>
+<li>
+<h4 id="确定数据库范围">确定数据库范围</h4>
+</li>
+<li>
+<h4 id="应用过程分析">应用过程分析</h4>
+</li>
+<li>
+<h4 id="收集与分析数据">收集与分析数据</h4>
+<ol>
+<li>静态结构
+<ol>
+<li>数据分类表：用于数据的总体描述</li>
+<li>数据元素表：通常意义下的数据项或属性</li>
+</ol>
+</li>
+<li>动态结构：概念设计和物理设计的重要依据
+<ol>
+<li>任务分类表</li>
+<li>数据操纵特征表</li>
+</ol>
+</li>
+<li>数据约束
+<ol>
+<li>数据的安全保密性</li>
+<li>数据的完整性</li>
+<li>响应时间</li>
+<li>数据恢复</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h4 id="编写需求分析报告">编写需求分析报告</h4>
+<ol>
+<li>实际上，需求分析报告是在需求分析的过程中逐渐整理而形成的，是随着该过程的不断深入而反复修改与完善的。</li>
+<li>需求分析报告通常包含如下内容
+<ol>
+<li>数据库的应用功能目标（功能、性能）</li>
+<li>标明不同用户视图范围（权限、用户、角色）</li>
+<li>应用处理过程需求说明
+<ol>
+<li>数据流程图</li>
+<li>任务分类表</li>
+<li>数据操纵特征表</li>
+<li>操作过程说明书</li>
+</ol>
+</li>
+<li>数据字典
+<ol>
+<li>数据字典（Data Dictionary, DD）是数据库系统中存储三级结构定义的数据库，通常指的是数据库系统中各类数据详细描述的集合。</li>
+<li>功能是存储和检索各种数据描述，即元数据（Metadata)</li>
+<li>通常包括数据分类表、数据元素表和各类原始资料</li>
+</ol>
+</li>
+<li>数据量</li>
+<li>数据约束</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-概念结构设计">2 概念结构设计</h3>
+<ul>
+<li>概念结构设计的任务是在需求分析中产生的需求分析报告的基础上，按照特定的方法设计满足应用需求的用户信息结构，该信息结构通常称为概念模型。</li>
+<li>概念模型独立于任何软件与硬件，其设计的主要目标是最大限度地满足应用需求，可完全不顾及具体的硬件和软件的限制，特别是DBMS的限制，因而它是一个符合用户要求的趋于理想化的信息结构。</li>
+<li>概念结构设计的常用方法有实体分析法和属性综合法两种，它们也分别称为自顶向下法和自底向上法。</li>
+</ul>
+<h3 id="3-逻辑结构设计">3 逻辑结构设计</h3>
+<p>逻辑结构设计的目标是讲概念模型转换为等价的、并为特定DBMS所支持数据模型的结构。数据库逻辑模型一般由层次、网状、关系数据模型表示。</p>
+<ul>
+<li>逻辑结构设计的输入与输出信息
+<ul>
+<li>输入信息
+<ul>
+<li>独立于特定DBMS的概念模型</li>
+<li>有关响应时间、安全保密性、数据完整性及恢复方面的要求说明，包括保持数据一致性的规则说明</li>
+<li>数据量及使用频率</li>
+<li>特定DBMS特性，包括DBMS支持的数据模型及数据定义语言的说明</li>
+</ul>
+</li>
+<li>输出信息
+<ul>
+<li>一个特定DBMS支持的概念模型，或称之为模型</li>
+<li>一个或多个外部视图，或称之为子模式</li>
+<li>物理设计说明，其主要包括存入数据库中的数据量、使用频率及响应时间要求</li>
+<li>程序设计说明，其是在需求分析的基础上，根据已完成的逻辑模型，编制各程序名、执行逻辑步、存取数据的名、顺序及操作特征（读、写、删、改）的说明</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>逻辑结构设计的步骤</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>start=&gt;start: 概念设计
+</span></span><span style="display:flex;"><span>operation1=&gt;operation: 模型转换
+</span></span><span style="display:flex;"><span>operation2=&gt;operation: 子模式设计（左）
+</span></span><span style="display:flex;"><span>operation3=&gt;operation: 应用程序设计说明（右）
+</span></span><span style="display:flex;"><span>operation4=&gt;operation: 设计评价
+</span></span><span style="display:flex;"><span>end=&gt;end: 物理设计
+</span></span><span style="display:flex;"><span>start-&gt;operation1-&gt;operation2-&gt;operation3-&gt;operation4-&gt;end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中：</p>
+<ol>
+<li>模型转换是指将概念模型等价地转换为特定DBMS支持的关系模型、网状模型或层次模型。对于一个特定的应用环境，通常只转换为用户要求的某个特定DBMS所支持的一种模型表示。</li>
+<li>子模式设计的目标是抽取或导出模式的子集，以构造不同用户使用的局部数据逻辑结构。具体的规则在DBMS的使用指南中通常会有明确的说明。</li>
+<li>编制应用程序设计说明的目的是为可实际运行的应用程序设计提供依据与指导，并作为设计评价的基础。</li>
+<li>设计评价的任务是分析并检验模型及子模式的正确性与合理性，其方法是通过程序设计指南中提交的程序执行逻辑步骤在子模式上的模拟执行来考核模型及子模式是否满足应用需求，有无遗漏，并进一步估计数据容量及存取效率，为物理设计提供参考信息。评价分析中，如若发现不合理之处，则返回到模型转换处重新执行，如此反复，直至满足要求为止。</li>
+</ol>
+<h3 id="4-物理设计">4 物理设计</h3>
+<ul>
+<li>物理设计是指对于一个给定的数据库逻辑结构，研究并构造物理结构的过程，其具体任务主要是确定数据库在存储设备上的存储结构及存取方法，因DBMS的不同还可能包括建立索引和聚集，以及物理块大小、缓冲区个数和大小、数据压缩的选择等。</li>
+</ul>
+<h3 id="5-数据库实施">5 数据库实施</h3>
+<ul>
+<li>加载数据
+<ul>
+<li>数据的收集（人工）</li>
+<li>分类（人工）</li>
+<li>整理（人工）</li>
+<li>校验（程序）</li>
+<li>输入（程序）</li>
+</ul>
+</li>
+<li>应用程序设计</li>
+<li>数据库试运行</li>
+</ul>
+<h3 id="6-数据库运行和维护">6 数据库运行和维护</h3>
+<ul>
+<li>数据库系统投入实际运行标志着数据库设计和应用开发的基本完成，但绝不意味着设计和应用开发工作的终止。</li>
+<li>系统维护中最困难的工作是数据库重组与重构</li>
+<li>重组是当空间利用率和存取效率下降时进行的，它并不改变数据库的逻辑结构和物理结构，只是利用DBMS提供的设施调整数据库中数据的存储位置，从而回收“碎片”，使有关联的数据尽可能靠近存放，达到提高空间利用率和数据存取效率的目的。</li>
+<li>重构是指部分修改数据库的逻辑结构或物理结构，这往往因应用需求的改变与拓展或发现当初的设计欠妥而引起的，例如增、删、改数据类型，增、删、改索引和聚集等。</li>
+</ul>
+<h2 id="三关系数据库设计方法">三、关系数据库设计方法</h2>
+<p>关系数据库是一类采用关系模型作为逻辑数据模型的数据库系统，它的设计过程遵从数据库设计的基本步骤，即同样包含需求分析、概念结构设计、逻辑结构设计、物理结构设计、数据库实施、数据库的运行和维护等这样一些阶段，其中关系数据库的概念结构设计与逻辑结构设计是关系数据库整个设计过程的关键。</p>
+<h4 id="1-关系数据库设计过程与各级模式">1 关系数据库设计过程与各级模式</h4>
+<h4 id="2-概念结构设计方法">2 概念结构设计方法</h4>
+<ul>
+<li>E-R图的表示方法
+<ul>
+<li>实体型，其用矩形表示，矩形框内写明实体的名称</li>
+<li>属性，其用椭圆形表示，并用无向边将其与相应的实体连接起来</li>
+<li>联系，其用菱形表示，菱形框内写明联系的名称，并用无向边分别与有关实体连接起来，同时在无向边旁标上联系的类型（1:1、 1:N、 M:N），如果一个联系具有属性，则这些属性也要用无向边与该联系连接起来。</li>
+</ul>
+</li>
+</ul>
+<p>实体之间的联系：</p>
+<p>（1）两个实体型之间的联系</p>
+<ol>
+<li>一对一联系（1:1）</li>
+<li>一对多联系（1:N）</li>
+<li>多对多联系（M:N）</li>
+</ol>
+<p>一对一联系是一对多联系的特例，一对多联系是多对多联系的特例</p>
+<p>（2）两个以上的实体型之间的联系</p>
+<p>（3）单个实体型内的联系</p>
+<ul>
+<li>局部信息结构设计
+<ul>
+<li>确定局部范围</li>
+<li>选择实体
+<ul>
+<li>数据分类表是选择实体的直接依据</li>
+<li>在同一局部信息结构中的实体名称应具有唯一性</li>
+</ul>
+</li>
+<li>选择实体的关键字属性</li>
+<li>确定实体间的联系</li>
+<li>确定实体的属性
+<ul>
+<li>标识属性：实体的关键字</li>
+<li>说明属性：描述实体的一般特征 （单值的）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>全局信息结构设计
+<ul>
+<li>各局部E-R图之间的冲突
+<ul>
+<li>属性冲突
+<ul>
+<li>属性域冲突，即属性值的类型、取值范围、取值集合的不同</li>
+<li>属性取值单位冲突</li>
+</ul>
+</li>
+<li>命名冲突
+<ul>
+<li>同名异义</li>
+<li>异名同义</li>
+</ul>
+</li>
+<li>
+<h2 id="结构冲突">结构冲突</h2>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
         </div>
 
@@ -318,8 +534,50 @@
 
 
     
-    
-    <script type="text/javascript">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael.min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/flowchart/1.12.2/flowchart.min.js" crossorigin="anonymous"></script>
+        <script>(function () {
+                if (!window.flowchart) return;
+                const blocks = document.querySelectorAll('pre code.language-flowchart, pre code.language-flow');
+                for (let i = 0; i < blocks.length; i++) {
+                    const block = blocks[i];
+                    const rootElement = block.parentNode;
+                    const container = document.createElement('div');
+                    const id = `js-flowchart-diagrams-${i}`;
+                    container.id = id;
+                    container.className = 'align-center';
+                    container.setAttribute("style", "overFlow-x:auto");
+                    rootElement.parentNode.replaceChild(container, rootElement);
+                    const diagram = flowchart.parse(block.childNodes[0].nodeValue);
+                    diagram.drawSVG(id, window.flowchartDiagramsOptions ? window.flowchartDiagramsOptions : {});
+                }
+            })();
+        </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js" crossorigin="anonymous"></script>
+        <script>(function () {
+            if (!window.Diagram) return;
+            const blocks = document.querySelectorAll('pre code.language-sequence');
+            for (let i = 0; i < blocks.length; i++) {
+                const block = blocks[i];
+                
+                const rootElement = block.parentNode;
+                const container = document.createElement('div');
+                const id = `js-sequence-diag-${i}`;
+                container.id = id;
+                container.className = 'align-center';
+                container.setAttribute("style", "overFlow-x:auto");
+                rootElement.parentNode.replaceChild(container, rootElement);
+
+                const diagram = Diagram.parse(block.childNodes[0].nodeValue);
+                diagram.drawSVG(id, window.sequenceDiagramsOptions
+                    ? window.sequenceDiagramsOptions
+                    : { theme: 'simple' });
+            }
+        })();
+        </script><script type="text/javascript">
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],

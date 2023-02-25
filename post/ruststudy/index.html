@@ -928,7 +928,281 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="通用的编程概念">通用的编程概念</h2>
+<ul>
+<li>变量与可变性</li>
+<li>数据类型
+<ul>
+<li>标量类型</li>
+<li>符合类型</li>
+</ul>
+</li>
+<li>函数</li>
+<li>注释</li>
+</ul>
+<h3 id="1-变量与可变性">1 变量与可变性</h3>
+<ul>
+<li>声明变量使用<code>let</code>关键字</li>
+<li>默认情况下，变量是不可变的（Immutable）
+<ul>
+<li>（例子 variables）</li>
+</ul>
+</li>
+<li>声明变量时，在变量前面加上<code>mut</code>，就可以使变量可变。</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ cargo new variables
+</span></span><span style="display:flex;"><span>     Created binary <span style="color:#f92672">(</span>application<span style="color:#f92672">)</span> <span style="color:#e6db74">`</span>variables<span style="color:#e6db74">`</span> package
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/rust
+</span></span><span style="display:flex;"><span>➜ cd var*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variables on  master <span style="color:#f92672">[</span>?<span style="color:#f92672">]</span> via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜ code .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variables on  master <span style="color:#f92672">[</span>?<span style="color:#f92672">]</span> via 🦀 1.67.1
+</span></span><span style="display:flex;"><span>➜
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>
+        <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/qiaopengjun5162/blogpicgo/master/img/202302250858666.png" />   
+    </p>
+<p>代码：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of x is {}&#34;</span>, x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of x is {}&#34;</span>, x);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="变量与常量">变量与常量</h4>
+<ul>
+<li>常量（constant），常量在绑定值以后也是不可变的，但是它与不可变的变量有很多区别：
+<ul>
+<li>不可以使用<code>mut</code>，常量永远都是不可变的</li>
+<li>声明常量使用<code>const</code>关键字，它的类型必须被标注</li>
+<li>常量可以在任何作用域内进行声明，包括全局作用域</li>
+<li>常量只可以绑定到常量表达式，无法绑定到函数的调用结果或只能在运行时才能计算出的值</li>
+</ul>
+</li>
+<li>在程序运行期间，常量在其声明的作用域内一直有效</li>
+<li>命名规范：Rust里常量使用全大写字母，每个单词之间用下划线分开，例如：<code>MAX_POINTS</code></li>
+<li>例子：<code>const MAX_POINTS: u32 = 100_000;</code></li>
+</ul>
+<h4 id="shadowing隐藏">Shadowing（隐藏）</h4>
+<ul>
+<li>可以使用相同的名字声明新的变量，新的变量就会shadow（隐藏）之前声明的同名变量
+<ul>
+<li>在后续的代码中这个变量名代表的就是新的变量</li>
+</ul>
+</li>
+<li>Shadow 和把变量标记为mut是不一样的：
+<ul>
+<li>如果不使用let关键字，那么重新给非mut的变量赋值会导致编译时错误</li>
+<li>而使用let声明的同名新变量，也是不可变的</li>
+<li>使用let声明的同名新变量，它的类型可以与之前不同</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// const MAX_POINTS: u32 = 100_000;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// const MAX_POINTS: u32 = 100_000;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println!(<span style="color:#e6db74">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of x is {}&#34;</span>, x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of x is {}&#34;</span>, x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of x is {}&#34;</span>, x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> spaces <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;    &#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> spaces <span style="color:#f92672">=</span> spaces.len();
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The length of spaces is {}&#34;</span>, spaces);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">let</span> guess: <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;42&#34;</span>.parse().expect(<span style="color:#e6db74">&#34;Not a number&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The guess is {}&#34;</span>, guess);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-数据类型">2 数据类型</h3>
+<ul>
+<li>标量和复合类型</li>
+<li>Rust是静态编译语言，在编译时必须知道所有变量的类型
+<ul>
+<li>基于使用的值，编译器通常能够推断出它的具体类型</li>
+<li>但如果可能的类型比较多（例如把String转为整数的parse方法），就必须添加类型的标注，否则编译会报错</li>
+</ul>
+</li>
+</ul>
+<h4 id="标量类型">标量类型</h4>
+<ul>
+<li>一个标量类型代表一个单个的值</li>
+<li>Rust有四个主要的标量类型：
+<ul>
+<li>整数类型</li>
+<li>浮点类型</li>
+<li>布尔类型</li>
+<li>字符类型</li>
+</ul>
+</li>
+</ul>
+<p>整数类型</p>
+<ul>
+<li>整数类型没有小数部分</li>
+<li>例如u32就是一个无符号的整数类型，占据32位的空间</li>
+<li>无符号整数类型以u开头</li>
+<li>有符号整数类型以i开头</li>
+<li>Rust的整数类型列表：
+<ul>
+<li>每种都分i和u，以及固定的位数</li>
+<li>有符号范围： -(2^n-1)到2^{n-1}-1</li>
+<li>无符号范围：0到2^n-1</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">length</th>
+<th>signed</th>
+<th>unsigned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">8-bit</td>
+<td>i8</td>
+<td>u8</td>
+</tr>
+<tr>
+<td style="text-align:left">16-bit</td>
+<td>i16</td>
+<td>u16</td>
+</tr>
+<tr>
+<td style="text-align:left">32-bit</td>
+<td>i32</td>
+<td>u32</td>
+</tr>
+<tr>
+<td style="text-align:left">64-bit</td>
+<td>i64</td>
+<td>u64</td>
+</tr>
+<tr>
+<td style="text-align:left">128-bit</td>
+<td>i128</td>
+<td>u128</td>
+</tr>
+<tr>
+<td style="text-align:left">arch</td>
+<td>isize</td>
+<td>usize</td>
+</tr>
+</tbody>
+</table>
+<h4 id="isize和usize类型">isize和usize类型</h4>
+<ul>
+<li>isize和usize类型的位数由程序运行的计算机的架构所决定：
+<ul>
+<li>如果是64位计算机，那就是64位的</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>使用isize或usize的主要场景是对某种集合进行索引操作。</li>
+</ul>
+<h4 id="整数字面值">整数字面值</h4>
+<p>十进制、十六进制、八进制、二进制、byte</p>
+<ul>
+<li>除了byte类型外，所有的数值字面值都允许使用类型后缀。例如 57u8</li>
+<li>如果你不太清楚应该使用那种类型，可以使用Rust相应的默认类型</li>
+<li>整数的默认类型就是i32，总体上来说速度很快，即使在64位系统中</li>
+</ul>
+<h4 id="整数溢出">整数溢出</h4>
+<ul>
+<li>例如：u8的范围是0-255，如果你把一个u8变量的值设为256，那么：
+<ul>
+<li>调试模型下编译：Rust会检查整数溢出，如果发生溢出，程序在运行时就会panic</li>
+<li>发布模型下(&ndash;release)编译：Rust不会检查可能导致panic的整数溢出
+<ul>
+<li>如果溢出发生：Rust会执行“环绕”操作：256变成0,257变成1&hellip; 但程序不会panic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="浮点类型">浮点类型</h3>
+<ul>
+<li>Rust有两种基础的浮点类型，也就是含有小数部分的类型</li>
+</ul>
+
         </div>
 
         
@@ -1033,8 +1307,50 @@
 
 
     
-    
-    <script type="text/javascript">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael.min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/flowchart/1.12.2/flowchart.min.js" crossorigin="anonymous"></script>
+        <script>(function () {
+                if (!window.flowchart) return;
+                const blocks = document.querySelectorAll('pre code.language-flowchart, pre code.language-flow');
+                for (let i = 0; i < blocks.length; i++) {
+                    const block = blocks[i];
+                    const rootElement = block.parentNode;
+                    const container = document.createElement('div');
+                    const id = `js-flowchart-diagrams-${i}`;
+                    container.id = id;
+                    container.className = 'align-center';
+                    container.setAttribute("style", "overFlow-x:auto");
+                    rootElement.parentNode.replaceChild(container, rootElement);
+                    const diagram = flowchart.parse(block.childNodes[0].nodeValue);
+                    diagram.drawSVG(id, window.flowchartDiagramsOptions ? window.flowchartDiagramsOptions : {});
+                }
+            })();
+        </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js" crossorigin="anonymous"></script>
+        <script>(function () {
+            if (!window.Diagram) return;
+            const blocks = document.querySelectorAll('pre code.language-sequence');
+            for (let i = 0; i < blocks.length; i++) {
+                const block = blocks[i];
+                
+                const rootElement = block.parentNode;
+                const container = document.createElement('div');
+                const id = `js-sequence-diag-${i}`;
+                container.id = id;
+                container.className = 'align-center';
+                container.setAttribute("style", "overFlow-x:auto");
+                rootElement.parentNode.replaceChild(container, rootElement);
+
+                const diagram = Diagram.parse(block.childNodes[0].nodeValue);
+                diagram.drawSVG(id, window.sequenceDiagramsOptions
+                    ? window.sequenceDiagramsOptions
+                    : { theme: 'simple' });
+            }
+        })();
+        </script><script type="text/javascript">
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],
