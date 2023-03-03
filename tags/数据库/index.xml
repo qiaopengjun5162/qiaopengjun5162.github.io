@@ -6,7 +6,16 @@
     <description>Recent content in 数据库 on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Feb 2023 16:16:22 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Feb 2023 18:51:31 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据库系统原理之SQL与关系数据库基本操作</title>
+      <link>https://qiaopengjun5162.github.io/post/database_mysql_4/</link>
+      <pubDate>Mon, 27 Feb 2023 18:51:31 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/database_mysql_4/</guid>
+      <description>SQL与关系数据库基本操作 第一节 SQL概述 结构化查询语言（Structured Query Language，SQL）是一种专门用来与数据库通信的语言，</description>
+    </item>
+    
     <item>
       <title>Mysql设置远程连接</title>
       <link>https://qiaopengjun5162.github.io/post/mysql_remote_conn/</link>
