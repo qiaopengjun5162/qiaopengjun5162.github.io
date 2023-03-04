@@ -148,6 +148,360 @@
 <li>SQL调用和会话规则：SQL调用包括SQL例程和调用规则，以便提高SQL的灵活性、有效性、共享性以及使SQL具有更多的高级语言的特征。SQL会话规则则可使应用程序连接到多个SQL服务器中的某一个，并与之交互。</li>
 </ul>
 <h2 id="第二节-mysql预备知识">第二节 MySQL预备知识</h2>
+<p>MySQL是一个关系数据库管理系统（RDBMS），它具有客户/服务器体系结构 ，最初是由瑞典MySQL AB公司开发。</p>
+<h3 id="一mysql使用基础">一、MySQL使用基础</h3>
+<ul>
+<li>LAMP（Linux+Apache+MySQL+PHP/Perl/Python），即使用Linux作为操作系统，Apache作为Web服务器，MySQL作为数据库管理系统，PHP、Perl或Python语言作为服务器端脚本解释器。</li>
+<li>WAMP（Windows+Apache+MySQL+PHP/Perl/Python），即使用Windows作为操作系统，Apache作为Web服务器，MySQL作为数据库管理系统，PHP、Perl或Python语言作为服务器端脚本解释器。</li>
+</ul>
+<h3 id="二mysql中的sql">二、MySQL中的SQL</h3>
+<p>MySQL在SQL标准的基础上增加了部分扩展的语言要素：</p>
+<ul>
+<li>常量：是指在程序运行过程中值不变的量，也称为字面值或标量值
+<ul>
+<li>常量的使用格式取决于值的数据类型，可分为字符串常量、数值常量、十六进制常量、时间日期常量、位字段值、布尔值和NULL值</li>
+</ul>
+</li>
+<li>变量：用于临时存储数据，变量中的数据可以随着程序的运行而变化。
+<ul>
+<li>变量有名字和数据类型两个属性
+<ul>
+<li>变量的名字用于标识变量</li>
+<li>变量的数据类型用于确定变量中存储数值的格式和可执行的运算</li>
+</ul>
+</li>
+<li>在MySQL中，变量分为用户变量和系统变量
+<ul>
+<li>用户变量前添加一个“@”</li>
+<li>系统变量前添加两个“@”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>运算法
+<ul>
+<li>算术运算符：+（加）、-（减）、*（乘）、/（除）和%（求模）5种运算</li>
+<li>位运算符：&amp;（位与）、|（位或）、^（位异或）、~（位取反）、&raquo;（位右移）、&laquo;（位左移）</li>
+<li>比较运算符：=（等于）、&gt;（大于）、&lt;（小于）、&gt;=（大于等于）、&lt;=（小于等于）、&lt;&gt;（不等于）、!=（不等于）、&lt;=&gt;（相等或都等于空）</li>
+<li>逻辑运算符：NOT或!（逻辑非）、AND或&amp;&amp;（逻辑与）、OR或||（逻辑或）、XOR（逻辑异或）</li>
+</ul>
+</li>
+<li>表达式：是常量、变量、列名、复杂计算、运算符和函数的组合
+<ul>
+<li>根据表达式的值的数据类型，表示式可分为字符型表达式、数值型表达式和日期表达式</li>
+</ul>
+</li>
+<li>内置函数
+<ul>
+<li>数学函数，例如ABS()函数、SORT()函数</li>
+<li>聚合函数，例如COUNT()函数</li>
+<li>字符串函数，例如ASCII()函数、CHAR()函数</li>
+<li>日期和时间函数，例如NOW()函数、YEAR()函数</li>
+<li>加密函数，例如FNCODE()函数、ENCRYPT()函数</li>
+<li>控制流程函数，例如IF()函数、IFNULL()函数</li>
+<li>格式化函数，例如FORMAT()函数</li>
+<li>类型转换函数，例如CAST()函数</li>
+<li>系统信息函数，例如USER()函数、VERSION()函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三节-数据定义">第三节 数据定义</h2>
+<p>SQL标准不提供修改数据库模式定义和修改视图定义的操作，用户如果需要修改这些对象，可先将它们删除然后再重建，或者也可以使用具体的关系数据库关系系统所提供的扩展语句来实现。</p>
+<p>SQL标准没有提供索引相关的语句。</p>
+<p>SQL标准提供的数据定义语句</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作对象</th>
+<th style="text-align:center">创建</th>
+<th style="text-align:center">删除</th>
+<th style="text-align:center">修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">模式</td>
+<td style="text-align:center">CREATE SCHEMA 语句</td>
+<td style="text-align:center">DROP SCHEMA 语句</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">表</td>
+<td style="text-align:center">CREATE TABLE 语句</td>
+<td style="text-align:center">DROP TABLE 语句</td>
+<td style="text-align:center">ALTER TABLE 语句</td>
+</tr>
+<tr>
+<td style="text-align:center">视图</td>
+<td style="text-align:center">CREATE VIEW 语句</td>
+<td style="text-align:center">DROP VIEW 语句</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="一数据库模式定义">一、数据库模式定义</h3>
+<ul>
+<li>创建数据库</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">DATABASE</span><span style="color:#f92672">|</span><span style="color:#66d9ef">SCHEMA</span><span style="color:#960050;background-color:#1e0010">}</span>[<span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span>] db_name
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">DEFAULT</span>] <span style="color:#66d9ef">CHARACTER</span> <span style="color:#66d9ef">SET</span> [<span style="color:#f92672">=</span>] charset_name
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span>[<span style="color:#66d9ef">DEFAULT</span>] <span style="color:#66d9ef">COLLATE</span> [<span style="color:#f92672">=</span>] collation_name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">此语法说明：</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;[]&#34;</span> <span style="color:#960050;background-color:#1e0010">标示其内容为可选项</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#960050;background-color:#1e0010">用于分隔花括号中的选择项，表示可任选其中一项来与花括号外的语法成分共同组成</span>SQL<span style="color:#960050;background-color:#1e0010">语句命令，即选项彼此间是“或”的关系</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;db_name&#34;</span> <span style="color:#960050;background-color:#1e0010">用于标示具体的数据库命名，且该数据库名必须符号操作系统文件夹命名规则，在</span>MySQL<span style="color:#960050;background-color:#1e0010">中不区分大小写</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;DEFAULT&#34;</span> <span style="color:#960050;background-color:#1e0010">指定默认值</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;CHARACTER SET&#34;</span> <span style="color:#960050;background-color:#1e0010">指定数据库字符集（</span><span style="color:#66d9ef">Charset</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;COLLATE&#34;</span> <span style="color:#960050;background-color:#1e0010">指定字符集的校对规则</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;IF NOT EXISTS&#34;</span> <span style="color:#960050;background-color:#1e0010">用于在创建数据库前进行判断，只有该数据库目前尚不存在时才执行</span>CREATE DATABASE<span style="color:#960050;background-color:#1e0010">操作，即此选项可以避免出现数据库已经存在而再新建的错误</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在MySQL中创建一个名为mysql_test的数据库</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➜</span> mysql <span style="color:#f92672">-</span>uroot <span style="color:#f92672">-</span>p
+</span></span><span style="display:flex;"><span>Enter password:
+</span></span><span style="display:flex;"><span>Welcome <span style="color:#66d9ef">to</span> the MySQL monitor.  Commands end <span style="color:#66d9ef">with</span> ; <span style="color:#66d9ef">or</span> <span style="color:#960050;background-color:#1e0010">\</span>g.
+</span></span><span style="display:flex;"><span>Your MySQL connection id <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">1370</span>
+</span></span><span style="display:flex;"><span>Server version: <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">32</span> Homebrew
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Copyright</span> (c) <span style="color:#ae81ff">2000</span>, <span style="color:#ae81ff">2023</span>, Oracle <span style="color:#66d9ef">and</span><span style="color:#f92672">/</span><span style="color:#66d9ef">or</span> its affiliates.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Oracle <span style="color:#66d9ef">is</span> a registered trademark of Oracle Corporation <span style="color:#66d9ef">and</span><span style="color:#f92672">/</span><span style="color:#66d9ef">or</span> its
+</span></span><span style="display:flex;"><span>affiliates. Other names may be trademarks of their respective
+</span></span><span style="display:flex;"><span>owners.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Type <span style="color:#e6db74">&#39;help;&#39;</span> <span style="color:#66d9ef">or</span> <span style="color:#e6db74">&#39;\h&#39;</span> <span style="color:#66d9ef">for</span> help. Type <span style="color:#e6db74">&#39;\c&#39;</span> <span style="color:#66d9ef">to</span> clear the current input statement.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">exists</span> mysql_test;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">1</span> row <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">03</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">databases</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">Database</span>           <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> information_schema <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mysql              <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mysql_test         <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> performance_schema <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sys                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> win_pro            <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> win_pro_test       <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>选择数据库</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">USE</span> db_name;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>只有使用USE命令指定某个数据库为当前数据库之后，才能对该数据库及其存储的数据对象执行各种后续操作</p>
+<ul>
+<li>修改稿数据库</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">DATABASE</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">SCHEMA</span><span style="color:#960050;background-color:#1e0010">}</span> [db_name]
+</span></span><span style="display:flex;"><span>	alter_specification ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改已有数据库mysql_test的默认字符集和校对规则</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">use</span> mysql_test;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Database</span> changed
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">database</span> mysql_test
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">character</span> <span style="color:#66d9ef">set</span> gb2312
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">collate</span> gb2312_chinese_ci;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">1</span> row <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">02</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除数据库</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">DATABASE</span><span style="color:#f92672">|</span><span style="color:#66d9ef">SCHEMA</span><span style="color:#960050;background-color:#1e0010">}</span> [<span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span>] db_name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分别不使用和使用关键字”IF EXISTS“删除一个系统中尚未创建的数据库”mytest“</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">database</span> mytest;
+</span></span><span style="display:flex;"><span>ERROR <span style="color:#ae81ff">1008</span> (HY000): Can<span style="color:#e6db74">&#39;t drop database &#39;</span>mytest<span style="color:#e6db74">&#39;; database doesn&#39;</span>t exist
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">database</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">exists</span> mytest;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows affected, <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">warning</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可选项”IF EXISTS“可以避免删除不存在的数据库时出现的MySQL错误信息。</p>
+<p>使用DROP DATABASE 或 DROP SCHEMA 语句会删除指定的整个数据库，该数据库中的所有表（包括其中的数据）也将永久删除，因而使用该语句时，需谨慎，以免错误删除。</p>
+<ul>
+<li>查看数据库</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">DATABASES</span><span style="color:#f92672">|</span><span style="color:#66d9ef">SCHEMAS</span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;pattern&#39;</span><span style="color:#f92672">|</span><span style="color:#66d9ef">WHERE</span> expr]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;LIKE&#34;</span> <span style="color:#960050;background-color:#1e0010">匹配指定的数据库名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;WHERE&#34;</span> <span style="color:#960050;background-color:#1e0010">指定数据库名称查询范围的条件</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用SHOW DATABASES或SHOW SCHEMAS语句，只会列出当前用户权限范围内所能查看到的所有数据库名称。</p>
+<p>列出当前用户可查看的数据库列表</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">databases</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">Database</span>           <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> information_schema <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mysql              <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mysql_test         <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> performance_schema <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sys                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> win_pro            <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> win_pro_test       <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="二表定义">二、表定义</h3>
+<p>数据表是关系数据库中最重要、最基本的数据对象，也是数据存储的基本单位。</p>
+<p>数据表被定义为字段的集合，数据在表中是按照行和列的格式来存储的，每一行代表一条记录，每一列代表记录中一个字段的取值。</p>
+<p>创建数据表的过程，实质上就是定义每个字段的过程，同时也是实施数据完整性约束的过程。</p>
+<ul>
+<li>
+<h4 id="创建表">创建表</h4>
+</li>
+</ul>
 
         </div>
 
