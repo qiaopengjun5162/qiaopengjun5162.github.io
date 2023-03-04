@@ -1486,7 +1486,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="函数">函数</h3>
+</div><h3 id="2-函数">2 函数</h3>
 <ul>
 <li>声明函数使用fn关键字</li>
 <li>依照惯例，针对函数和变量名，Rust使用snake case 命名规范
@@ -1655,7 +1655,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="控制流">控制流</h3>
+</div><h3 id="3-控制流">3 控制流</h3>
 <h4 id="if-表达式">if 表达式</h4>
 <ul>
 <li>if表达式允许您根据条件来执行不同的代码分支
@@ -1730,7 +1730,541 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>使用match</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">match</span> number {
+</span></span><span style="display:flex;"><span>        number <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=&gt;</span> println!(<span style="color:#e6db74">&#34;number is divisible by 4&#34;</span>),
+</span></span><span style="display:flex;"><span>        number <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=&gt;</span> println!(<span style="color:#e6db74">&#34;number is divisible by 3&#34;</span>),
+</span></span><span style="display:flex;"><span>        number <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=&gt;</span> println!(<span style="color:#e6db74">&#34;number is divisible by 2&#34;</span>),
+</span></span><span style="display:flex;"><span>        _ <span style="color:#f92672">=&gt;</span> println!(<span style="color:#e6db74">&#34;number is not divisible by 4, 3 or 2&#34;</span>),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h4 id="在let语句中使用if">在let语句中使用If</h4>
+<ul>
+<li>因为if是一个表达式，所以可以将它放在let语句中等号的右边</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> condition <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> number <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> condition {<span style="color:#ae81ff">5</span>} <span style="color:#66d9ef">else</span> {<span style="color:#ae81ff">6</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The value of number is {}&#34;</span>, number);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="rust的循环">Rust的循环</h4>
+<ul>
+<li>Rust提供了3种循环：loop，while和for</li>
+</ul>
+<h4 id="loop循环">loop循环</h4>
+<ul>
+<li>loop关键字告诉Rust反复的执行一块代码，直到你喊停</li>
+<li>可以在loop循环中使用break关键字来告诉程序何时停止循环</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">loop</span> {
+</span></span><span style="display:flex;"><span>        counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> counter <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;The result is {}&#34;</span>, result);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="while-条件循环">While 条件循环</h4>
+<ul>
+<li>每次执行循环体之前都判断一次条件</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;{}&#34;</span>, number);
+</span></span><span style="display:flex;"><span>    number <span style="color:#f92672">=</span> number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;LIFTOFF!!!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="使用for循环遍历集合">使用for循环遍历集合</h4>
+<ul>
+<li>可以使用while或loop来遍历集合，但是易错且低效</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> index <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;the index is {}&#34;</span>, a[index]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        index <span style="color:#f92672">=</span> index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用for循环更简洁紧凑，它可以针对集合中的每个元素来执行一些代码</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> element <span style="color:#66d9ef">in</span> a.iter() {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;the value is {}&#34;</span>, element);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>由于for循环的安全、简洁性，所以它在Rust里用的最多</li>
+</ul>
+<h4 id="range">Range</h4>
+<ul>
+<li>标准库提供</li>
+<li>指定一个开始数字和一个结束数字，Range可以生成它们之间的数字（不含结束）</li>
+<li>rev方法可以反转Range</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> number <span style="color:#66d9ef">in</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">4</span>).rev() {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;{}&#34;</span>, number);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;LIFTOFF!!!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-所有权">4 所有权</h3>
+<ul>
+<li>所有权是Rust最独特的特性，它让Rust无需GC就可以保证内存安全</li>
+</ul>
+<h4 id="41-什么是所有权">4.1 什么是所有权</h4>
+<ul>
+<li>Rust的核心特性就是所有权</li>
+<li>所有程序在运行时都必须管理它们使用计算机内存的方式
+<ul>
+<li>有些语言有垃圾收集机制，在程序运行时，它们会不断地寻找不再使用的内存</li>
+<li>在其他语言中，程序员必须显示地分配和释放内存</li>
+</ul>
+</li>
+<li>Rust采用了第三种方式：
+<ul>
+<li>内存是通过一个所有权系统来管理的，其中包含一组编译器在编译时检查的规则</li>
+<li>当程序运行时，所有权特性不会减慢程序的运行速度</li>
+</ul>
+</li>
+</ul>
+<h4 id="stack-vs-heap">Stack VS Heap</h4>
+<p>栈内存 VS 堆内存</p>
+<ul>
+<li>在像Rust这样的系统级编程语言里，一个值是在stack上还是在heap上对语言的行为和你为什么要做某些决定时有更大的影响的</li>
+<li>在你的代码运行的时候，stack和heap都是你可用的内存，但他们的结构很不相同</li>
+</ul>
+<p>存储数据</p>
+<ul>
+<li>Stack按值的接收顺序来存储，按相反的顺序将它们移除（后进先出，LIFO）
+<ul>
+<li>添加数据叫做压入栈</li>
+<li>移除数据叫做弹出栈</li>
+</ul>
+</li>
+<li>所有存储在stack上的数据必须拥有已知的固定的大小
+<ul>
+<li>编译时大小未知的数据或运行时大小可能发生变化的数据必须存放在heap上</li>
+</ul>
+</li>
+<li>Heap内存组织性差一些
+<ul>
+<li>当你把数据放入heap时，你会请求一定数量的空间</li>
+<li>操作系统在heap里找到一块足够大的空间，把它标记为在用，并返回一个指针，也就是这个空间的地址</li>
+<li>这个过程叫做在heap上进行分配，有时仅仅称为“分配”</li>
+</ul>
+</li>
+<li>把值压到stack上不叫分配</li>
+<li>因为指针是已知固定大小的，可以把指针存放在stack上
+<ul>
+<li>但如果想要实际数据，你必须使用指针来定位</li>
+</ul>
+</li>
+<li>把数据压到stack上要比在heap上分配快得多
+<ul>
+<li>因为操作系统不需要寻找用来存储新数据的空间，那个位置永远都在stack的顶端</li>
+</ul>
+</li>
+<li>在heap上分配空间需要做更多的工作
+<ul>
+<li>操作系统首先需要找到一个足够大的空间来存放数据，然后要做好记录方便下次分配</li>
+</ul>
+</li>
+</ul>
+<p>访问数据</p>
+<ul>
+<li>访问heap中的数据要比访问stack中的数据慢，因为需要通过指针才能找到heap中的数据
+<ul>
+<li>对于现代的处理器来说，由于缓存的缘故，如果指令在内存中跳转的次数越少，那么速度就越快</li>
+</ul>
+</li>
+<li>如果数据存放的距离比较近，那么处理器的处理速度就会更快一些（stack上）</li>
+<li>如果数据之间的距离比较远，那么处理速度就会慢一些（heap上）
+<ul>
+<li>在heap上分配大量的空间也是需要时间的</li>
+</ul>
+</li>
+</ul>
+<p>函数调用</p>
+<ul>
+<li>当你的代码调佣函数时，值被传入到函数（也包括指向heap的指针）。函数本地的变量被压到stack上。当函数结束后，这些值会从stack上弹出</li>
+</ul>
+<p>所有权存在的原因</p>
+<ul>
+<li>所有权解决的问题：
+<ul>
+<li>跟踪代码的哪些部分正在使用heap的哪些数据</li>
+<li>最小化heap上的重复数据量</li>
+<li>清理heap上未使用的数据以避免空间不足</li>
+</ul>
+</li>
+<li>一旦你懂的了所有权，那么就不需要经常去想stack或heap了</li>
+<li>但是知道管理heap数据是所有权存在的原因，这有助于解释它为什么会这样工作</li>
+</ul>
+<h4 id="所有权规则">所有权规则</h4>
+<ul>
+<li>每个值都有一个变量，这个变量是该值的所有者</li>
+<li>每个值同时只能有一个所有者</li>
+<li>当所有者超出作用域（scope）时，该值将被删除</li>
+</ul>
+<h4 id="变量作用域">变量作用域</h4>
+<ul>
+<li>Scope就是程序中一个项目的有效范围</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// s 不可用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>; <span style="color:#75715e">// s 可用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                   <span style="color:#75715e">// 可以对 s 进行相关操作 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#75715e">// s 作用域到此结束，s 不再可用
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="string-类型">String 类型</h4>
+<ul>
+<li>String 比那些基础标量数据类型更复杂</li>
+<li>字符串字面值：程序里手写的那些字符串值。它们是不可变的</li>
+<li>Rust还有第二种字符串类型：String
+<ul>
+<li>在heap上分配。能够存储在编译时未知数量的文本</li>
+</ul>
+</li>
+</ul>
+<h4 id="创建string类型的值">创建String类型的值</h4>
+<ul>
+<li>可以使用from函数从字符串字面值创建出String类型</li>
+<li>let s = String::from(&ldquo;hellp&rdquo;);
+<ul>
+<li>“::”表示from是String类型下的函数</li>
+</ul>
+</li>
+<li>这类字符串是可以被修改的</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    s.push_str(<span style="color:#e6db74">&#34;, World&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;{}&#34;</span>, s);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>为什么String类型的值可以修改，而字符串字面值却不能修改？
+<ul>
+<li>因为它们处理内存的方式不同</li>
+</ul>
+</li>
+</ul>
+<h4 id="内存和分配">内存和分配</h4>
+<ul>
+<li>字符串字面值，在编译时就知道它的内容了，其文本内容直接被硬编码到最终的可执行文件里
+<ul>
+<li>速度快、高效。是因为其不可变性</li>
+</ul>
+</li>
+<li>String类型，为了支持可变性，需要在heap上分配内存来保存编译时未知的文本内容：
+<ul>
+<li>操作系统必须在运行时来请求内存
+<ul>
+<li>这步通过调用<code>String::from</code>来实现</li>
+</ul>
+</li>
+<li>当用完String之后，需要使用某种方式将内存返回给操作系统
+<ul>
+<li>这步，在拥有GC的语言中，GC会跟踪并清理不再使用的内存</li>
+<li>没有GC，就需要我们去识别内存何时不再使用，并调用代码将它返回
+<ul>
+<li>如果忘了，那就浪费内存</li>
+<li>如果提前做了，变量就会非法</li>
+<li>如果做了两次，也是Bug，必须一次分配对应一次释放</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Rust采用了不同的方式：对于某个值来说，当拥有它的变量走出作用范围时，内存会立即自动的交还给操作系统</li>
+<li>DROP函数（当变量走出作用域的时候，Rust会自动调用这个函数）</li>
+</ul>
+<h4 id="变量和数据交互的方式移动move">变量和数据交互的方式：移动（Move）</h4>
+<ul>
+<li>多个变量可以与同一个数据使用一种独特的方式来交互</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> y <span style="color:#f92672">=</span> x;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>整数是已知且固定大小的简单的值，这两个5倍压到了stack中</li>
+</ul>
+<p>String版本</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>一个String由3部分组成：
+<ul>
+<li>一个指向存放字符串内容的内存的指针（ptr）</li>
+<li>一个长度（len）</li>
+<li>一个容量（capacity）</li>
+</ul>
+</li>
+<li>上面这些东西放在stack上</li>
+<li>存放字符串内容的部分在heap上</li>
+<li>长度len，就是存放字符串内容所需的字节数</li>
+<li>容量capacity是指String从操作系统总共获得内存的总字节数</li>
+<li>当把s1赋给s2，String的数据被复制了一份：
+<ul>
+<li>在stack上复制了一份指针、长度、容量</li>
+<li>并没有复制指针所指向的heap上的数据</li>
+</ul>
+</li>
+<li>当变量离开作用域时，Rust会自动调用DROP函数，并将变量使用的heap内存释放</li>
+<li>当s1、s2离开作用域时，它们都会尝试释放相同的内存：
+<ul>
+<li>二次释放（double free）bug</li>
+</ul>
+</li>
+<li>为了保证内存安全：
+<ul>
+<li>Rust没有尝试复制被分配的内存</li>
+<li>Rust让s1失效
+<ul>
+<li>当s1离开作用域的时候，Rust不需要释放任何东西</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>浅拷贝（shallow copy）</li>
+<li>深拷贝（deep copy）</li>
+<li>你也许会将复制指针、长度、容量视为浅拷贝，但由于Rust让s1失效了，所以我们用一个新的术语：移动（Move）</li>
+<li>隐含的一个设计原则：Rust不会自动创建数据的深拷贝
+<ul>
+<li>就运行时性能而言，任何自动赋值的操作都是廉价的</li>
+</ul>
+</li>
+</ul>
+<h4 id="变量和数据交互的方式克隆clone">变量和数据交互的方式：克隆（Clone）</h4>
+<ul>
+<li>如果真想对heap上面的String数据进行深度拷贝，而不仅仅是stack上的数据，可以使用Clone方法</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1.clone();
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;{}, {}&#34;</span>, s1, s2);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="stack上的数据复制">Stack上的数据：复制</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> y <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;{}, {}&#34;</span>, x, y);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Copy trait， 可以用于像整数这样完全存放在stack上面的类型</li>
+<li>如果一个类型实现了Copy这个trait，那么旧的变量在赋值后仍然可用</li>
+<li>如果一个类型或者该类型的一部分实现了Drop trait，那么Rust不允许让它再去实现Copy Trait了</li>
+</ul>
+<h4 id="一些拥有copy-trait-的类型">一些拥有Copy Trait 的类型</h4>
+<ul>
+<li>任何简单标量的组合类型都可以是Copy的</li>
+<li>任何需要分配内存或某种资源的都不是Copy的</li>
+<li>一些拥有Copy Trait的类型：
+<ul>
+<li>所有的整数类型，例如u32</li>
+<li>bool</li>
+<li>char</li>
+<li>所有的浮点类型，例如f64</li>
+<li>Tuple（元组），如果起所有的字段都是Copy的
+<ul>
+<li><code>(i32, i32)</code>是</li>
+<li><code>(i32, String)</code>不是</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="所有权与函数">所有权与函数</h4>
+<ul>
+<li>在语义上，将值传递给函数和把值赋给变量是类似的：</li>
+<li></li>
+</ul>
+
         </div>
 
         
