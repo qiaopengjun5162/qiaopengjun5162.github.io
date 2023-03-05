@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on 小乔的博客</title>
+    <link>https://qiaopengjun5162.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 面试 on 小乔的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 05 Mar 2023 23:50:31 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试题</title>
+      <link>https://qiaopengjun5162.github.io/post/interview/</link>
+      <pubDate>Sun, 05 Mar 2023 23:50:31 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/interview/</guid>
+      <description>面试题 线程是并发还是并行，进程是并发还是并行？ 线程是并发，进程是并行； 进程之间互相独立，是系统分配资源的最小单位，同一个线程中的所有线程共享</description>
+    </item>
+    
+  </channel>
+</rss>
