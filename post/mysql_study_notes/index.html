@@ -76,7 +76,154 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">Table of Contents</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一数据库介绍">一、数据库介绍</a>
+      <ul>
+        <li><a href="#1数据库相关概念">1.数据库相关概念</a></li>
+        <li><a href="#2数据库安装">2.数据库安装</a></li>
+        <li><a href="#3数据库简单管理">3.数据库简单管理</a></li>
+        <li><a href="#4sql语句">4.sql语句</a></li>
+        <li><a href="#5库相关操作">5.库相关操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#二表相关操作">二、表相关操作</a>
+      <ul>
+        <li><a href="#1表的类型--存储引擎">1.表的类型  存储引擎</a></li>
+        <li><a href="#2数据类型">2.数据类型</a></li>
+        <li><a href="#3表约束">3.表约束</a></li>
+        <li><a href="#4表的三种关系">4.表的三种关系</a></li>
+      </ul>
+    </li>
+    <li><a href="#三记录相关操作">三、记录相关操作</a>
+      <ul>
+        <li><a href="#1单表查询">1.单表查询</a></li>
+        <li><a href="#2多表查询">2.多表查询</a></li>
+      </ul>
+    </li>
+    <li><a href="#四在python中如何操作mysql">四、在python中如何操作mysql</a>
+      <ul>
+        <li><a href="#1pymysql">1.pymysql</a></li>
+        <li><a href="#2navicat--图形界面">2.navicat  图形界面</a></li>
+      </ul>
+    </li>
+    <li><a href="#五数据sql语句其他">五、数据sql语句其他</a></li>
+    <li><a href="#六索引原理与慢查询优化">六、索引原理与慢查询优化</a></li>
+    <li><a href="#七数据库事务-transaction交易">七、数据库事务 transaction（交易）</a>
+      <ul>
+        <li><a href="#1原子性">1.原子性</a></li>
+        <li><a href="#2一致性">2.一致性</a></li>
+        <li><a href="#3隔离性">3.隔离性</a></li>
+        <li><a href="#4持久性">4.持久性</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据库读现象">数据库读现象</a>
+      <ul>
+        <li><a href="#1脏读dirty-read">1.脏读（dirty read)</a></li>
+        <li><a href="#2不可重复读nonrepeatable-read">2.不可重复读(nonrepeatable read)</a></li>
+        <li><a href="#3幻读-幻象读取phantom-read">3.幻读 幻象读取（phantom read)</a></li>
+      </ul>
+    </li>
+    <li><a href="#九数据库锁机制与mvcc">九、数据库锁机制与mvcc</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
     <article class="post">
         <header>
             <h1 class="post-title">MySQL学习笔记</h1>

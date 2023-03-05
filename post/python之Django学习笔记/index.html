@@ -76,7 +76,707 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">Table of Contents</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#软件开发架构">软件开发架构</a>
+      <ul>
+        <li><a href="#1cs">1.C/S</a></li>
+        <li><a href="#2bs">2.B/S</a></li>
+      </ul>
+    </li>
+    <li><a href="#http协议">HTTP协议</a>
+      <ul>
+        <li><a href="#一四大特性">一.四大特性</a></li>
+        <li><a href="#二数据格式">二、数据格式</a></li>
+        <li><a href="#三响应状态码">三、响应状态码</a></li>
+        <li><a href="#四请求方法">四、请求方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#web框架">WEB框架</a>
+      <ul>
+        <li><a href="#问题一">问题一</a></li>
+        <li><a href="#问题二">问题二</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#django框架">django框架</a></li>
+        <li><a href="#app">app</a></li>
+        <li><a href="#作业">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#今日内容概要">今日内容概要</a></li>
+    <li><a href="#今日内容详细">今日内容详细</a>
+      <ul>
+        <li><a href="#补充">补充</a></li>
+        <li><a href="#django-orm">django orm</a></li>
+        <li><a href="#数据的增删改查">数据的增删改查</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日内容回顾">昨日内容回顾</a></li>
+    <li><a href="#今日内容概要-1">今日内容概要</a></li>
+    <li><a href="#今日内容详细-1">今日内容详细</a>
+      <ul>
+        <li><a href="#orm创建外键关系">orm创建外键关系</a></li>
+        <li><a href="#路由层之路由匹配">路由层之路由匹配</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日内容回顾-1">昨日内容回顾</a></li>
+    <li><a href="#今日内容概要-2">今日内容概要</a></li>
+    <li><a href="#今日内容详细-2">今日内容详细</a>
+      <ul>
+        <li><a href="#本地虚拟环境">本地虚拟环境</a></li>
+        <li><a href="#httpresponserenderredirect三板斧本质">HttpResponse、render、redirect三板斧本质</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日内容回顾-2">昨日内容回顾</a></li>
+    <li><a href="#今日内容详细-3">今日内容详细</a>
+      <ul>
+        <li><a href="#django-settings-源码">Django settings 源码</a></li>
+        <li><a href="#模板的继承">模板的继承</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日内容回顾-3">昨日内容回顾</a></li>
+    <li><a href="#今日内容概要-3">今日内容概要</a></li>
+    <li><a href="#今日内容详细-4">今日内容详细</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#0-图书相关表关系建立">0 图书相关表关系建立</a></li>
+    <li><a href="#1-基于双下划线的跨表查询">1 基于双下划线的跨表查询</a></li>
+    <li><a href="#2-聚合查询">2 聚合查询</a></li>
+    <li><a href="#3-分组查询">3 分组查询</a></li>
+    <li><a href="#4-f查询">4 F查询</a></li>
+    <li><a href="#5-q查询">5 Q查询</a>
+      <ul>
+        <li><a href="#补充-1">补充：</a></li>
+        <li><a href="#django-admin的使用">Django admin的使用</a></li>
+        <li><a href="#使用脚本调用django">使用脚本调用Django</a></li>
+        <li><a href="#django查看源生sql">Django查看源生sql</a></li>
+        <li><a href="#作业-1">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾">昨日回顾</a></li>
+    <li><a href="#今日内容-1">今日内容</a>
+      <ul>
+        <li><a href="#1-分组查询">1 分组查询</a></li>
+        <li><a href="#2-图书管理系统项目">2 图书管理系统项目</a></li>
+      </ul>
+    </li>
+    <li><a href="#补充-2">补充</a>
+      <ul>
+        <li><a href="#1-wsgi-uwsgi-cgi-fastcgi">1 wsgi, uwsgi, cgi, fastcgi</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾-1">昨日回顾</a></li>
+    <li><a href="#今日内容-2">今日内容</a>
+      <ul>
+        <li><a href="#1-图书管理系统图书修改">1 图书管理系统图书修改</a></li>
+        <li><a href="#2-orm常用和非常用字段了解">2 orm常用和非常用字段（了解）</a></li>
+        <li><a href="#3-orm字段参数了解">3 orm字段参数（了解）</a></li>
+        <li><a href="#4-字段关系了解">4 字段关系（了解）</a></li>
+        <li><a href="#5-手动创建第三张表">5 手动创建第三张表</a></li>
+        <li><a href="#6-meta元信息">6 Meta元信息</a></li>
+        <li><a href="#7-原生sql">7 原生SQL</a></li>
+        <li><a href="#8-django与ajax入门">8 Django与ajax(入门)</a></li>
+        <li><a href="#81-写ajax跟后端交互">8.1 写ajax跟后端交互</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾-2">昨日回顾</a></li>
+    <li><a href="#今日内容-3">今日内容</a>
+      <ul>
+        <li><a href="#1-ajax发送其他请求">1 ajax发送其他请求</a></li>
+        <li><a href="#2-上传文件ajax和form两种方式">2 上传文件（ajax和form两种方式）</a></li>
+        <li><a href="#3-ajax上传json格式">3 ajax上传json格式</a></li>
+        <li><a href="#4-django内置序列化了解">4 Django内置序列化（了解）</a></li>
+        <li><a href="#5-分页器的使用">5 分页器的使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-2">作业</a></li>
+    <li><a href="#补充-3">补充</a></li>
+    <li><a href="#昨日回顾-3">昨日回顾</a></li>
+    <li><a href="#今日内容-4">今日内容</a>
+      <ul>
+        <li><a href="#1-分页器基本使用">1 分页器基本使用</a></li>
+        <li><a href="#2-分页器终极用法">2 分页器终极用法</a></li>
+        <li><a href="#3-forms组件之校验字段">3 forms组件之校验字段</a></li>
+        <li><a href="#4-forms组件之渲染标签">4 forms组件之渲染标签</a></li>
+        <li><a href="#5-forms组件之渲染错误信息">5 forms组件之渲染错误信息</a></li>
+        <li><a href="#6-forms组件参数设置">6 forms组件参数设置</a></li>
+        <li><a href="#7-forms组件全局钩子局部钩子">7 forms组件全局钩子，局部钩子</a></li>
+      </ul>
+    </li>
+    <li><a href="#上节回顾">上节回顾</a></li>
+    <li><a href="#今日内容-5">今日内容</a>
+      <ul>
+        <li><a href="#1-forms组件源码分析">1 forms组件源码分析</a></li>
+        <li><a href="#2-cookiesessiontoken扫盲">2 cookie，session，token扫盲</a></li>
+        <li><a href="#3-django中cookie的使用">3 Django中cookie的使用</a></li>
+        <li><a href="#4-django中session的使用">4 Django中session的使用</a></li>
+        <li><a href="#5-cookiesession其他了解知识">5 cookie，session其他了解知识</a></li>
+        <li><a href="#补充-4">补充</a></li>
+        <li><a href="#作业-3">作业</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾-4">昨日回顾</a></li>
+    <li><a href="#今日内容-6">今日内容</a>
+      <ul>
+        <li><a href="#1-cbv加装饰器">1 cbv加装饰器</a></li>
+        <li><a href="#2-正向代理和反向代理">2 正向代理和反向代理</a></li>
+        <li><a href="#3-中间件介绍和常用内置中间件">3 中间件介绍和常用内置中间件</a></li>
+        <li><a href="#31-django内置中间件">3.1 Django内置中间件</a></li>
+        <li><a href="#4-自定义中间件">4 自定义中间件</a></li>
+        <li><a href="#5-csrf_token跨站请求伪造">5 CSRF_TOKEN跨站请求伪造</a></li>
+        <li><a href="#6-django中处理csrf">6 Django中处理csrf</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-4">作业</a></li>
+    <li><a href="#昨日回顾-5">昨日回顾</a></li>
+    <li><a href="#今日内容-7">今日内容</a>
+      <ul>
+        <li><a href="#1-anth组件介绍">1 anth组件介绍</a></li>
+        <li><a href="#2-auth组件常用方法">2 auth组件常用方法</a></li>
+        <li><a href="#3-user对象的属性">3 User对象的属性</a></li>
+        <li><a href="#4-扩展默认的auth_user表">4 扩展默认的auth_user表</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-5">作业</a></li>
+    <li><a href="#补充-5">补充</a>
+      <ul>
+        <li><a href="#1-django启动流程">1 Django启动流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾-6">昨日回顾</a></li>
+    <li><a href="#今日内容-8">今日内容</a>
+      <ul>
+        <li><a href="#1-项目开发流程">1 项目开发流程</a></li>
+        <li><a href="#2-bbs表分析">2 bbs表分析</a></li>
+        <li><a href="#3-bbs表模型创建">3 bbs表模型创建</a></li>
+        <li><a href="#4-注册forms类编写">4 注册forms类编写</a></li>
+        <li><a href="#5-注册功能前端搭建">5 注册功能前端搭建</a></li>
+        <li><a href="#6-头像实时显示">6 头像实时显示</a></li>
+        <li><a href="#7-注册功能前后端">7 注册功能前后端</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-6">作业</a></li>
+    <li><a href="#补充-6">补充</a></li>
+    <li><a href="#昨日回顾-7">昨日回顾</a></li>
+    <li><a href="#今日内容-9">今日内容</a>
+      <ul>
+        <li><a href="#1-注册功能前端">1 注册功能前端</a></li>
+        <li><a href="#2-注册功能后端">2 注册功能后端</a></li>
+        <li><a href="#3-注册功能前端错误渲染">3 注册功能前端错误渲染</a></li>
+        <li><a href="#4-登录页面搭建">4 登录页面搭建</a></li>
+        <li><a href="#5-手写验证码第三方">5 手写验证码（第三方）</a></li>
+        <li><a href="#6-登录功能前后端">6 登录功能前后端</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-7">作业</a></li>
+    <li><a href="#补充-7">补充</a>
+      <ul>
+        <li><a href="#jquery的each用法">jQuery的each用法</a></li>
+      </ul>
+    </li>
+    <li><a href="#上节回顾-1">上节回顾</a></li>
+    <li><a href="#今日内容-10">今日内容</a>
+      <ul>
+        <li><a href="#1-首页布局">1 首页布局</a></li>
+        <li><a href="#2-个人头像显示">2 个人头像显示</a></li>
+        <li><a href="#3-个人站点路由设计">3 个人站点路由设计</a></li>
+        <li><a href="#4-个人站点页面设计">4 个人站点页面设计</a></li>
+        <li><a href="#5-左侧过滤功能">5 左侧过滤功能</a></li>
+        <li><a href="#6-左侧过滤和个人站点路由整合">6 左侧过滤和个人站点路由整合</a></li>
+      </ul>
+    </li>
+    <li><a href="#补充-8">补充</a></li>
+    <li><a href="#作业-8">作业</a></li>
+    <li><a href="#昨日回顾-8">昨日回顾</a></li>
+    <li><a href="#今日内容-11">今日内容</a>
+      <ul>
+        <li><a href="#0-伪静态">0 伪静态</a></li>
+        <li><a href="#1-左侧查询和个人主页路由整合">1 左侧查询和个人主页路由整合</a></li>
+        <li><a href="#2-左侧标签分类归档写成inclusion_tag">2 左侧标签，分类，归档写成inclusion_tag</a></li>
+        <li><a href="#3-文章详情页面搭建">3 文章详情页面搭建</a></li>
+        <li><a href="#4-文章点赞点踩样式">4 文章点赞点踩样式</a></li>
+        <li><a href="#5-文章点赞点踩后端">5 文章点赞点踩后端</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-9">作业</a></li>
+    <li><a href="#昨日回顾-9">昨日回顾</a></li>
+    <li><a href="#今日内容-12">今日内容</a>
+      <ul>
+        <li><a href="#1--评论的render显示">1  评论的render显示</a></li>
+        <li><a href="#2--根评论的ajax提交和显示">2  根评论的ajax提交和显示</a></li>
+        <li><a href="#3--评论后端">3  评论后端</a></li>
+        <li><a href="#4-子评论ajax提交和显示">4 子评论ajax提交和显示</a></li>
+        <li><a href="#5-后台管理首页文章显示">5 后台管理首页文章显示</a></li>
+        <li><a href="#6-新增文章富文本编辑器xss攻击">6 新增文章（富文本编辑器，xss攻击）</a></li>
+        <li><a href="#7-富文本-编辑器上传图片">7 富文本 编辑器上传图片</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-10">作业</a></li>
+    <li><a href="#回顾">回顾</a></li>
+    <li><a href="#今日内容-13">今日内容</a>
+      <ul>
+        <li><a href="#1-前后端开发模式">1 前后端开发模式</a></li>
+        <li><a href="#2-api接口和restful规范">2 api接口和restful规范</a></li>
+        <li><a href="#3-postman的使用">3 postman的使用</a></li>
+        <li><a href="#4-drf介绍和安装">4 drf介绍和安装</a></li>
+        <li><a href="#5-cbv和apiview执行流程分析">5 CBV和ApiView执行流程分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-11">作业</a></li>
+    <li><a href="#拓展">拓展</a></li>
+    <li><a href="#上节回顾-2">上节回顾</a></li>
+    <li><a href="#今日内容-14">今日内容</a>
+      <ul>
+        <li><a href="#0-drf快速使用">0 drf快速使用</a></li>
+        <li><a href="#1-cbv源码分析和apiview源码分析">1 CBV源码分析和APIView源码分析</a></li>
+        <li><a href="#2-request对象分析">2 Request对象分析</a></li>
+        <li><a href="#3-序列化器的作用">3 序列化器的作用</a></li>
+        <li><a href="#4-序列化器的使用">4 序列化器的使用</a></li>
+        <li><a href="#5-反序列化">5 反序列化</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-12">作业</a></li>
+    <li><a href="#补充-9">补充</a></li>
+    <li><a href="#昨日回顾-10">昨日回顾</a></li>
+    <li><a href="#今日内容-15">今日内容</a>
+      <ul>
+        <li><a href="#1-反序列化局部钩子全局钩子">1 反序列化，局部钩子，全局钩子</a></li>
+        <li><a href="#2-序列化类常用字段属性">2 序列化类常用字段属性</a></li>
+        <li><a href="#21-常用和非常用字段">2.1 常用和非常用字段</a></li>
+        <li><a href="#22-字段参数">2.2 字段参数</a></li>
+        <li><a href="#3-模型序列化器">3 模型序列化器</a></li>
+        <li><a href="#32--序列化类">3.2  序列化类</a></li>
+        <li><a href="#33-表模型">3.3 表模型</a></li>
+        <li><a href="#34-路由">3.4 路由</a></li>
+        <li><a href="#4-请求对象">4 请求对象</a></li>
+        <li><a href="#5-响应对象属性">5 响应对象属性</a></li>
+        <li><a href="#6-通过配置修改响应格式">6 通过配置，修改响应格式</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-13">作业</a></li>
+    <li><a href="#补充-10">补充</a></li>
+    <li><a href="#昨日回顾-11">昨日回顾</a></li>
+    <li><a href="#今日内容-16">今日内容</a>
+      <ul>
+        <li><a href="#1-序列化类源码分析">1 序列化类源码分析</a></li>
+        <li><a href="#12-局部全局钩子的源码分析">1.2 局部全局钩子的源码分析</a></li>
+        <li><a href="#13-序列化对象data">1.3 序列化对象.data</a></li>
+        <li><a href="#2-所有http状态码">2 所有http状态码</a></li>
+        <li><a href="#3-两个视图基类">3 两个视图基类</a></li>
+        <li><a href="#4-5个视图扩展类">4 5个视图扩展类</a></li>
+        <li><a href="#5-9个视图子类">5 9个视图子类</a></li>
+        <li><a href="#6-视图集">6 视图集</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-14">作业</a></li>
+    <li><a href="#昨日回顾-12">昨日回顾</a></li>
+    <li><a href="#今日内容-17">今日内容</a>
+      <ul>
+        <li><a href="#1-drf响应格式和请求格式配置了解">1 drf响应格式和请求格式配置（了解）</a></li>
+        <li><a href="#2-封装自己的response对象">2 封装自己的Response对象</a></li>
+        <li><a href="#21-low版本">2.1 low版本</a></li>
+        <li><a href="#3-drf自动生成路由">3 drf自动生成路由</a></li>
+        <li><a href="#4-action装饰器">4 action装饰器</a></li>
+        <li><a href="#5-认证介绍和源码分析">5 认证介绍和源码分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-15">作业</a></li>
+    <li><a href="#昨日回顾-13">昨日回顾</a></li>
+    <li><a href="#今日内容-18">今日内容</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#作业-16">作业</a></li>
+    <li><a href="#补充-11">补充</a></li>
+    <li><a href="#上节回顾-3">上节回顾</a></li>
+    <li><a href="#今日内容-19">今日内容</a>
+      <ul>
+        <li><a href="#0-从根上自定义频率类了解">0 从根上自定义频率类(了解)</a></li>
+        <li><a href="#1-过滤">1 过滤</a></li>
+        <li><a href="#2-排序">2 排序</a></li>
+        <li><a href="#3-三种分页方式">3 三种分页方式</a></li>
+        <li><a href="#4-异常处理">4 异常处理</a></li>
+        <li><a href="#5-自动生成接口文档">5 自动生成接口文档</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-17">作业</a></li>
+    <li><a href="#昨日回顾-14">昨日回顾</a></li>
+    <li><a href="#今日内容-20">今日内容</a>
+      <ul>
+        <li><a href="#1-三种分页方式">1 三种分页方式</a></li>
+        <li><a href="#2-xadmin的使用">2 xadmin的使用</a></li>
+        <li><a href="#3-rbac介绍">3 RBAC介绍</a></li>
+        <li><a href="#4-jwt原理介绍">4 jwt原理介绍</a></li>
+        <li><a href="#5-jwt基础使用">5 jwt基础使用</a></li>
+        <li><a href="#6-自动签发token">6 自动签发token</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-18">作业</a></li>
+    <li><a href="#扩展">扩展</a></li>
+    <li><a href="#昨日回顾-15">昨日回顾</a>
+      <ul>
+        <li><a href="#继承了apiview实现分页">继承了APIView实现分页</a></li>
+      </ul>
+    </li>
+    <li><a href="#今日内容-21">今日内容</a>
+      <ul>
+        <li><a href="#1-jwt原理分析">1 jwt原理分析</a></li>
+        <li><a href="#2-base64的使用">2 base64的使用</a></li>
+        <li><a href="#3-jwt自动签发token自定义响应格式">3 jwt自动签发token，自定义响应格式</a></li>
+        <li><a href="#4-jwt手动签发token">4 jwt手动签发token</a></li>
+        <li><a href="#5-多方式登录">5 多方式登录</a></li>
+        <li><a href="#6-vue介绍">6 Vue介绍</a></li>
+        <li><a href="#7-vue快速使用">7 Vue快速使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-19">作业</a></li>
+    <li><a href="#昨日回顾-16">昨日回顾</a></li>
+    <li><a href="#今日内容-22">今日内容</a>
+      <ul>
+        <li><a href="#1-多方式登录">1 多方式登录</a></li>
+        <li><a href="#2-前端现状和vue介绍">2 前端现状和Vue介绍</a></li>
+        <li><a href="#3-mvvm架构">3 MVVM架构</a></li>
+        <li><a href="#4-单页面开发和组件化开发">4 单页面开发和组件化开发</a></li>
+        <li><a href="#5-nodejs介绍">5 nodejs介绍</a></li>
+        <li><a href="#6-模板语法">6 模板语法</a></li>
+        <li><a href="#7-指令">7 指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#上节回顾-4">上节回顾</a></li>
+    <li><a href="#今日内容-23">今日内容</a>
+      <ul>
+        <li><a href="#1-属性指令">1 属性指令</a></li>
+        <li><a href="#2-style和class的使用">2 style和class的使用</a></li>
+        <li><a href="#3-条件渲染">3 条件渲染</a></li>
+        <li><a href="#4-列表渲染">4 列表渲染</a></li>
+        <li><a href="#5-v-for">5 v-for</a></li>
+        <li><a href="#6-事件处理">6 事件处理</a></li>
+        <li><a href="#7-数据双向绑定">7 数据双向绑定</a></li>
+        <li><a href="#8-表单控制">8 表单控制</a></li>
+        <li><a href="#9-购物车案例">9 购物车案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-20">作业</a></li>
+    <li><a href="#上节回顾-5">上节回顾</a>
+      <ul>
+        <li><a href="#今日内容-24">今日内容</a></li>
+        <li><a href="#1-组件化开发介绍">1 组件化开发介绍</a></li>
+        <li><a href="#2-注册全局组件和局部组件">2 注册全局组件和局部组件</a></li>
+        <li><a href="#3-组件间通信">3 组件间通信</a></li>
+        <li><a href="#4-动态组件">4 动态组件</a></li>
+        <li><a href="#5-vue-cli创建项目">5 vue-cli创建项目</a></li>
+        <li><a href="#6-目录介绍">6 目录介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-21">作业</a></li>
+    <li><a href="#昨日回顾-17">昨日回顾</a></li>
+    <li><a href="#今日内容-25">今日内容</a>
+      <ul>
+        <li><a href="#1-vue前端代理其他知识收尾">1 vue前端代理，其他知识收尾</a></li>
+      </ul>
+    </li>
+    <li><a href="#路飞项目">路飞项目</a>
+      <ul>
+        <li><a href="#2-pip换源">2 pip换源</a></li>
+        <li><a href="#3-虚拟环境搭建">3 虚拟环境搭建</a></li>
+        <li><a href="#4-luffy后台项目创建目录调整">4 luffy后台项目创建，目录调整</a></li>
+        <li><a href="#5-路飞数据库创建创建路飞用户">5 路飞数据库创建，创建路飞用户</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-22">作业</a></li>
+    <li><a href="#上节回顾-6">上节回顾</a></li>
+    <li><a href="#今日内容-26">今日内容</a>
+      <ul>
+        <li><a href="#1-项目生成requirementstxt">1 项目生成requirements.txt</a></li>
+        <li><a href="#2-后台本地化配置">2 后台本地化配置</a></li>
+        <li><a href="#3-数据库配置">3 数据库配置</a></li>
+        <li><a href="#4-user表编写开启media">4 User表编写，开启media</a></li>
+        <li><a href="#5-前台项目创建及配置">5 前台项目创建及配置</a></li>
+        <li><a href="#6-前台vue主页">6 前台vue主页</a></li>
+        <li><a href="#7-跨域问题">7 跨域问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-23">作业</a></li>
+    <li><a href="#上节回顾-7">上节回顾</a></li>
+    <li><a href="#今日内容-27">今日内容</a>
+      <ul>
+        <li><a href="#1-cors和csrf区别">1 cors和csrf区别</a></li>
+        <li><a href="#2-路飞后台配置">2 路飞后台配置</a></li>
+        <li><a href="#3-前端首页">3 前端首页</a></li>
+        <li><a href="#4-首页轮播图接口">4 首页轮播图接口</a></li>
+        <li><a href="#5-git介绍">5 git介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-24">作业</a></li>
+    <li><a href="#后续内容">后续内容</a></li>
+    <li><a href="#昨日回顾-18">昨日回顾</a></li>
+    <li><a href="#今日内容-28">今日内容</a>
+      <ul>
+        <li><a href="#1-git基本操作">1 git基本操作</a></li>
+        <li><a href="#2-过滤文件">2 过滤文件</a></li>
+        <li><a href="#3-多分支开发">3 多分支开发</a></li>
+        <li><a href="#4-远程仓库">4 远程仓库</a></li>
+        <li><a href="#41-远程创建仓库">4.1 远程创建仓库</a></li>
+        <li><a href="#42-git项目创始者和开发者">4.2 git项目创始者和开发者</a></li>
+        <li><a href="#项目创始者">项目创始者</a></li>
+        <li><a href="#项目开发者">项目开发者</a></li>
+        <li><a href="#43-采用ssh协议连接远程源公司一般用这种">4.3 采用ssh协议连接远程源(公司一般用这种)</a></li>
+        <li><a href="#44-公司操作流程">4.4 公司操作流程</a></li>
+        <li><a href="#5-pycharm配置git">5 pycharm配置git</a></li>
+        <li><a href="#6-协同开发冲突解决">6 协同开发冲突解决</a></li>
+        <li><a href="#7-线上分支合并">7 线上分支合并</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-25">作业</a></li>
+    <li><a href="#昨日回顾-19">昨日回顾</a></li>
+    <li><a href="#今日内容-29">今日内容</a>
+      <ul>
+        <li><a href="#1-协同开发">1 协同开发</a></li>
+        <li><a href="#11-协同开发冲突解决">1.1 协同开发冲突解决</a></li>
+        <li><a href="#2-分支合并">2 分支合并</a></li>
+        <li><a href="#21-线上分支合并">2.1 线上分支合并</a></li>
+        <li><a href="#22-线下分支合并提交">2.2 线下分支合并提交</a></li>
+        <li><a href="#23-合并分支冲突解决">2.3 合并分支冲突解决</a></li>
+        <li><a href="#3-远程仓库回滚">3 远程仓库回滚</a></li>
+        <li><a href="#4-其他了解">4 其他了解</a></li>
+        <li><a href="#5-登录注册页面分析">5 登录注册页面分析</a></li>
+        <li><a href="#6-前端登录注册编写">6 前端登录注册编写</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-26">作业</a></li>
+    <li><a href="#上节回顾-8">上节回顾</a></li>
+    <li><a href="#今日内容-30">今日内容</a>
+      <ul>
+        <li><a href="#1-vue后端地址配置">1 vue后端地址配置</a></li>
+        <li><a href="#2-media_url的作用">2 media_url的作用</a></li>
+        <li><a href="#2-vue前端登录">2 vue前端登录</a></li>
+        <li><a href="#3-前端登录成功显示用户名注销">3 前端登录成功显示用户名，注销</a></li>
+        <li><a href="#4-手机号是否存在接口">4 手机号是否存在接口</a></li>
+        <li><a href="#5-api和sdk的区别">5 API和SDK的区别</a></li>
+        <li><a href="#6--短信验证码封装">6  短信验证码封装</a></li>
+        <li><a href="#7-发送短信接口">7 发送短信接口</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-27">作业</a></li>
+    <li><a href="#昨日回顾-20">昨日回顾</a></li>
+    <li><a href="#今日内容-31">今日内容</a>
+      <ul>
+        <li><a href="#1-手机号登录接口">1 手机号登录接口</a></li>
+        <li><a href="#2-前端获取验证码手机号登录">2 前端获取验证码，手机号登录</a></li>
+        <li><a href="#3-后端注册功能">3 后端注册功能</a></li>
+        <li><a href="#4-前端注册功能">4 前端注册功能</a></li>
+        <li><a href="#5-redis介绍安装">5 redis介绍安装</a></li>
+        <li><a href="#6-python操作redis之普通连接和连接池">6 python操作redis之普通连接和连接池</a></li>
+        <li><a href="#7-字符串操作">7 字符串操作</a></li>
+        <li><a href="#8-列表操作">8 列表操作</a></li>
+        <li><a href="#9-hash操作">9 hash操作</a></li>
+        <li><a href="#10-其他操作">10 其他操作</a></li>
+        <li><a href="#11-管道">11 管道</a></li>
+        <li><a href="#12-django中使用redis">12 django中使用redis</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-28">作业</a></li>
+    <li><a href="#昨日回顾-21">昨日回顾</a></li>
+    <li><a href="#今日内容-32">今日内容</a>
+      <ul>
+        <li><a href="#1-redis的hash操作">1 redis的hash操作</a></li>
+        <li><a href="#2-redis的列表操作">2 redis的列表操作</a></li>
+        <li><a href="#3-其他操作">3 其他操作</a></li>
+        <li><a href="#4-管道">4 管道</a></li>
+        <li><a href="#5-django中使用redis">5 django中使用redis</a></li>
+        <li><a href="#6-接口缓存">6 接口缓存</a></li>
+        <li><a href="#7-celery介绍">7 celery介绍</a></li>
+        <li><a href="#8-简单使用">8 简单使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-29">作业</a></li>
+    <li><a href="#昨日回顾-22">昨日回顾</a></li>
+    <li><a href="#今日内容-33">今日内容</a>
+      <ul>
+        <li><a href="#1-celery执行延迟任务">1 celery执行延迟任务</a></li>
+        <li><a href="#2-celery执行定时任务">2 celery执行定时任务</a></li>
+        <li><a href="#3-首页轮播图定时更新异步更新思路">3 首页轮播图定时更新（异步更新思路）</a></li>
+        <li><a href="#4-课程主页页面">4 课程主页页面</a></li>
+        <li><a href="#5-课程表分析表数据录入">5 课程表分析（表数据录入）</a></li>
+        <li><a href="#8-课程分类接口">8 课程分类接口</a></li>
+        <li><a href="#9-课程群查接口按价格排序按id-按人气">9 课程群查接口（按价格排序、按id 按人气）</a></li>
+        <li><a href="#10-群查接口返回四个课时">10 群查接口返回四个课时</a></li>
+        <li><a href="#11-过滤和排序的使用">11 过滤和排序的使用</a></li>
+        <li><a href="#12-区间过滤项目中没用">12 区间过滤(项目中没用)</a></li>
+        <li><a href="#13-章节分类接口">13 章节分类接口</a></li>
+        <li><a href="#14-七牛云视频托管">14 七牛云视频托管</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-30">作业</a></li>
+    <li><a href="#昨日回顾-23">昨日回顾</a></li>
+    <li><a href="#今日内容-34">今日内容</a>
+      <ul>
+        <li><a href="#1-课程列表前端">1 课程列表前端</a></li>
+        <li><a href="#2-课程详情前端">2 课程详情前端</a></li>
+        <li><a href="#3-七牛视频托管">3 七牛视频托管</a></li>
+        <li><a href="#4-搜索接口">4 搜索接口</a></li>
+        <li><a href="#5-支付宝支付介绍">5 支付宝支付介绍</a></li>
+        <li><a href="#6-支付宝sdk支付演示">6 支付宝SDK支付演示</a></li>
+        <li><a href="#7-支付宝支付封装">7 支付宝支付封装</a></li>
+        <li><a href="#8-订单表分析">8 订单表分析</a></li>
+        <li><a href="#9-订单相关接口分析">9 订单相关接口分析</a></li>
+        <li><a href="#10-支付接口">10 支付接口</a></li>
+        <li><a href="#11-支付前端和支付成功前端跳转">11 支付前端和支付成功前端跳转</a></li>
+        <li><a href="#12-支付成功">12 支付成功</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-31">作业</a></li>
+    <li><a href="#昨日回顾-24">昨日回顾</a></li>
+    <li><a href="#今日内容-35">今日内容</a>
+      <ul>
+        <li><a href="#1-requests高级用法">1 requests高级用法</a></li>
+        <li><a href="#2-抽屉自动点赞">2 抽屉自动点赞</a></li>
+        <li><a href="#3-爬取汽车之家新闻">3 爬取汽车之家新闻</a></li>
+        <li><a href="#4-bs4-介绍">4 bs4 介绍</a></li>
+        <li><a href="#5-bs4-之遍历文档树">5 bs4 之遍历文档树</a></li>
+        <li><a href="#6-bs4-之搜索文档树">6 bs4 之搜索文档树</a></li>
+        <li><a href="#7-css选择器">7 css选择器</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业-32">作业</a></li>
+    <li><a href="#昨日回顾-25">昨日回顾</a></li>
+    <li><a href="#今日内容-36">今日内容</a>
+      <ul>
+        <li><a href="#1-requests高级用法-1">1 requests高级用法</a></li>
+        <li><a href="#2-抽屉自动点赞-1">2 抽屉自动点赞</a></li>
+        <li><a href="#3-爬取汽车之家新闻-1">3 爬取汽车之家新闻</a></li>
+        <li><a href="#4-bs4介绍">4 bs4介绍</a></li>
+        <li><a href="#5-bs4之遍历文档树">5 bs4之遍历文档树</a></li>
+        <li><a href="#6-bs4之搜索文档树">6 bs4之搜索文档树</a></li>
+      </ul>
+    </li>
+    <li><a href="#昨日回顾-26">昨日回顾</a></li>
+    <li><a href="#今日内容-37">今日内容</a></li>
+    <li><a href="#作业-33">作业</a></li>
+    <li><a href="#昨日回顾-27">昨日回顾</a></li>
+    <li><a href="#今日内容-38">今日内容</a>
+      <ul>
+        <li><a href="#1-动作链和切换frame了解">1 动作链和切换frame（了解）</a></li>
+        <li><a href="#3-xpath的使用">3 xpath的使用</a></li>
+        <li><a href="#4-自动登录12306">4 自动登录12306</a></li>
+        <li><a href="#5-scrapy介绍架构安装">5 scrapy介绍，架构，安装</a></li>
+        <li><a href="#6-scrapy创建项目创建爬虫">6 scrapy创建项目，创建爬虫</a></li>
+        <li><a href="#7-scrapy目录介绍">7 scrapy目录介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#上节回顾-9">上节回顾</a></li>
+    <li><a href="#今日内容-39">今日内容</a>
+      <ul>
+        <li><a href="#1-setting中相关配置">1 setting中相关配置</a></li>
+        <li><a href="#2-持久化方案">2 持久化方案</a></li>
+        <li><a href="#3-全站爬取cnblogs文章scrapy的请求传参">3 全站爬取cnblogs文章（scrapy的请求传参）</a></li>
+        <li><a href="#4-提高爬取效率">4 提高爬取效率</a></li>
+        <li><a href="#5-爬虫中间件和下载中间件">5 爬虫中间件和下载中间件</a></li>
+        <li><a href="#6-加代理加cookie加header加selenium">6 加代理，加cookie，加header，加selenium</a></li>
+        <li><a href="#7-去重规则源码分析">7 去重规则源码分析</a></li>
+        <li><a href="#8-scrapy-redis实现分布式爬虫">8 scrapy-redis实现分布式爬虫</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
     <article class="post">
         <header>
             <h1 class="post-title">Python之Django学习笔记</h1>

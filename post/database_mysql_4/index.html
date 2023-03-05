@@ -76,7 +76,127 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">Table of Contents</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一节-sql概述">第一节 SQL概述</a>
+      <ul>
+        <li><a href="#一sql的发展">一、SQL的发展</a></li>
+        <li><a href="#二sql的特点">二、SQL的特点</a></li>
+        <li><a href="#三sql的组成">三、SQL的组成</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二节-mysql预备知识">第二节 MySQL预备知识</a>
+      <ul>
+        <li><a href="#一mysql使用基础">一、MySQL使用基础</a></li>
+        <li><a href="#二mysql中的sql">二、MySQL中的SQL</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三节-数据定义">第三节 数据定义</a>
+      <ul>
+        <li><a href="#一数据库模式定义">一、数据库模式定义</a></li>
+        <li><a href="#二表定义">二、表定义</a></li>
+        <li><a href="#更新表">更新表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
     <article class="post">
         <header>
             <h1 class="post-title">数据库系统原理之SQL与关系数据库基本操作</h1>
@@ -502,7 +622,357 @@
 <h4 id="创建表">创建表</h4>
 </li>
 </ul>
-
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> [TEMPORARY] <span style="color:#66d9ef">TABLE</span> <span style="color:#a6e22e">tbl_name</span>
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">字段名</span><span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">数据类型</span> [<span style="color:#960050;background-color:#1e0010">列级完整性约束条件</span>] [<span style="color:#960050;background-color:#1e0010">默认值</span>]
+</span></span><span style="display:flex;"><span>  [, <span style="color:#960050;background-color:#1e0010">字段名</span><span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">数据类型</span> [<span style="color:#960050;background-color:#1e0010">列级完整性约束条件</span>] [<span style="color:#960050;background-color:#1e0010">默认值</span>]]
+</span></span><span style="display:flex;"><span>  [, ......]
+</span></span><span style="display:flex;"><span>  [, <span style="color:#960050;background-color:#1e0010">表级完整性约束条件</span>]
+</span></span><span style="display:flex;"><span>) [<span style="color:#66d9ef">ENGINE</span><span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">引擎类型</span>];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在一个已有数据库mysql_test中新建一个包含客户姓名、性别、地址、联系方式等内容的客户基本信息表，要求将客户的id号指定为该表的主键。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">use</span> mysql_test;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Database</span> changed
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> cust_id <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">auto_increment</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> cust_name <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> cust_sex <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">default</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> cust_address <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> cust_contact <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span> (cust_id)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> );
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">04</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">tables</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+----------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> Tables_in_mysql_test <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+----------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> customers            <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+----------------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> row <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>临时表与持久表
+<ol>
+<li>添加可选性“TEMPORARY”关键字创建的表为临时表，否则为持久表。</li>
+<li>临时表的生命周期较短，只对创建它的用户可见，当断开与该数据库的连接时，MySQL会自动删除。</li>
+<li>两个不同的连接可以使用相同的临时表名称，同时两个临时表不会互相冲突，也不与原有的同名的非临时表冲突。</li>
+</ol>
+</li>
+<li>数据类型
+<ol>
+<li>数据类型是指系统中所允许的数据的类型。</li>
+<li>数据库中每个列都应有适当的数据类型，用于限制或允许该列中存储的数据。</li>
+<li>在创建表时必须为每个表列指定正确的数据类型及可能得数据长度。</li>
+<li>在MySQL中，主要的数据类型包括数值类型、日期和时间类型、字符串类型、空间数据类型等。</li>
+</ol>
+</li>
+<li>关键字 AUTO_INCREMENT
+<ol>
+<li>关键字“AUTO_INCREMENT”可以为表中数据类型为整型的列设置自增属性。</li>
+<li>顺序是从数字1开始。</li>
+<li>每个表只能有一个AUTO_INCREMENT列，并且它必须被索引。</li>
+<li>其值是可以被覆盖的。</li>
+</ol>
+</li>
+<li>指定默认值
+<ol>
+<li>在MySQL中，默认值使用关键字“DEFAULT”来指定。</li>
+<li>如果没有为列指定默认值，MySQL会自动为其分配一个。</li>
+<li>如若该列可以去NULL值，则默认值为NULL。</li>
+<li>如若该列被定义为NOT NULL，则默认值取决于该列的类型。</li>
+</ol>
+</li>
+<li>NULL值
+<ol>
+<li>NULL值是指没有值或缺值。</li>
+<li>在MySQL中是通过关键字“NULL”来指定。</li>
+<li>允许NULL的列，可以在插入行时不给出该列的值。</li>
+<li>不能将NULL值与空串相混淆，NULL值是没有值，它不是空串。</li>
+</ol>
+</li>
+<li>主键
+<ol>
+<li>通过 PRIMARY KEY 关键字来指定。</li>
+<li>主键值必须唯一，即表中的每个行必须具有唯一的主键值，而且主键一定要为NOT NULL。</li>
+<li>如果主键使用单个列，则它的值必须唯一。</li>
+<li>如果使用多个列，则这些列的组合值必须唯一。</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>
+<h3 id="更新表">更新表</h3>
+</li>
+<li>
+<h4 id="add-column-子句-向表中增加新列且其可同时增加多个列">ADD [COLUMN] 子句 （向表中增加新列，且其可同时增加多个列）</h4>
+<ul>
+<li>通过“FIRST”关键字将新列作为原表的第一列</li>
+<li>若不指定关键字（after/first），则新列会添加到原表的最后</li>
+<li>可以在ALTER TABLE 语句中通过使用 ADDPRIMARY KEY 子句、ADDFOREIGN KEY 子句、ADD INDEX 子句为原表添加一个主键、外键和索引等</li>
+</ul>
+</li>
+</ul>
+<p>向数据库mysql_test的表customers中添加一列，并命名为cust_city,用于描述用户所在的城市，要求其不能为NULL，默认值为字符串’Wuhan‘，且该列位于原表cust_sex列之后</p>
+<ul>
+<li>SQL语句</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">table</span> mysql_test.customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">add</span> <span style="color:#66d9ef">column</span> cust_city <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;Wuhan&#39;</span> after cust_sex;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">02</span> sec)
+</span></span><span style="display:flex;"><span>Records: <span style="color:#ae81ff">0</span>  Duplicates: <span style="color:#ae81ff">0</span>  Warnings: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">desc</span> customers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> Field        <span style="color:#f92672">|</span> Type     <span style="color:#f92672">|</span> <span style="color:#66d9ef">Null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Key</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Default</span> <span style="color:#f92672">|</span> Extra          <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_id      <span style="color:#f92672">|</span> <span style="color:#66d9ef">int</span>      <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span> PRI <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">auto_increment</span> <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_name    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_sex     <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>)  <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#ae81ff">0</span>       <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_city    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> Wuhan   <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_address <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_contact <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h4 id="change-column-子句">CHANGE [COLUMN] 子句</h4>
+<ul>
+<li>可同时修改表中指定列的名称和数据类型</li>
+<li>可同时放入多个子句，只需彼此间用逗号分隔</li>
+</ul>
+</li>
+</ul>
+<p>将数据库mysql_test中表customers的cust_sex列重命名为sex，且将其数据类型更改为字符长度为1的字符数据类型char(1)，允许其为NULL，默认值为字符常量’M‘</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">table</span> mysql_test.customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">change</span> <span style="color:#66d9ef">column</span> cust_sex sex <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;M&#39;</span>;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">03</span> sec)
+</span></span><span style="display:flex;"><span>Records: <span style="color:#ae81ff">0</span>  Duplicates: <span style="color:#ae81ff">0</span>  Warnings: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">desc</span> customers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> Field        <span style="color:#f92672">|</span> Type     <span style="color:#f92672">|</span> <span style="color:#66d9ef">Null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Key</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Default</span> <span style="color:#f92672">|</span> Extra          <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_id      <span style="color:#f92672">|</span> <span style="color:#66d9ef">int</span>      <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span> PRI <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">auto_increment</span> <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_name    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sex          <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>)  <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> M       <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_city    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> Wuhan   <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_address <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_contact <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>ALTER [COLUMN] 子句
+<ul>
+<li>修改或删除表中指定列的默认值</li>
+</ul>
+</li>
+</ul>
+<p>将数据库mysql_test中表customers的cust_city列的默认值修改为字符常量’Beijing‘</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">table</span> mysql_test.customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">column</span> cust_city <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;Beijing&#39;</span>;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">02</span> sec)
+</span></span><span style="display:flex;"><span>Records: <span style="color:#ae81ff">0</span>  Duplicates: <span style="color:#ae81ff">0</span>  Warnings: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">desc</span> customers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> Field        <span style="color:#f92672">|</span> Type     <span style="color:#f92672">|</span> <span style="color:#66d9ef">Null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Key</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Default</span> <span style="color:#f92672">|</span> Extra          <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_id      <span style="color:#f92672">|</span> <span style="color:#66d9ef">int</span>      <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span> PRI <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">auto_increment</span> <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_name    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sex          <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>)  <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> M       <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_city    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> Beijing <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_address <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_contact <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>MODIFY [COLUMN] 子句
+<ul>
+<li>只会修改指定列的数据类型，而不会干涉它的列名</li>
+<li>可以通过关键字“FIRST”或“AFTER”修改指定列在表中的位置</li>
+</ul>
+</li>
+</ul>
+<p>将数据库mysql_test中表customers的cust_name列的数据类型由之前的字符长度为50的定长字符数据类型char(50)更改为字符长度为20的定长字符数据类型char(20)，并将此列设置成表的第一列。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">table</span> mysql_test.customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> modify <span style="color:#66d9ef">column</span> cust_name <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">20</span>) first;
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">04</span> sec)
+</span></span><span style="display:flex;"><span>Records: <span style="color:#ae81ff">0</span>  Duplicates: <span style="color:#ae81ff">0</span>  Warnings: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">desc</span> customers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> Field        <span style="color:#f92672">|</span> Type     <span style="color:#f92672">|</span> <span style="color:#66d9ef">Null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Key</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Default</span> <span style="color:#f92672">|</span> Extra          <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_name    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">20</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_id      <span style="color:#f92672">|</span> <span style="color:#66d9ef">int</span>      <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span> PRI <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">auto_increment</span> <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sex          <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">1</span>)  <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> M       <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_city    <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">|</span> NO   <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> Beijing <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_address <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> cust_contact <span style="color:#f92672">|</span> <span style="color:#66d9ef">char</span>(<span style="color:#ae81ff">50</span>) <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span>     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>    <span style="color:#f92672">|</span>                <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+--------------+----------+------+-----+---------+----------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>DROP [COLUMN] 子句</li>
+</ul>
+<p>删除数据库mysql_test中表custmoers的 cust_contact列</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"></code></pre></td></tr></table>
+</div>
+</div>
         </div>
 
         
