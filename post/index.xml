@@ -143,6 +143,15 @@
     </item>
     
     <item>
+      <title>podman 学习之路</title>
+      <link>https://qiaopengjun5162.github.io/post/podman/</link>
+      <pubDate>Sat, 11 Feb 2023 15:46:08 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/podman/</guid>
+      <description>podman 官网：https://podman.io/ 安装 podman 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ➜ brew install podman ➜ podman machine init Downloading VM image: fedora-coreos-37.20230303.2.0-qemu.aarch64.qcow2.xz: done Extracting compressed file Image resized. Machine init complete To start your machine run:</description>
+    </item>
+    
+    <item>
       <title>Blog</title>
       <link>https://qiaopengjun5162.github.io/post/blog/</link>
       <pubDate>Sat, 11 Feb 2023 10:25:06 +0800</pubDate>

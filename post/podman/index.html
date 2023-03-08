@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>Hugo博客之路快速开始 | 小乔的博客</title>
-    <meta property="og:title" content="Hugo博客之路快速开始 - 小乔的博客">
+    <title>podman 学习之路 | 小乔的博客</title>
+    <meta property="og:title" content="podman 学习之路 - 小乔的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:published_time" content='2023-02-11T15:46:08&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2023-02-11T16:18:31&#43;08:00'>
+    <meta property="article:modified_time" content='2023-02-11T15:46:08&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="Hugo博客之路快速开始">
+    <meta name="description" content="podman 学习之路">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/hugoblog/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/podman/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -176,10 +176,10 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">Hugo博客之路快速开始</h1>
+            <h1 class="post-title">podman 学习之路</h1>
         </header>
         
-  <time datetime="2023-02-11T08:18:31Z" class="post-meta meta-date dt-published">
+  <time datetime="2023-02-11T07:46:08Z" class="post-meta meta-date dt-published">
     2023-02-11
   </time>
 
@@ -194,10 +194,69 @@
         
         
         <div class="post-content">
-            <h1 id="hugo-博客">Hugo 博客</h1>
-<p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
-<p>Hugo中文文档：<a href="https://www.gohugo.org/">https://www.gohugo.org/</a></p>
-<p>Hugo官网: <a href="https://gohugo.io/">https://gohugo.io/</a></p>
+            <h1 id="podman">podman</h1>
+<p>官网：<a href="https://podman.io/">https://podman.io/</a></p>
+<p>安装 podman</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ brew install podman
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>➜ podman machine init
+</span></span><span style="display:flex;"><span>Downloading VM image: fedora-coreos-37.20230303.2.0-qemu.aarch64.qcow2.xz: <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>Extracting compressed file
+</span></span><span style="display:flex;"><span>Image resized.
+</span></span><span style="display:flex;"><span>Machine init complete
+</span></span><span style="display:flex;"><span>To start your machine run:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	podman machine start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~ took 2m 38.2s
+</span></span><span style="display:flex;"><span>➜ podman machine start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>➜ podman -v
+</span></span><span style="display:flex;"><span>podman version 4.4.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The <code>podman ps</code> command is used to list created and running containers.</li>
+<li>podman ps命令用于列出已创建和正在运行的容器。</li>
+</ul>
+<p><strong>Note</strong>: If you add <code>-a</code> to the <code>podman ps</code> command, Podman will show all containers (created, exited, running, etc.).</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ podman ps
+</span></span><span style="display:flex;"><span>CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Podman desktop: <a href="https://podman-desktop.io/docs/Installation">https://podman-desktop.io/docs/Installation</a></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -223,87 +282,75 @@
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>创建项目
-</span></span><span style="display:flex;"><span>hugo new site myblog
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~
+</span></span><span style="display:flex;"><span>➜ brew install podman-desktop
+</span></span><span style="display:flex;"><span>fatal: not in a git directory
+</span></span><span style="display:flex;"><span>Warning: No remote <span style="color:#e6db74">&#39;origin&#39;</span> in /opt/homebrew/Library/Taps/homebrew/homebrew-services, skipping update!
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Downloading https://github.com/containers/podman-desktop/releases/download/v0.12.0/podman-desktop-0.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Downloading from https://objects.githubusercontent.com/github-production-release-asset-2e65be/465844
+</span></span><span style="display:flex;"><span><span style="color:#75715e">######################################################################## 100.0%No remot</span>
+</span></span><span style="display:flex;"><span>All formula dependencies satisfied.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Installing Cask podman-desktop
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Moving App <span style="color:#e6db74">&#39;Podman Desktop.app&#39;</span> to <span style="color:#e6db74">&#39;/Applications/Podman Desktop.app&#39;</span>
+</span></span><span style="display:flex;"><span>🍺  podman-desktop was successfully installed!
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cd myblog
-</span></span><span style="display:flex;"><span>安装主题
-</span></span><span style="display:flex;"><span>git clone https://github.com/flysnow-org/maupassant-hugo themes/maupassant
+</span></span><span style="display:flex;"><span>~ took 19m 3.6s
+</span></span><span style="display:flex;"><span>➜ No remotNo remot
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo new post/blog.md
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo server -t maupassant --buildDrafts
+</span></span><span style="display:flex;"><span>➜ podman run quay.io/podman/hello
+</span></span><span style="display:flex;"><span>Trying to pull quay.io/podman/hello:latest...
+</span></span><span style="display:flex;"><span>Getting image source signatures
+</span></span><span style="display:flex;"><span>Copying blob sha256:265ed7ff70caa449cf77b1d47bfe235eea5808fc0c9cbd23e3eaa367a0fc8295
+</span></span><span style="display:flex;"><span>Copying config sha256:6b603ca3a0c699dab172c04031854c7601ef210a5660fa3452b93c8d57d8945d
+</span></span><span style="display:flex;"><span>Writing manifest to image destination
+</span></span><span style="display:flex;"><span>Storing signatures
+</span></span><span style="display:flex;"><span>!... Hello Podman World ...!
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hugo --theme<span style="color:#f92672">=</span>maupassant --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://qiaopengjun5162.github.io/&#34;</span> --buildDrafts
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cd public
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;# qiaopengjun5162.github.io&#34;</span> &gt;&gt; README.md
-</span></span><span style="display:flex;"><span>git init
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
-</span></span><span style="display:flex;"><span>git branch -M main
-</span></span><span style="display:flex;"><span>git remote add origin https://github.com/qiaopengjun5162/qiaopengjun5162.github.io.git
-</span></span><span style="display:flex;"><span>git push -u origin main
-</span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span>         .--<span style="color:#e6db74">&#34;--.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       / -     - \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      / (O)   (O) \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   ~~~| -=(,Y,)=- |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    .---. /`  \   |~~
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> ~/  o  o \~~~~.----. ~~
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  | =(X)= |~  / (O (O) \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   ~~~~~~~  ~| =(Y_)=-  |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ~~~~    ~~~|   U      |~~
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Project:   https://github.com/containers/podman
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Website:   https://podman.io
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Documents: https://docs.podman.io
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Twitter:   @Podman_io
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建博客
-创建第一篇博客</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/first_blog.md
-</span></span></code></pre></td></tr></table>
 </div>
-</div><p>在本地启动网站</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动server时应用主题</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server --theme<span style="color:#f92672">=</span>LoveIt --watch
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>参数说明：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>* --theme 用于选择主题，如果在配置文件中选择了主题，这里就不需要使用了
-</span></span><span style="display:flex;"><span>* --buildDrafts 用于是否显示草稿文章
-</span></span><span style="display:flex;"><span>* --watch 用于实时监控变化，方便调试
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>访问：http://localhost:1313/</p>
-<ul>
-<li>在项目根目录下使用 hugo 命令，会生成 public 目录</li>
-<li>该目录下是有关 markdown 编译完成的 html 静态页面</li>
-</ul>
-
         </div>
 
         
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/hugoblog/">https://qiaopengjun5162.github.io/post/hugoblog/</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/podman/">https://qiaopengjun5162.github.io/post/podman/</a></li>
         <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
     </ul>
 </div>
@@ -318,8 +365,6 @@
     <ul class="listing">
         
         <li><a href="/post/github/">GitHub 配置SSH密钥</a></li>
-        
-        <li><a href="/post/podman/">podman 学习之路</a></li>
         
         <li><a href="/post/blog/">Blog</a></li>
         
