@@ -1331,9 +1331,39 @@
 <p>例子：在数据库mysql_test 的表customers 上，根据客户姓名列的前三个字符创建一个升序索引 index_customers</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">index</span> index_customers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">on</span> mysql_test.<span style="color:#a6e22e">customers</span>(<span style="color:#a6e22e">cust_name</span>(<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">asc</span>);
+</span></span><span style="display:flex;"><span>Query OK, <span style="color:#ae81ff">0</span> rows <span style="color:#a6e22e">affected</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">01</span> sec)
+</span></span><span style="display:flex;"><span>Records: <span style="color:#ae81ff">0</span>  Duplicates: <span style="color:#ae81ff">0</span>  Warnings: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">index</span> <span style="color:#66d9ef">from</span> mysql_test.customers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+-----------+------------+-----------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">Table</span>     <span style="color:#f92672">|</span> Non_unique <span style="color:#f92672">|</span> Key_name        <span style="color:#f92672">|</span> Seq_in_index <span style="color:#f92672">|</span> Column_name <span style="color:#f92672">|</span> Collation <span style="color:#f92672">|</span> Cardinality <span style="color:#f92672">|</span> Sub_part <span style="color:#f92672">|</span> Packed <span style="color:#f92672">|</span> <span style="color:#66d9ef">Null</span> <span style="color:#f92672">|</span> Index_type <span style="color:#f92672">|</span> Comment <span style="color:#f92672">|</span> Index_comment <span style="color:#f92672">|</span> Visible <span style="color:#f92672">|</span> Expression <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+-----------+------------+-----------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> customers <span style="color:#f92672">|</span>          <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">PRIMARY</span>         <span style="color:#f92672">|</span>            <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> cust_id     <span style="color:#f92672">|</span> A         <span style="color:#f92672">|</span>           <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span>     <span style="color:#66d9ef">NULL</span> <span style="color:#f92672">|</span>   <span style="color:#66d9ef">NULL</span> <span style="color:#f92672">|</span>      <span style="color:#f92672">|</span> BTREE      <span style="color:#f92672">|</span>         <span style="color:#f92672">|</span>               <span style="color:#f92672">|</span> YES     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>       <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> customers <span style="color:#f92672">|</span>          <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> index_customers <span style="color:#f92672">|</span>            <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> cust_name   <span style="color:#f92672">|</span> A         <span style="color:#f92672">|</span>           <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span>        <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>   <span style="color:#66d9ef">NULL</span> <span style="color:#f92672">|</span> YES  <span style="color:#f92672">|</span> BTREE      <span style="color:#f92672">|</span>         <span style="color:#f92672">|</span>               <span style="color:#f92672">|</span> YES     <span style="color:#f92672">|</span> <span style="color:#66d9ef">NULL</span>       <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+-----------+------------+-----------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mysql<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
         </div>
@@ -1598,6 +1628,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
+        <a href="https://qiaopengjun5162.github.io/post/rust_enum/" title="Rust编程语言入门之枚举与模式匹配" target="_blank">Rust编程语言入门之枚举与模式匹配</a>
+    </li>
+    
+    <li>
         <a href="https://qiaopengjun5162.github.io/post/algorithm/" title="数据结构与算法（Python版）" target="_blank">数据结构与算法（Python版）</a>
     </li>
     
@@ -1633,10 +1667,6 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <a href="https://qiaopengjun5162.github.io/post/ruststudy/" title="Rust编程语言入门" target="_blank">Rust编程语言入门</a>
     </li>
     
-    <li>
-        <a href="https://qiaopengjun5162.github.io/post/database_mysql_1/" title="数据库系统原理之数据库系统概述" target="_blank">数据库系统原理之数据库系统概述</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -1650,7 +1680,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://qiaopengjun5162.github.io/categories/Python/">Python (1)</a></li>
     
-    <li><a href="https://qiaopengjun5162.github.io/categories/Rust/">Rust (2)</a></li>
+    <li><a href="https://qiaopengjun5162.github.io/categories/Rust/">Rust (3)</a></li>
     
     <li><a href="https://qiaopengjun5162.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库 (5)</a></li>
     

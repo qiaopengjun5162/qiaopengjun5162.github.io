@@ -6,14 +6,23 @@
     <description>Recent content in Rust on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 05 Mar 2023 23:18:20 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/Rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Mar 2023 21:43:17 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/Rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust编程语言入门之枚举与模式匹配</title>
+      <link>https://qiaopengjun5162.github.io/post/rust_enum/</link>
+      <pubDate>Sat, 11 Mar 2023 21:43:17 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/rust_enum/</guid>
+      <description>Rust编程语言入门之枚举与模式匹配 一、定义枚举 枚举</description>
+    </item>
+    
     <item>
       <title>Rust 编程语言入门之struct</title>
       <link>https://qiaopengjun5162.github.io/post/ruststudy2/</link>
       <pubDate>Sun, 05 Mar 2023 23:18:20 +0800</pubDate>
       
       <guid>https://qiaopengjun5162.github.io/post/ruststudy2/</guid>
-      <description>Rust 编程语言入门之 Struct 一、定义并实例化struct 什么是 struct struct，结构体 自定义的数据类型 为相关联的值命名，打包 =&amp;gt; 有意义的组合</description>
+      <description>Rust 编程语言入门之 Struct 一、定义并实例化struct 什么是 struct struct，结构体 自定义的数据类型 为相关联的值命名，打包 =&amp;gt; 有意义的组合 定义 struct 使用 struct 关</description>
     </item>
     
     <item>

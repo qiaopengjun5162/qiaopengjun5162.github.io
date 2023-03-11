@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>数据结构与算法（Python版） | 小乔的博客</title>
-    <meta property="og:title" content="数据结构与算法（Python版） - 小乔的博客">
+    <title>Rust编程语言入门之枚举与模式匹配 | 小乔的博客</title>
+    <meta property="og:title" content="Rust编程语言入门之枚举与模式匹配 - 小乔的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2023-03-11T10:47:55&#43;08:00'>
+    <meta property="article:published_time" content='2023-03-11T21:43:17&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2023-03-11T10:47:55&#43;08:00'>
+    <meta property="article:modified_time" content='2023-03-11T21:43:17&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小乔,Python,rust,博客,项目管理,数据库,软件架构,公众号,小算法">
-    <meta name="description" content="数据结构与算法（Python版）">
+    <meta name="description" content="Rust编程语言入门之枚举与模式匹配">
         
     <meta name="author" content="小乔">
-    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/algorithm/">
+    <meta property="og:url" content="https://qiaopengjun5162.github.io/post/rust_enum/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -142,19 +142,11 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#数据结构与算法是讲什么的课">数据结构与算法是讲什么的课？</a></li>
-    <li><a href="#信息时代就是数据的时代">信息时代就是数据的时代</a></li>
-    <li><a href="#数据化的科学技术工程商业">数据化的科学、技术、工程、商业</a></li>
-    <li><a href="#数据主义dataism">数据主义（Dataism）</a></li>
-    <li><a href="#数据之桥通向宇宙">数据之桥，通向宇宙</a></li>
-    <li><a href="#问题未知的事物">问题：未知的事物</a></li>
-    <li><a href="#问题解决之道">问题解决之道</a></li>
-    <li><a href="#数学解决问题的终极工具">数学：解决问题的终极工具</a></li>
-    <li><a href="#为什么是数学">为什么是数学？</a></li>
-    <li><a href="#问题解决的计算之道">问题解决的“计算”之道</a></li>
-    <li><a href="#抽象的计算概念提出">抽象的“计算”概念提出</a></li>
-    <li><a href="#关于计算的数学模型">关于“计算”的数学模型</a></li>
-    <li><a href="#图灵机-turing-machine">图灵机 Turing Machine</a></li>
+    <li><a href="#一定义枚举">一、定义枚举</a>
+      <ul>
+        <li><a href="#枚举">枚举</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -192,10 +184,10 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">数据结构与算法（Python版）</h1>
+            <h1 class="post-title">Rust编程语言入门之枚举与模式匹配</h1>
         </header>
         
-  <time datetime="2023-03-11T02:47:55Z" class="post-meta meta-date dt-published">
+  <time datetime="2023-03-11T13:43:17Z" class="post-meta meta-date dt-published">
     2023-03-11
   </time>
 
@@ -203,7 +195,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/%E7%AE%97%E6%B3%95' target="_blank">算法</a>
+    <a href='/categories/Rust' target="_blank">Rust</a>
   
 </div>
 
@@ -217,170 +209,9 @@
         
         
         <div class="post-content">
-            <h1 id="数据结构与算法python版">数据结构与算法（Python版）</h1>
-<p>课程地址：<a href="https://www.icourse163.org/learn/PKU-1206307812?tid=1470091590#/learn/content?type=detail&amp;id=1253445962">https://www.icourse163.org/learn/PKU-1206307812?tid=1470091590#/learn/content?type=detail&amp;id=1253445962</a></p>
-<p>一、概述</p>
-<p>101 引子：数据时代</p>
-<h2 id="数据结构与算法是讲什么的课">数据结构与算法是讲什么的课？</h2>
-<ul>
-<li>首先，这是一门关于编程的课
-<ul>
-<li>学了Python语言基础之后的进阶课</li>
-</ul>
-</li>
-<li>但又不仅仅讲编程</li>
-<li>本课为你展示
-<ul>
-<li>如何把数据组织起来</li>
-<li>进行有效的处理</li>
-<li>以解决问题</li>
-</ul>
-</li>
-<li>数据为什么这么重要？</li>
-</ul>
-<p>无处不在的数据</p>
-<h2 id="信息时代就是数据的时代">信息时代就是数据的时代</h2>
-<ul>
-<li>人类在各个领域的生产生活</li>
-<li>无时无刻在产生着巨量的数据</li>
-</ul>
-<h2 id="数据化的科学技术工程商业">数据化的科学、技术、工程、商业</h2>
-<ul>
-<li>地球观测系统：地面、地下、空中</li>
-<li>地球观测系统：人造地球卫星</li>
-<li>地球之外的观测系统：火星车</li>
-<li>地球之外的观测系统：太阳探测器</li>
-<li>地球之外的观测系统：冥王星探测器</li>
-<li>地球之外的观测系统：哈勃望远镜</li>
-<li>地球重力场分布数据</li>
-<li>地形高程和地貌数据</li>
-<li>地下岩层结构和矿藏数据</li>
-<li>太阳风和空间气象数据</li>
-<li>高分辨率卫星影像数据</li>
-<li>实时交通流量、路况数据</li>
-<li>引力波探测的突破（2015.9.14）</li>
-</ul>
-<h2 id="数据主义dataism">数据主义（Dataism）</h2>
-<ul>
-<li>整个世界就是数据及其算法</li>
-<li>尤瓦尔·赫拉利：《未来简史》
-<ul>
-<li>将生命活动理解为数据流传输及处理算法，人类智慧和自由意识也无法例外</li>
-</ul>
-</li>
-</ul>
-<h2 id="数据之桥通向宇宙">数据之桥，通向宇宙</h2>
-<ul>
-<li>超时空接触.Contact.1997  (电影)</li>
-</ul>
-<p>102 问题求解的计算之道</p>
-<h2 id="问题未知的事物">问题：未知的事物</h2>
-<ul>
-<li>人们在生活、生产、学习、探索、创造过程中会遇到各种未知的事物(what why how)
-<ul>
-<li>云是什么？</li>
-<li>这种草（虫子）可以吃么？</li>
-<li>什么是无理数？</li>
-<li>什么事万物的起源？</li>
-<li>为什么会下雨？</li>
-<li>为什么事物放久了会发霉？</li>
-<li>为什么✔️2是无理数？</li>
-<li>生命的意义是什么？</li>
-<li>怎么让粮食长得更多？</li>
-<li>怎么将楼房建到101层？</li>
-<li>怎么求最大公约数？</li>
-<li>怎么维护公平与正义？</li>
-</ul>
-</li>
-</ul>
-<h2 id="问题解决之道">问题解决之道</h2>
-<ul>
-<li>如何从未知到已知
-<ul>
-<li>感觉、经验、占卜、求神、逻辑、数学、实验、工程、计算模型、模拟、仿真哲学？</li>
-<li>神农尝百草、部落战争占卜和求神、自然科学工程</li>
-</ul>
-</li>
-<li>有些问题已经解决</li>
-<li>很多问题尚未解决</li>
-<li>有些问题似乎无法完全解决</li>
-<li>尚未解决和无法解决问题的共性
-<ul>
-<li>表述含混、标准不一、涉及主观、结果不确定</li>
-</ul>
-</li>
-</ul>
-<h2 id="数学解决问题的终极工具">数学：解决问题的终极工具</h2>
-<ul>
-<li>在长期的发展过程中，人们把已经解决的问题逐渐表述为属性命题与模型
-<ul>
-<li>尚未解决的问题，人们试图通过数学建模，采用数学工具来解决</li>
-<li>无法解决的问题，人们试图转换表述、明晰问题来部分解决</li>
-</ul>
-</li>
-</ul>
-<h2 id="为什么是数学">为什么是数学？</h2>
-<ul>
-<li>数学具有清晰明确的符号表述体系</li>
-<li>严密确定的推理系统</li>
-<li>但正如科学不是万能的，数学也不是万能的
-<ul>
-<li>有些问题天然无法明确表述（主观、价值观、意识形态、哲学问题等）</li>
-<li>有些可明确表述的问题仍然无法解决</li>
-<li>伽利略：数学是上帝书写宇宙的文字</li>
-<li>Donald in Mathmagic Land.1959  （数学科普片）</li>
-</ul>
-</li>
-</ul>
-<h2 id="问题解决的计算之道">问题解决的“计算”之道</h2>
-<ul>
-<li>20世纪20年代，为了解决数学本身的可检验性问题，大数学家希尔伯特提出“能否找到一种基于有穷观点的能行方法，来判定任何一个数学命题的真假”</li>
-</ul>
-<h2 id="抽象的计算概念提出">抽象的“计算”概念提出</h2>
-<ul>
-<li>基于有穷观点的能行方法
-<ul>
-<li>由有限数量的明确有限指令构成</li>
-<li>指令执行在有限步骤后终止</li>
-<li>指令每次执行都总能得到唯一结果</li>
-<li>原则上可以由人单独采用纸笔完成，而不依靠其他辅助</li>
-<li>每条指令可以机械地被精确执行，而不需要智慧和灵感</li>
-</ul>
-</li>
-</ul>
-<h2 id="关于计算的数学模型">关于“计算”的数学模型</h2>
-<ul>
-<li>20世纪30年代，几位逻辑学家各自独立提出了几个关于“计算”的属性模型
-<ul>
-<li>哥德尔和克莱尼的递归函数模型</li>
-<li>丘奇的Lambda演算模型</li>
-<li>波斯特的Post机模型</li>
-<li>图灵的图灵机模型</li>
-</ul>
-</li>
-<li>研究证明，这几个“基于有穷观点的能行方法”的计算模型，全都是等价的</li>
-<li>虽然希尔伯特的计划最终被证明无法实现
-<ul>
-<li>不存在“能行方法”可判定所有数学命题的真假</li>
-<li>总有数学命题，其真假是无法证明的</li>
-</ul>
-</li>
-<li>但“能行可计算”概念成为计算理论的基础
-<ul>
-<li>其中的一些数学模型（如图灵机）也成为现代计算机的理论基础</li>
-<li>计算机是数学家一次失败思考的产物。 ——无名氏</li>
-</ul>
-</li>
-</ul>
-<p>103 图灵机计算模型</p>
-<h2 id="图灵机-turing-machine">图灵机 Turing Machine</h2>
-<ul>
-<li>1936年，Alan Turing提出的一种抽象计算模型
-<ul>
-<li>基本思想是用机器模拟人们用纸笔进行数学运算的过程，但比数值计算更为简单</li>
-</ul>
-</li>
-</ul>
+            <h1 id="rust编程语言入门之枚举与模式匹配">Rust编程语言入门之枚举与模式匹配</h1>
+<h2 id="一定义枚举">一、定义枚举</h2>
+<h3 id="枚举">枚举</h3>
 
         </div>
 
@@ -388,7 +219,7 @@
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>Author: </strong><a rel="author" href="https://qiaopengjun5162.github.io/">小乔</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/algorithm/">https://qiaopengjun5162.github.io/post/algorithm/</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="https://qiaopengjun5162.github.io/post/rust_enum/">https://qiaopengjun5162.github.io/post/rust_enum/</a></li>
         <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
     </ul>
 </div>
@@ -402,15 +233,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/interview/">面试题</a></li>
-        
         <li><a href="/post/ruststudy2/">Rust 编程语言入门之struct</a></li>
         
+        <li><a href="/post/ruststudy/">Rust编程语言入门</a></li>
+        
+        <li><a href="/post/algorithm/">数据结构与算法（Python版）</a></li>
+        
+        <li><a href="/post/interview/">面试题</a></li>
+        
         <li><a href="/post/database_mysql_4/">数据库系统原理之SQL与关系数据库基本操作</a></li>
-        
-        <li><a href="/post/chat_python_study/">ChatGPT问答</a></li>
-        
-        <li><a href="/post/mysql_remote_conn/">Mysql设置远程连接</a></li>
         
     </ul>
 </div>
@@ -420,9 +251,7 @@
             
             <ul class="clearfix">
                 
-                <li><a href='/tags/Python' target="_blank">Python</a></li>
-                
-                <li><a href='/tags/%E7%AE%97%E6%B3%95' target="_blank">算法</a></li>
+                <li><a href='/tags/Rust' target="_blank">Rust</a></li>
                 
             </ul>
             
