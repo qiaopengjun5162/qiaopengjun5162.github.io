@@ -76,120 +76,7 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    <style type="text/css">
-    .post-toc {
-        position: fixed;
-        width: 200px;
-        margin-left: -210px;
-        padding: 5px 10px;
-        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
-        font-size: 12px;
-        border: 1px solid rgba(0, 0, 0, .07);
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.98);
-        background-clip: padding-box;
-        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        word-wrap: break-word;
-        white-space: nowrap;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        z-index: 999;
-        cursor: pointer;
-        max-height: 70%;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .post-toc .post-toc-title {
-        width: 100%;
-        margin: 0 auto;
-        font-size: 20px;
-        font-weight: 400;
-        text-transform: uppercase;
-        text-align: center;
-    }
-
-    .post-toc .post-toc-content {
-        font-size: 15px;
-    }
-
-    .post-toc .post-toc-content>nav>ul {
-        margin: 10px 0;
-    }
-
-    .post-toc .post-toc-content ul {
-        padding-left: 20px;
-        list-style: square;
-        margin: 0.5em;
-        line-height: 1.8em;
-    }
-
-    .post-toc .post-toc-content ul ul {
-        padding-left: 15px;
-        display: none;
-    }
-
-    @media print,
-    screen and (max-width:1057px) {
-        .post-toc {
-            display: none;
-        }
-    }
-</style>
-<div class="post-toc" style="position: absolute; top: 188px;">
-    <h2 class="post-toc-title">Table of Contents</h2>
-    <div class="post-toc-content">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#数据结构与算法是讲什么的课">数据结构与算法是讲什么的课？</a></li>
-    <li><a href="#信息时代就是数据的时代">信息时代就是数据的时代</a></li>
-    <li><a href="#数据化的科学技术工程商业">数据化的科学、技术、工程、商业</a></li>
-    <li><a href="#数据主义dataism">数据主义（Dataism）</a></li>
-    <li><a href="#数据之桥通向宇宙">数据之桥，通向宇宙</a></li>
-    <li><a href="#问题未知的事物">问题：未知的事物</a></li>
-    <li><a href="#问题解决之道">问题解决之道</a></li>
-    <li><a href="#数学解决问题的终极工具">数学：解决问题的终极工具</a></li>
-    <li><a href="#为什么是数学">为什么是数学？</a></li>
-    <li><a href="#问题解决的计算之道">问题解决的“计算”之道</a></li>
-    <li><a href="#抽象的计算概念提出">抽象的“计算”概念提出</a></li>
-    <li><a href="#关于计算的数学模型">关于“计算”的数学模型</a></li>
-    <li><a href="#图灵机-turing-machine">图灵机 Turing Machine</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var postToc = $(".post-toc");
-        if (postToc.length) {
-            var leftPos = $("#main").offset().left;
-            if (leftPos < 220) {
-                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
-            }
-
-            var t = postToc.offset().top - 20,
-                a = {
-                    start: {
-                        position: "absolute",
-                        top: t
-                    },
-                    process: {
-                        position: "fixed",
-                        top: 20
-                    },
-                };
-            $(window).scroll(function () {
-                var e = $(window).scrollTop();
-                e < t ? postToc.css(a.start) : postToc.css(a.process)
-            })
-        }
-
-        if ($("#TableOfContents").children().length < 1) {
-            $(".post-toc").remove();
-        }
-    })
-</script>
+    
     <article class="post">
         <header>
             <h1 class="post-title">数据结构与算法（Python版）</h1>
@@ -378,6 +265,134 @@
 <li>1936年，Alan Turing提出的一种抽象计算模型
 <ul>
 <li>基本思想是用机器模拟人们用纸笔进行数学运算的过程，但比数值计算更为简单</li>
+</ul>
+</li>
+</ul>
+<h2 id="图灵机-turing-machine-基本概念">图灵机 Turing Machine 基本概念</h2>
+<ul>
+<li>在纸上写上或擦除某个符号</li>
+<li>把注意力从纸的一个位置转向另一个位置</li>
+<li>在每个阶段，要决定下一步动作依赖于：
+<ul>
+<li>此人当前所关注的纸上某个位置的符号和</li>
+<li>此人当前思维的状态</li>
+</ul>
+</li>
+<li>The.Imitation.Game.2014 (电影)</li>
+<li>图灵机由以下几部分构成
+<ul>
+<li>一条无限长的分格纸带，每格可以记录1个符号</li>
+<li>一个读写头，可在纸带上左右移动，能读出和擦写格子的字符</li>
+<li>一个状态寄存器，记录有限状态中的1个状态</li>
+<li>一系列有限的控制规则：（5个）
+<ul>
+<li>某个状态，读入某个字符时</li>
+<li>要改写成什么字符</li>
+<li>要如何移动读写头</li>
+<li>要改变为什么状态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="看一个图灵机例子">看一个图灵机例子</h2>
+<ul>
+<li>判定 {a^mb^m|m&gt;=0} ：左半部全是a，右半部全是b，且ab数量相等的字符串
+<ul>
+<li>如：ab、aabb、aaaabbbb，进入“接受”状态</li>
+<li>如：b、ba、abb，进入“拒绝”状态</li>
+</ul>
+</li>
+<li>规则思路：读写头来回移，将a和b一一对消，如果最后剩下空白B则接受，否则拒绝
+<ul>
+<li>初始状态s0是读写头停在第一个字符处</li>
+<li>s1状态是读写头正在右移</li>
+<li>s2状态是读写头道字符串最右边</li>
+<li>s3状态是读写头正在向回左移</li>
+</ul>
+</li>
+</ul>
+<p>图灵机模拟软件 Visual Turing</p>
+<p>104 算法和计算复杂性</p>
+<h2 id="问题的分类">问题的分类</h2>
+<ul>
+<li>What：是什么？
+<ul>
+<li>面向判断与分类的问题</li>
+</ul>
+</li>
+<li>Why：为什么？
+<ul>
+<li>面向求因与证明的问题</li>
+</ul>
+</li>
+<li>How：怎么做？
+<ul>
+<li>面向过程与构建的问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="可以通过计算解决的问题">可以通过“计算”解决的问题</h2>
+<ul>
+<li>用任何一个“有限能行方法”下的计算模型可以解决的问题，都算是“可计算”的</li>
+<li>What：分类问题
+<ul>
+<li>可以通过树状的判定分支解决</li>
+</ul>
+</li>
+<li>Why：证明问题
+<ul>
+<li>可以通过有限的公式序列来解决</li>
+<li>数学定理证明从不证自明的公理出发，一步步推理得出最后待证明的定理，我们在以往学习过的定理证明即为此类解决方法</li>
+</ul>
+</li>
+<li>How：过程问题
+<ul>
+<li>可以通过算法流程来解决</li>
+<li>解决问题的过程：算法和相应数据结构的研究，即为本课主要内容</li>
+</ul>
+</li>
+</ul>
+<h2 id="世界上最早的算法欧几里德算法">世界上最早的算法：欧几里德算法</h2>
+<ul>
+<li>公元前3世纪，记载于《几何原本》
+<ul>
+<li>辗转相除法求最大公约数</li>
+</ul>
+</li>
+<li>辗转相除法处理大数时非常高效</li>
+<li>它需要的步骤不会超过小数位数的5倍
+<ul>
+<li>加百利·拉梅(Gabriel Lame)于1844年证明了这个结论，并开创了计算复杂性理论</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算复杂性">计算复杂性</h2>
+<ul>
+<li>“基于有穷观点的能行方法”的“可计算”概念
+<ul>
+<li>仅仅涉及到问题的解决是否能在有限资源内（时间/空间）完成</li>
+<li>并不关心具体要花费多少计算步骤或多少存储空间</li>
+</ul>
+</li>
+<li>由于资源（时间/空间）相当有限，对于问题的解决需要考虑其可行性如何</li>
+<li>人们发现各种不同的可计算问题，其难易程度是不一样的
+<ul>
+<li>有些问题非常容易解决，如基本数值计算</li>
+<li>有些问题的解决程度尚能令人满意，如表达式求值、排序等</li>
+<li>有些问题的解决会爆炸性地吞噬资源，虽有解法，但没什么可行性，如哈密顿回路、货郎担问题等</li>
+</ul>
+</li>
+<li>定义一些衡量指标，对问题的难易程度（所需的执行步骤数/存储空间大小）进行分类，是计算复杂性理论的研究范围</li>
+<li>但对于同一个问题，也会有不同的解决方案，其解决效率上也是千差万别</li>
+<li>如排序问题，以n张扑克牌作为排序对象
+<ul>
+<li>一般人们会想到的是“冒泡“排序，即每次从牌堆里选出一张最小的牌，这样全部排完大概会需要n^2量级的比较次数</li>
+</ul>
+</li>
+<li>另一种有趣的”Bogo“排序方法
+<ul>
+<li>洗一次牌，看是否排好序，没有的话，接着洗牌，直到排序成功！这样全部排完，平均需要n^*n!量级的比较次数</li>
 </ul>
 </li>
 </ul>
