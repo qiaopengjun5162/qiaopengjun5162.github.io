@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 小乔的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 Mar 2023 21:43:17 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Mar 2023 21:00:46 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust编程语言入门之Package、Crate、Module</title>
+      <link>https://qiaopengjun5162.github.io/post/rust_package_crate_module/</link>
+      <pubDate>Sun, 12 Mar 2023 21:00:46 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/post/rust_package_crate_module/</guid>
+      <description>Rust编程语言入门之Package、Crate、Module 一、Package、Crate、定义 Module Rust的代码组织 代码组织主要包括： 哪些</description>
+    </item>
+    
     <item>
       <title>Rust编程语言入门之枚举与模式匹配</title>
       <link>https://qiaopengjun5162.github.io/post/rust_enum/</link>
