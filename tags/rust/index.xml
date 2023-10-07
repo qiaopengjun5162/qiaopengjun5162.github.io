@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rust on Qiao&#39;s Blog</title>
+    <link>https://qiaopengjun5162.github.io/tags/rust/</link>
+    <description>Recent content in Rust on Qiao&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Oct 2023 13:00:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust 学习笔记之所有权</title>
+      <link>https://qiaopengjun5162.github.io/posts/second/</link>
+      <pubDate>Sat, 07 Oct 2023 13:00:03 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/second/</guid>
+      <description>Rust 学习笔记之所有权 Rust 处理很多问题时的思路：
+编译时，处理大部分使用场景，保证安全性和效率； 运行时，处理无法在编译时处理的场景，会牺牲一部分效率，提高灵活性。 Rust具体如何在运行时做动态检查呢？运行时的动态检查又如何与编译时的静态检查自洽呢？
+Rust 的答案是使用引用计数的智能指针：Rc（Reference counter） 和 Arc（Atomic reference counter）。这里要特别说明一下，Arc 和 ObjC/Swift 里的 ARC（Automatic Reference Counting）不是一个意思，不过它们解决问题的手段类似，都是通过引用计数完成的。
+Rc 对某个数据结构 T，我们可以创建引用计数 Rc，使其有多个所有者。 Rc 会把对应的数据结构创建在堆上。 堆是唯一可以让动态创建的数据被到处使用的内存。 </description>
+    </item>
+    
+  </channel>
+</rss>
