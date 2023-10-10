@@ -8,15 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Oct 2023 13:00:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Rust 学习笔记之所有权</title>
-      <link>https://qiaopengjun5162.github.io/posts/second/</link>
+      <title>Rust 学习之所有权 Rc</title>
+      <link>https://qiaopengjun5162.github.io/posts/rust_rc_arc/</link>
       <pubDate>Sat, 07 Oct 2023 13:00:03 +0800</pubDate>
       
-      <guid>https://qiaopengjun5162.github.io/posts/second/</guid>
-      <description>Rust 学习笔记之所有权 Rust 处理很多问题时的思路：
+      <guid>https://qiaopengjun5162.github.io/posts/rust_rc_arc/</guid>
+      <description>Rust 学习笔记之所有权 Rc Rust 处理很多问题时的思路：
 编译时，处理大部分使用场景，保证安全性和效率； 运行时，处理无法在编译时处理的场景，会牺牲一部分效率，提高灵活性。 Rust具体如何在运行时做动态检查呢？运行时的动态检查又如何与编译时的静态检查自洽呢？
 Rust 的答案是使用引用计数的智能指针：Rc（Reference counter） 和 Arc（Atomic reference counter）。这里要特别说明一下，Arc 和 ObjC/Swift 里的 ARC（Automatic Reference Counting）不是一个意思，不过它们解决问题的手段类似，都是通过引用计数完成的。
-Rc 对某个数据结构 T，我们可以创建引用计数 Rc，使其有多个所有者。 Rc 会把对应的数据结构创建在堆上。 堆是唯一可以让动态创建的数据被到处使用的内存。 </description>
+Rc 对某个数据结构 T，我们可以创建引用计数 Rc，使其有多个所有者。 Rc 会把对应的数据结构创建在堆上。 堆是唯一可以让动态创建的数据被到处使用的内存。 1 2 3 4 use std::rc::Rc; fn main() { let a = Rc::new(1); } 如果想对数据创建更多的所有者，我们可以通过 clone() 来完成。 clone() 方法会创建一个新引用计数，并把新引用计数指向的数据的所有者数量加 1。 1 2 3 4 5 use std::rc::Rc; fn main() { let a = Rc::new(1); let b = a.clone(); } 如果我们把数据的所有者数量减到 0，那么数据就会被销毁。 对一个 Rc 结构进行 clone()，不会将其内部的数据复制，只会增加引用计数。 当一个 Rc 结构离开作用域被 drop() 时，也只会减少其引用计数，直到引用计数为零，才会真正清除对应的内存。 1 2 3 4 5 6 use std::rc::Rc; fn main() { let a = Rc::new(1); let b = a.clone(); let c = a.clone(); } 上面的代码我们创建了三个 Rc，分别是 a、b 和 c。它们共同指向堆上相同的数据，也就是说，堆上的数据有了三个共享的所有者。在这段代码结束时，c 先 drop，引用计数变成 2，然后 b drop、a drop，引用计数归零，堆上内存被释放。
+a 是 Rc::new(1) 的所有者，b 和 c 是 a 的 clone() 所有者。 引用计数是 3，因为 a 有三个所有者，b 和 c 各有一个。 引用计数归零，a 离开作用域，a 的所有者变成 2，a 的内存被释放。 b 和 c 离开作用域，引用计数减 1，b 和 c 的内存被释放。 从编译器的角度，abc 都各自拥有一个 Rc，所以编译器不会报错。 Rc 的 clone() 函数的实现 Rc 的 clone() 函数的实现很简单，就是增加引用计数：</description>
     </item>
     
   </channel>
