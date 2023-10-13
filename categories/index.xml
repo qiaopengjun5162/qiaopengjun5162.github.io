@@ -6,7 +6,25 @@
     <description>Recent content in Categories on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Oct 2023 13:00:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 20:01:17 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust</title>
+      <link>https://qiaopengjun5162.github.io/categories/rust/</link>
+      <pubDate>Thu, 12 Oct 2023 20:01:17 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/categories/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubunut</title>
+      <link>https://qiaopengjun5162.github.io/categories/ubunut/</link>
+      <pubDate>Wed, 11 Oct 2023 14:17:45 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/categories/ubunut/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>category1</title>
       <link>https://qiaopengjun5162.github.io/categories/category1/</link>
@@ -22,15 +40,6 @@
       <pubDate>Sat, 07 Oct 2023 13:00:03 +0800</pubDate>
       
       <guid>https://qiaopengjun5162.github.io/categories/category2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rust</title>
-      <link>https://qiaopengjun5162.github.io/categories/rust/</link>
-      <pubDate>Sat, 07 Oct 2023 13:00:03 +0800</pubDate>
-      
-      <guid>https://qiaopengjun5162.github.io/categories/rust/</guid>
       <description></description>
     </item>
     

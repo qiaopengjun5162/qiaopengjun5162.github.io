@@ -6,7 +6,38 @@
     <description>Recent content in Rust on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Oct 2023 13:00:03 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 20:01:17 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust 学习之 flod</title>
+      <link>https://qiaopengjun5162.github.io/posts/rust_fold/</link>
+      <pubDate>Thu, 12 Oct 2023 20:01:17 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/rust_fold/</guid>
+      <description>Rust 学习之 flod 在 Rust 中，fold 是一个常见的方法，通常用于对集合（例如，向量、列表或数组）中的元素进行迭代，并通过一个累加器（accumulator）将元素组合起来。fold 方法通常与闭包（closure）一起使用，闭包定义了如何将每个元素与累加器结合起来。
+fold 方法的基本语法如下：
+1 2 3 fn fold&amp;lt;B, F&amp;gt;(self, init: B, f: F) -&amp;gt; B where F: FnMut(B, Self::Item) -&amp;gt; B, 这里的参数解释如下：
+self：表示要进行迭代的集合。 init：累加器的初始值。 f：一个闭包，接受累加器和集合中的一个元素作为参数，并返回新的累加器值。 下面是一个简单的例子，演示如何使用 fold 方法计算一个向量中所有元素的和：
+1 2 3 4 5 fn main() { let numbers = vec![1, 2, 3, 4, 5]; let sum = numbers.iter().fold(0, |acc, &amp;amp;x| acc + x); println!(&amp;#34;Sum: {}&amp;#34;, sum); // 输出：Sum: 15 } 在这个例子中，我们使用了 iter() 方法来获取一个包含向量中所有元素的迭代器。然后，我们使用 fold 方法来迭代这些元素，并使用闭包 |acc, &amp;amp;x| acc + x 来将每个元素与累加器相加。最终，我们得到了所有元素的和，并将其存储在 sum 变量中。
+需要注意的是，在闭包中，我们使用了可变的引用 &amp;amp;mut acc 来修改累加器的值。这是因为在闭包中，f 参数被标记为 FnMut，这意味着它可以修改它的参数。</description>
+    </item>
+    
+    <item>
+      <title>Rust Quiz 学习之 #1</title>
+      <link>https://qiaopengjun5162.github.io/posts/rust_quiz_001/</link>
+      <pubDate>Thu, 12 Oct 2023 19:43:17 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/rust_quiz_001/</guid>
+      <description>Rust Quiz 学习之第一题 文档链接 https://dtolnay.github.io/rust-quiz/1
+实操 问题： What is the output of this Rust program?
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 macro_rules! m { ($($s:stmt)*) =&amp;gt; { $( { stringify!($s); 1 } )&amp;lt;&amp;lt;* }; } fn main() { print!( &amp;#34;{}{}{}&amp;#34;, m! { return || true }, m! { (return) || true }, m! { {return} || true }, ); } The program exhibits undefined behavior
+The program does not compile
+The program is guaranteed to output:
+回答 这个问题围绕着 Rust 语法在哪里放置语句边界。
+宏的输入规则m!是$($s:stmt)*匹配零个或多个 Rust 语句。规则的$(&amp;hellip;)*部分是一个重复，它匹配重复零次或多次的内容，并且 是$s:stmt一个片段说明符，匹配stmt符合 Rust 语法规则的 Rust 语句 ( )。匹配的语句在扩展代码中可以作为片段变量使用$s。
+语句是函数体内允许的顶级语法单元。以下所有内容均为陈述示例。函数体的语法要求某些类型的语句后跟分号，但出于宏语法的目的，分号不是语句的一部分。
+1 2 3 4 5 6 7 8 // Items are statements. struct S { x: u64 } // Let-bindings are statements. let mut s = S { x: 1 } // Expressions are statements. s.x + 1 该宏m!扩展为零个或多个{ stringify!</description>
+    </item>
+    
     <item>
       <title>Rust 学习之所有权 Rc</title>
       <link>https://qiaopengjun5162.github.io/posts/rust_rc_arc/</link>
