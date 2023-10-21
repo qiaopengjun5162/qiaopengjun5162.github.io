@@ -6,7 +6,36 @@
     <description>Recent content on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Oct 2023 18:19:53 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 01:07:08 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>零知识证明 PLONK</title>
+      <link>https://qiaopengjun5162.github.io/posts/plonk/</link>
+      <pubDate>Tue, 17 Oct 2023 01:07:08 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/plonk/</guid>
+      <description>零知识证明 PLONK https://eprint.iacr.org/2019/953.pdf
+PLONK 背景 FFT(Fast Fourier transform)： 将一个用系数表示的多项式转换成它的点值表示的算法，O(n log n)
+作用在有限域上，多项式相乘（也叫求卷积）
+IFFT(Inverse Fast Fourier transform)： 将一个用点值表示的多项式转换成它的系数表示的算法
+n 次单位元的性质
+Polynomial 承诺(Kate)： 结论：
+任意程序可转化为电路（Circuit） 电路可转化成多项式表示 多项式可承诺并证明 P 向 V 证明拥有多项式（or 函数） f(x)：
+f(s) = z =&amp;gt; f(s) -z = 0 =&amp;gt; f&amp;rsquo;(x) = f(x) - z root x = s =&amp;gt; f&amp;rsquo;(x) = (x-s)*h(x)
+z 可作为多项式承诺（Schwartz-zippel lemma d &amp;laquo; P）
+PLONK-Circuit 加法门 乘法门 布尔门
+检查满足电路的关系
+PLONK-Lagrange 从几何上看，n 次插值多项式 Pn(x)，是一条n 次代数曲线，它通过曲线 y = f(x) 上的 n + 1 个点
+y = f(x)
+y = Pn(x)
+PLonk 优势 整个方案只设置一个单独的可信设置 多方可参与的可信设置 用多项式承诺代替原先的零知识验证步骤 PLONK-Prove Set up SRS （Structure Reference String） Build Circuit （Selector） Preprocess Build Proof PLONK-Verify Set up SRS (Structure Reference String) Validate proof range (Selector) Compute opening evaluation ECC Pairing check Polymoial equation 更多请查看：https://www.youtube.com/watch?v=ypilwXBXATM
+门约束
+算术化是指把计算转换成数学对象，然后进行零知识证明。 Plonkish 算术化是 Plonk 证明系统特有的算术化方法，在 Plonkish 出现之前，主流的电路表达形式为 R1CS，被 Pinocchio，Groth16，Bulletproofs 等广泛采用。
+一个算术电路包含若干个乘法门与加法门。每一个门都有「两个输入」引脚和一个「输出」引脚，任何一个输出引脚可以被接驳到多个门的输入引脚上。
+所有的加法门都会被展开成多个变量的相加（或线性组合）。
+并不是任何一个电路都存在赋值向量。凡是存在合法的赋值向量的电路，被称为可被满足的电路。判断一个电路是否可被满足，是一个 NP-Complete 问题，也是一个 NP 困难问题。
+请注意，通常「赋值向量」中需要一个固定赋值为 1 的变量，这是为了处理加法门中的常量输入。</description>
+    </item>
+    
     <item>
       <title>零知识证明学习笔记</title>
       <link>https://qiaopengjun5162.github.io/posts/zkp/</link>
