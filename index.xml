@@ -6,9 +6,92 @@
     <description>Recent content on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Dec 2023 11:05:59 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Dec 2023 18:29:45 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jupyter_notebook</title>
+      <title>计算机网络原理之计算机网络概述</title>
+      <link>https://qiaopengjun5162.github.io/posts/computer_network_code/</link>
+      <pubDate>Sat, 09 Dec 2023 18:29:45 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/computer_network_code/</guid>
+      <description>计算机网络原理之计算机网络概述 一、计算机网络基本概念 计算机网络的定义 计算机网络（Computer Network）是若干结点（Host）通过通信设备连接起来的计算机系统，这些计算机通过通信设备进行信息交换。 从技术范畴来看，计算机网络是计算机技术与通信技术相互融合的产物。 计算机网络是互连的、自治的计算机的集合，这些计算机通过通信设备进行信息交换。 ISP 网络由许多有线或无线通信链路互连分组交换设置构成。 分组交换设备可以实现数据分组的接收与转发，是构成 Internet 的重要基础，存在多种形式，最典型的是路由器和交换机。 协议的定义 协议（Protocol）是计算机网络中，计算机之间通信必须遵守的规则，这些规则将数据划分为具有特定含义的组件，并通过这些组件在计算机之间传递数据。 协议是计算机网络中，计算机之间进行通信时所必须遵守的规则的集合。 协议三要素 语法：语法是用来规定语言的规则，计算机网络协议的语法就是对数据包中数据的组织格式进行定义。 语义：语义是用来规定语言的含意，计算机网络协议的语义是对数据包中数据的含意进行定义。 同步：同步就是对发送和接收双方的数据发送和接收速率进行协调。 计算机网络的功能 硬件资源共享 软件资源共享 信息资源共享 计算机网络的分类 按覆盖范围分类 广域网 WAN（Wide Area Network）：覆盖范围很广的计算机网络，通常跨接很大的地理距离，所覆盖的范围从几十公里到几千公里，甚至全球。 城域网 MAN（Metropolitan Area Network）：覆盖范围较小的计算机网络，通常覆盖一个城市，也可以覆盖一个城市里的几个区 局域网 LAN（Local Area Network）：覆盖范围较小的计算机网络，通常覆盖一个校园，一个公司，或者一个单位。 个人区域网 PAN（Personal Area Network）：覆盖范围极小的计算机网络，通常覆盖一个家庭，一个宿舍或一个办公室。 按拓扑结构分类 总线型拓扑结构 环型拓扑结构 星型拓扑结构 网状拓扑结构 树形拓扑结构 混合拓扑结构 按交换方式分类 电路交换（Circuit Switching）：在通信开始前，通信双方需要先建立一个通信电路，然后通信双方通过这个电路进行通信。通信的结束也通过释放这个通信电路来结束。 报文交换（Message Switching）：报文交换的交换节点即交换机，交换机中存储着大量报文，报文交换机根据报文中的地址信息将报文转发到下一个交换机。报文交换的交换节点即交换机，交换机中存储着大量报文，报文交换机根据报文中的地址信息将报文转发到下一个交换机。 分组交换（Packet Switching）：分组交换的交换节点即交换机，交换机中存储着大量分组，分组交换机根据分组中的地址信息将分组转发到下一个交换机。 按传输介质分类 无线传输介质 有线传输介质 按网络模型分类 OSI 七层模型 TCP/IP 四层模型 客户-服务器模型 按网络用户属性分类 公用网 私有网 二、计算机网络结构 网络边缘 终端系统（End System）：终端系统也称为用户终端（User Equipment），直接连到网络的计算机，是网络边缘设备，是计算机用户访问网络的入口。 边缘路由器（Edge Router）：边缘路由器也称为网络接入设备（Network Access Device），是网络边缘设备，是终端系统接入互联网的网关，是网络边缘的入口。 接入网络 常见的接入网络包括以下几类：
+电话拨号接入 非对称数字用户线路 ADSL 混合光纤同轴电缆 HFC 接入网络 局域网 移动接入网络 网络核心 三、数据交换技术 数据交换的概念 电路交换 建立电路 传输数据 拆除电路 报文交换 报文交换机 报文 存储转发 分组交换 分组交换的基本原理 分组交换的优点 交换设备存储容量要求低 交换速度快 可靠传输效率高 更加公平 分组长度的确定 分组长度与延迟时间 分组长度与误码率 四、计算机网络性能 速率与带宽 时延 结点处理时延 排队时延 传输时延 传播时延 时延带宽积 丢包率 吞吐量 五、计算机网络体系结构 计算机网络分层体系结构 OSI 参考模型 TCP/IP 参考模型 五层参考模型 计算机网络与因特网发展简史 </description>
+    </item>
+    
+    <item>
+      <title>Python 中 import 的使用说明</title>
+      <link>https://qiaopengjun5162.github.io/posts/code_import/</link>
+      <pubDate>Sat, 09 Dec 2023 18:16:48 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/code_import/</guid>
+      <description>Python 中 import 的使用说明 1. 导入模块 1.1 导入模块 1 import module1, module2 1.2 导入模块时给模块指定别名 1 2 import module1 as m1 import module2 as m2 1.3 导入模块时给模块指定别名，并指定模块的路径 1 2 3 4 import module1 as m1 import module2 as m2 from module1 import func1 from module2 import func2 2. import的格式说明 Python官方给出的建议是这样的，把import分为三个类型：
+官方标准库，比如sys, os 第三方库，比如numpy 本地库
+每一组import都要用空格区分开。
+在每一组import内，每个import只import一个库，不要出现 import os, sys 这样的用法。如果用from，可以import多个内容，比如 from subprocess import Popen, PIPE 。尽量避免使用 from XX import * ，以防命名冲突。
+在每一组import内，先写import完整库的，再写使用from的。每一类再按照字典序排序。
+3. 导入模块的顺序 Python的import语句是可以在程序中多次使用的，所以，如果导入的模块过多，那么导入顺序就显得尤为重要。
+3.1 导入顺序 标准库 第三方库 本地库 3.2 导入顺序示例 1 2 3 4 5 6 7 8 9 10 11 12 import os import sys import time import datetime import numpy as np import pandas as pd import matplotlib.pyplot as plt import seaborn as sns import xlrd import xlwt import xlsxwriter import openpyxl </description>
+    </item>
+    
+    <item>
+      <title>如果我们要打印一个class的signature（比如使用help命令的时候），我们是应该优先__new__，还是__init__？</title>
+      <link>https://qiaopengjun5162.github.io/posts/code_init_new/</link>
+      <pubDate>Sat, 09 Dec 2023 18:08:19 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/code_init_new/</guid>
+      <description>&lt;h1 id=&#34;如果我们要打印一个class的signature比如使用help命令的时候我们是应该优先__new__还是__init__&#34;&gt;如果我们要打印一个class的signature（比如使用help命令的时候），我们是应该优先__new__，还是__init__？&lt;/h1&gt;
+&lt;p&gt;如果这个class同时自定义了__new__和__init__，按照现在的实现，是先打印__new__的。&lt;/p&gt;
+&lt;p&gt;任何一个类，如果同时定义了__new__和__init__，只有__new__在instantiate的时候是一定会被运行的，因为__new__可以返回一个其他类型（衍生类甚至是完全无关的类型）的object，导致这个类的__init__压根没有被调用。也就是说，__new__是比__init__更稳定的signature。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python中自带的 assert 的使用</title>
+      <link>https://qiaopengjun5162.github.io/posts/code_assert/</link>
+      <pubDate>Sat, 09 Dec 2023 17:57:50 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/code_assert/</guid>
+      <description>Python中自带的 assert 的使用 1. 概述 assert 语句用于判断一个表达式，在表达式条件为 false 的时候触发异常。
+2. 语法 assert expression [, arguments]
+3. 实例 1 2 # 判断一个变量是否为空 assert a is not None 4. 注意事项 assert 语句只在调试模式开启时起作用，在发布模式时，assert 语句将被忽略。
+5. 断言的用法 5.1 断言表达式为真 1 assert 1 == 1 5.2 断言表达式为假 1 assert 1 == 2 5.3 断言表达式为假，并抛出异常 1 assert 1 == 2, &amp;#34;1 is not equal to 2&amp;#34; 5.4 断言表达式为假，并抛出异常，并附加额外的参数 1 assert 1 == 2, &amp;#34;1 is not equal to 2&amp;#34;, 100 5.5 断言表达式为假，并抛出异常，并附加额外的参数，并附加额外的参数 1 assert 1 == 2, &amp;#34;1 is not equal to 2&amp;#34;, 100, 200 6. 断言的执行 assert 语句只在调试模式开启时起作用，在发布模式时，assert 语句将被忽略。
+7. 断言的执行过程 断言的执行过程如下：
+执行 assert 语句 如果断言失败，则触发 AssertionError 异常 异常被触发时，assert 语句后面的语句将不会执行 8. 断言的使用说明 首先，在python中，assert expression 在不开-O（即使用debug mode）的情况下，等价于if not expression: raise AssertionError 。python里的assert就是raise了一个exception而已。但是我们看待assert的时候，要从语言的层面去理解，背后的实现反而没那么重要。
+assert的语义其实是非常清晰的——这个事情它压根不该发生。你永远不应该用assert处理任何错误，如果你能想到一个当前情况下assert不成立的可能性，你这里就不应该写这个assert。你不应该依赖assert的任何behavior，任何assert不成立的时候，你就应该接受你的程序可能发生任何事情。事实上，在使用-O（production mode）的时候，所有的assert都会被变成noop，也就是没有任何行为。
+那为什么要写assert？当然还是有原因的。
+第一，当你在对程序进行开发的时候，可以更快地发现一些程序的错误。比如你这个函数是个内部函数，只有自己的代码调用，你觉得传进来的都应该是int，你不需要对传入数据进行类型判断，这里可以加一个assert isinstance(arg, int) ，万一你在开发的时候出了一些比较蠢的错误，可以及时发现。这个用法其实大家相对熟悉一些，有的人在开发的时候会用这个方式调试。
+第二，是一个被很多人忽略的点——assert是有注释含义的。它可以提醒后来的开发者（和一周后的你自己），这个地方我确认某个事情是成立的，你不需要去思考其他的可能性。这样的assert在开发时起到一个测试的作用，而在开发后维护的时候起到一个注释的作用。在assert起注释作用的时候，它的可信度是更高的。我相信大家都会有读代码的时候看到一段注释，不知道该不该信的时候（可能时间久远了）。但是如果是assert，说服力明显就更强。
+最后再次强调一下，不要把assert当成一个正常的exception来用！不要去catch AssertionError！尽管在Python实现的层面上它就是一个exception，但是大家一定要习惯把语义和实现区分开这个事情，因为你写的代码在被别人阅读的时候是有隐含意的。</description>
+    </item>
+    
+    <item>
+      <title>开发中 PR 注意事项</title>
+      <link>https://qiaopengjun5162.github.io/posts/code_pr/</link>
+      <pubDate>Sat, 09 Dec 2023 17:52:06 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/code_pr/</guid>
+      <description>开发中 PR 注意事项 提交PR 在提交PR的时候，需要先在本地创建一个分支，然后在这个分支上开发，开发完成后，再将这个分支合并到主分支
+代码规范 大家提交PR的时候，要注意一下代码规范，不要提交一些不符合规范的代码，比如空格、换行。 在拉PR的时候要注意一下，不要去轻易地动和你的PR无关的代码，什么随手改一个空格或者括号的位置啥的，这是非常不可取的。把自己的代码保持和源代码的style一致，只去专心做feature，额外的空行都不要多加。养成好习惯！</description>
+    </item>
+    
+    <item>
+      <title>测试的几个基本原则</title>
+      <link>https://qiaopengjun5162.github.io/posts/code_test/</link>
+      <pubDate>Sat, 09 Dec 2023 17:43:50 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/code_test/</guid>
+      <description>写测试的一些基本原则 测试的核心只有一个——确认你的代码运行结果和期待结果是一致的。
+因此，当你写测试的时候，你脑子里只需要考虑两个事情
+我如何得到这段代码的运行结果 我这段代码的期待结果是什么？ 根据得到运行结果方式的不同，我们有很多的测试分类，比如黑盒或者白盒。不需要去对这些分类死记硬背，你脑海中其实只需要想我怎么拿到结果。 比如在Python中，你可以通过直接调用你写的函数求值。如果用这种方法，你就会发现，你写的代码好坏，很大程度上影响了你测试的难易。side effect越小的代码，越好测试。比如一个函数，它一个输入永远对应一个输出，这代码就非常好测试。这个函数是个method，它依赖instance的一些属性，就难测一些，需要建立一个instance。它依赖一些全局变量，更难测了。依赖远端的数据库之类的，那就难测炸了。一段代码，依赖的东西越多越复杂，测试就越困难。所以很多人会发现，只有自己开始写测试了，才能意识到自己的代码写的有什么毛病。
+除了直接调用，也可以通过subprocess去开一个新的进程。有时候这是必须的，比如viztracer这种命令行工具，你是不能通过完全的直接调用去做测试的。那这里你就需要对怎么开一个新进程做一个了解，或许还需要自己整理一个小小的framework来测试你的工具。
+得到了实际运行结果之后，就要和期待结果进行比对。你的程序一定得有个期待结果才能去测试，不然你光跑一下程序是几乎没有意义的（倒是能确认不报错）。
+在设计期待结果的时候，要注意一下这个结果是不是稳定的。比如我去读我的stdout打印某一串字符串——那它未来的输出是不是可能变？我在写pdb的代码的时候，经常会涉及测试中显示代码在文件中行数的问题，这就是一个很重要的考量。你把测试写死了，后面就总得调整，改一下代码就得改测试，你的测试就失去了价值。
+既然聊到了测试的价值，我们就说一下——为什么要写测试？ 测试当然是确认此时此刻，你的程序是正常工作的。但是它更大的意义在于——增强了未来你对程序做修改的时候你对程序还工作的信心。
+在你刚开始开发某个功能的时候，可能手动做了非常多的测试，一步一步地把它弄得正常工作。这时候你可能觉得我为什么要写那些我已经做过的测试？浪费时间啊。但这些自动化测试的意义在于，在未来你改动代码的时候，随时保证你之前的那些功能还正常工作。因为你不会在未来修改代码的时候再这么详细地测试你之前开发的功能了。
+如果你的代码缺少测试，你会很快陷入一个开发瓶颈——完全不敢重构和做大型的修改，只敢做新功能。因为根本不知道改之后我这东西还工作不工作。随着你项目复杂度的增加，各个模块之间耦合度变大，任何一个部分的修改都可能影响到很多内容，你就没法接着写了，然后项目就烂尾了。
+所以，如果你想做一个相对长期稳定维护的项目，测试是不可少的。具体的测试上的技术细节，其实并没有那么重要。就像我前面说的，无非就是想办法运行你的代码，再和期待值做比较。测试的代码经常没那么“漂亮”，甚至有不少冗余，这都完全是可被接受的。甚至很多时候，要适度减少测试代码中的抽象，以保证每个单独的测试的完整性（读测试代码的时候不用几个函数之间来回切）。</description>
+    </item>
+    
+    <item>
+      <title>量化学习之 jupyter notebook 环境配置</title>
       <link>https://qiaopengjun5162.github.io/posts/jupyter_notebook/</link>
       <pubDate>Sat, 09 Dec 2023 11:05:59 +0800</pubDate>
       
