@@ -6,7 +6,30 @@
     <description>Recent content in Posts on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Dec 2023 18:29:45 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jan 2024 18:24:19 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dojoup 安装问题解决</title>
+      <link>https://qiaopengjun5162.github.io/posts/dojo/</link>
+      <pubDate>Thu, 18 Jan 2024 18:24:19 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/dojo/</guid>
+      <description>Dojoup 安装问题解决 Install Dojoup https://book.dojoengine.org/getting-started/quick-start.html 1 curl -L https://install.dojoengine.org | bash 安装失败 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 dojoup ═════════════════════════════════════════════════════════════════════════ ██████╗ ██████╗ ██╗ ██████╗ ██╔══██╗██╔═══██╗ ██║██╔═══██╗ ██║ ██║██║ ██║ ██║██║ ██║ ██║ ██║██║ ██║██ ██║██║ ██║ ██████╔╝╚██████╔╝╚█████╔╝╚██████╔╝ ╚═════╝ ╚═════╝ ╚════╝ ╚═════╝ Repo : https://github.com/dojoengine/dojo Book : https://book.dojoengine.org/ Chat : https://discord.gg/dojoengine https://t.me/dojoengine ═════════════════════════════════════════════════════════════════════════ dojoup: installing dojo (version , tag ) https://github.com/dojoengine/dojo/releases/download//dojo__darwin_arm64.tar.gz dojoup: downloading latest dojo ########################################################################################################################################################## 100.0% tar: Error opening archive: Unrecognized archive format dojoup: command failed: tar -xzC /Users/qiaopengjun/.</description>
+    </item>
+    
+    <item>
+      <title>Starknet开发实战</title>
+      <link>https://qiaopengjun5162.github.io/posts/starknet/</link>
+      <pubDate>Wed, 10 Jan 2024 12:06:44 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/starknet/</guid>
+      <description>Starknet开发实战 以太坊网络架构 以太坊有共识、数据可用性、结算、执行四个模块。
+共识层
+共识层指的是节点就区块链上哪些数据可以被验证为真实和准确达成协议的机制。 共识协议决定了交易如何排序，以及新区块如何被添加到链上。 执行层
+执行层是区块链上的节点如何处理交易，以在不同状态之间过渡区块链。 参与共识的节点必须使用他们的区块链副本执行交易，以便在验证区块之前进行证明。 数据可用性
+区块提议者发布区块的所有交易数据并且交易数据可供其他网络参与者使用的保证。 简单来讲，数据可用性是一个通信标准，以保证某个节点的数据可被另一个节点所接收并验证为正确，从而保证安全。 区块链执行的规则要求交易数据的可用性。这意味着区块生产者必须为每个区块发布数据，供网络对等者下载和存储；这些数据必须应要求提供。 结算层
+区块链提供了 &amp;ldquo;最终性&amp;rdquo;&amp;ndash;保证已经提交到链的历史的交易是不可逆的（或 &amp;ldquo;不可改变的&amp;rdquo;）。 要做到这一点，区块链必须确信交易的有效性。因此，结算功能需要链来验证交易，验证证明，并仲裁争端。 安装 https://foundry-rs.github.io/starknet-foundry/getting-started/installation.html https://book.cairo-lang.org/ch01-01-installation.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 curl -L https://raw.githubusercontent.com/foundry-rs/starknet-foundry/master/scripts/install.sh | sh % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 1616 100 1616 0 0 691 0 0:00:02 0:00:02 --:--:-- 691 Installing snfoundryup... ######################################################################## 100.0% Detected your preferred shell is zsh and added snfoundryup to PATH. Run &amp;#39;source /Users/qiaopengjun/.zshenv&amp;#39; or start a new terminal session to use snfoundryup. Then, simply run &amp;#39;snfoundryup&amp;#39; to install Starknet-Foundry. ~ via 🅒 base took 3.3s ➜ snfoundryup starknet-foundry-install: retrieving latest version from https://github.com/foundry-rs/starknet-foundry... starknet-foundry-install: downloading starknet-foundry-v0.</description>
+    </item>
+    
     <item>
       <title>计算机网络原理之计算机网络概述</title>
       <link>https://qiaopengjun5162.github.io/posts/computer_network_code/</link>
