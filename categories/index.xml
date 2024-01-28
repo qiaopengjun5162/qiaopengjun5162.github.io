@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2024 18:24:19 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jan 2024 17:02:08 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust</title>
+      <link>https://qiaopengjun5162.github.io/categories/rust/</link>
+      <pubDate>Sun, 28 Jan 2024 17:02:08 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/categories/rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cairo</title>
       <link>https://qiaopengjun5162.github.io/categories/cairo/</link>
@@ -31,15 +40,6 @@
       <pubDate>Sat, 09 Dec 2023 18:16:48 +0800</pubDate>
       
       <guid>https://qiaopengjun5162.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rust</title>
-      <link>https://qiaopengjun5162.github.io/categories/rust/</link>
-      <pubDate>Thu, 12 Oct 2023 20:01:17 +0800</pubDate>
-      
-      <guid>https://qiaopengjun5162.github.io/categories/rust/</guid>
       <description></description>
     </item>
     
