@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jan 2024 17:02:08 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 14:28:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solana</title>
+      <link>https://qiaopengjun5162.github.io/categories/solana/</link>
+      <pubDate>Tue, 20 Feb 2024 14:28:01 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/categories/solana/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Rust</title>
       <link>https://qiaopengjun5162.github.io/categories/rust/</link>

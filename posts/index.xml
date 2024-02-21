@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jan 2024 17:02:08 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 14:28:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solana 开发学习之Solana 基础知识</title>
+      <link>https://qiaopengjun5162.github.io/posts/solana_study/</link>
+      <pubDate>Tue, 20 Feb 2024 14:28:01 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/solana_study/</guid>
+      <description>Solana 开发学习之Solana 基础知识 Install the Solana CLI 相关链接 https://docs.solanalabs.com/cli/install https://solanacookbook.com/zh/getting-started/installation.html#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7 https://www.solanazh.com/course/1-4 https://solana.com/zh/developers/guides/getstarted/setup-local-development 实操 安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 sh -c &amp;#34;$(curl -sSfL https://release.solana.com/v1.18.2/install)&amp;#34; downloading v1.18.2 installer ✨ 1.18.2 initialized Adding export PATH=&amp;#34;/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH&amp;#34; to /Users/qiaopengjun/.profile Adding export PATH=&amp;#34;/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH&amp;#34; to /Users/qiaopengjun/.zprofile Adding export PATH=&amp;#34;/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH&amp;#34; to /Users/qiaopengjun/.bash_profile Close and reopen your terminal to apply the PATH changes or run the following in your existing shell: export PATH=&amp;#34;/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH&amp;#34; 配置环境变量 1 2 3 4 vim .zshrc # 复制并粘贴下面命令以更新 PATH export PATH=&amp;#34;/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH&amp;#34; 通过运行以下命令确认您已安装了所需的 Solana 版本： 1 2 3 4 5 solana --version # 实操 solana --version solana-cli 1.18.2 (src:13656e30; feat:3352961542, client:SolanaLabs) 切换版本 1 solana-install init 1.16.4 设置网络环境 官方RPC地址分别是：
+DevNet: https://api.devnet.solana.com TestNet: https://api.testnet.solana.com MainNet: https://api.mainnet-beta.solana.com 相关链接 https://solana.com/zh/rpc 实操 1 2 3 4 5 6 7 solana config set --url https://api.devnet.solana.com Config File: /Users/qiaopengjun/.config/solana/cli/config.yml RPC URL: https://api.devnet.solana.com WebSocket URL: wss://api.</description>
+    </item>
+    
     <item>
       <title>Rust学习之Diesel setup报错解决</title>
       <link>https://qiaopengjun5162.github.io/posts/rust_diesel/</link>
