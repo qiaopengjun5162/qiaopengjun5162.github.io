@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Solana on Qiao&#39;s Blog</title>
+    <title>solana on Qiao&#39;s Blog</title>
     <link>https://qiaopengjun5162.github.io/tags/solana/</link>
-    <description>Recent content in Solana on Qiao&#39;s Blog</description>
+    <description>Recent content in solana on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 14:28:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/solana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Feb 2024 12:42:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/tags/solana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solana 开发学习之通过RPC与Solana交互</title>
+      <link>https://qiaopengjun5162.github.io/posts/solana_study02/</link>
+      <pubDate>Thu, 22 Feb 2024 12:42:01 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/solana_study02/</guid>
+      <description>Solana 开发学习之通过RPC与Solana交互 相关链接 https://solana.com/docs/rpc/http https://www.jsonrpc.org/specification https://www.json.org/json-en.html JSON-RPC 2.0 规范 JSON-RPC 是一种无状态、轻量级远程过程调用 (RPC) 协议。该规范主要定义了几种数据结构及其处理规则。它与传输无关，因为这些概念可以在同一进程中、通过套接字、通过 http 或在许多不同的消息传递环境中使用。它使用JSON ( RFC 4627 ) 作为数据格式。
+接口RPC 节点相关接口 获取集群节点信息 通过getClusterNodes方法可以获得当前网络内，集群节点的相关信息，比如验证者的key，节点IP，节点版本等。
+1 2 3 4 5 6 7 8 9 10 11 curl https://api.devnet.solana.com -X POST -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39; { &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;id&amp;#34;: 1, &amp;#34;method&amp;#34;: &amp;#34;getClusterNodes&amp;#34; } &amp;#39; {&amp;#34;jsonrpc&amp;#34;:&amp;#34;2.0&amp;#34;,&amp;#34;result&amp;#34;:[{&amp;#34;featureSet&amp;#34;:3580551090,&amp;#34;gossip&amp;#34;:&amp;#34;67.209.54.90:8001&amp;#34;,&amp;#34;pubkey&amp;#34;:&amp;#34;7pbH563fFai2Gm8aXGi27Toj1i7x55rGp7QQ8ZQt6C7i&amp;#34;,&amp;#34;pubsub&amp;#34;:null,&amp;#34;rpc&amp;#34;:null,&amp;#34;shredVersion&amp;#34;:503,&amp;#34;tpu&amp;#34;:&amp;#34;67.209.54.90:8004&amp;#34;,&amp;#34;tpuQuic&amp;#34;:&amp;#34;67.209.54.90:8010&amp;#34;,&amp;#34;version&amp;#34;:&amp;#34;1.17.21&amp;#34;},{&amp;#34;featureSet&amp;#34;:3580551090,&amp;#34;gossip&amp;#34;:&amp;#34;37.27.61.250:8000&amp;#34;,&amp;#34;pubkey&amp;#34;:&amp;#34;HPpYXZ944SXpJB3Tb7Zzy2K7YD45zGREsGqPtEP43xBx&amp;#34;,&amp;#34;pubsub&amp;#34;:null,&amp;#34;rpc&amp;#34;:null,&amp;#34;shredVersion&amp;#34;:503,&amp;#34;tpu&amp;#34;:&amp;#34;37.27.61.250:8003&amp;#34;,&amp;#34;tpuQuic&amp;#34;:&amp;#34;37.27.61.250:8009&amp;#34;,&amp;#34;version&amp;#34;:&amp;#34;1.17.22&amp;#34;}, ...... {&amp;#34;featureSet&amp;#34;:3011420684,&amp;#34;gossip&amp;#34;:&amp;#34;69.197.5.60:8001&amp;#34;,&amp;#34;pubkey&amp;#34;:&amp;#34;FKizb2faoz57ym1bTWcZhei3aUZu7eU5AiY1EYoZsok6&amp;#34;,&amp;#34;pubsub&amp;#34;:null,&amp;#34;rpc&amp;#34;:null,&amp;#34;shredVersion&amp;#34;:503,&amp;#34;tpu&amp;#34;:null,&amp;#34;tpuQuic&amp;#34;:null,&amp;#34;version&amp;#34;:&amp;#34;1.17.5&amp;#34;}],&amp;#34;id&amp;#34;:1} 区块相关接口 获取当前区块高度 通过getBlockHeight可以获取当前的区块高度
+https://solana.com/docs/rpc/http/getblockheight 1 2 3 4 5 6 7 curl https://api.devnet.solana.com -X POST -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39; { &amp;#34;jsonrpc&amp;#34;:&amp;#34;2.0&amp;#34;,&amp;#34;id&amp;#34;:1, &amp;#34;method&amp;#34;:&amp;#34;getBlockHeight&amp;#34; } &amp;#39; {&amp;#34;jsonrpc&amp;#34;:&amp;#34;2.0&amp;#34;,&amp;#34;result&amp;#34;:268621259,&amp;#34;id&amp;#34;:1} 获取最近的Block Hash https://solana.com/docs/rpc/http/getlatestblockhash 1 2 3 4 5 6 7 8 9 10 11 12 13 curl https://api.devnet.solana.com -X POST -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39; { &amp;#34;id&amp;#34;:1, &amp;#34;jsonrpc&amp;#34;:&amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;getLatestBlockhash&amp;#34;, &amp;#34;params&amp;#34;:[ { &amp;#34;commitment&amp;#34;:&amp;#34;processed&amp;#34; } ] } &amp;#39; {&amp;#34;jsonrpc&amp;#34;:&amp;#34;2.0&amp;#34;,&amp;#34;result&amp;#34;:{&amp;#34;context&amp;#34;:{&amp;#34;apiVersion&amp;#34;:&amp;#34;1.17.21&amp;#34;,&amp;#34;slot&amp;#34;:280325472},&amp;#34;value&amp;#34;:{&amp;#34;blockhash&amp;#34;:&amp;#34;9ebRPaCY2pcKAPhWzjDtmLArbSzAH1Mb5n8PZzXKbW8X&amp;#34;,&amp;#34;lastValidBlockHeight&amp;#34;:268622097}},&amp;#34;id&amp;#34;:1} 获取指定高度block的信息 https://solana.com/docs/rpc/http/getblock 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 curl https://api.devnet.solana.com -X POST -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39; { &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.</description>
+    </item>
+    
     <item>
       <title>Solana 开发学习之Solana 基础知识</title>
       <link>https://qiaopengjun5162.github.io/posts/solana_study/</link>
