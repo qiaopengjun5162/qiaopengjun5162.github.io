@@ -6,7 +6,45 @@
     <description>Recent content on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:42:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Apr 2024 22:21:23 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React 学习之 Hello World</title>
+      <link>https://qiaopengjun5162.github.io/posts/react_hello_world/</link>
+      <pubDate>Sat, 06 Apr 2024 22:21:23 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/react_hello_world/</guid>
+      <description>React 学习之 Hello World React 简介 React是一个用于构建用户界面的JavaScript库，由Facebook开发并维护。React通过声明式的方式来构建UI，使得代码更易于理解和测试。React的核心概念包括组件（Component）和虚拟DOM（Virtual DOM）。
+组件：在React中，UI被构建为组件的集合。组件是封装了HTML、CSS和JavaScript代码的可重用单元。它们可以是函数或类，接受输入（称为“props”）并返回React元素树，这些元素树描述了用户界面在某一时刻的外观。
+虚拟DOM：React使用虚拟DOM来提高性能。当组件的状态或属性发生变化时，React会创建一个新的虚拟DOM树，并将其与之前的树进行比较。然后，React计算出差异并仅将这些差异应用到实际的DOM中，从而实现高效的UI更新。
+React的生态系统非常丰富，包括React Native（用于构建原生移动应用的框架）、Redux（用于管理应用状态的库）以及许多其他工具和库。这使得React成为构建复杂Web和移动应用的强大工具。
+React的优点包括：
+组件化：通过将UI拆分为独立的、可重用的组件，可以提高代码的可维护性和可测试性。 声明式：React使用声明式语法来描述UI，这使得代码更易于阅读和理解。 高效性能：虚拟DOM和React的更新策略使得应用能够高效地响应状态变化。 灵活性：React可以与多种其他库和工具配合使用，以满足不同项目的需求。 然而，React也有其局限性，例如学习曲线较陡峭，需要一定的JavaScript基础才能有效使用。此外，对于大型项目，可能需要额外的工具和库来管理状态和路由等复杂问题。
+总之，React是一个强大的JavaScript库，适用于构建各种规模和复杂度的Web和移动应用。通过掌握React的核心概念和生态系统中的工具，开发者可以创建出高效、可维护且用户友好的界面。
+React的核心概念是什么 React的核心概念主要包括以下几个方面：
+组件（Components）： React中构建用户界面的基本单位是组件。组件可以看作是一个独立的、可复用的代码块，它接受输入（通常是以“props”形式传递的数据）并返回React元素树，这些元素树描述了用户界面的一部分。 组件可以是函数组件或类组件。函数组件接受props并返回JSX元素；类组件则继承自React.Component类，具有更多的生命周期方法和状态管理功能。 JSX（JavaScript XML）： JSX是React中用于描述用户界面的一种语法扩展。它允许我们在JavaScript代码中编写类似HTML的结构，并在编译时转换成React元素。JSX使得组件的代码更加直观和易于理解。 虚拟DOM（Virtual DOM）： React使用虚拟DOM来提高应用的性能。当组件的状态或属性发生变化时，React会创建一个新的虚拟DOM树，并与之前的虚拟DOM树进行比较。通过比较这两个树，React能够计算出最小的DOM操作来更新实际的DOM，从而实现高效的UI更新。 状态（State）和属性（Props）： 状态是组件内部的数据，它决定了组件的渲染输出。状态是私有的，并且只能通过组件内部的方法（如setState）来更新。 属性是父组件传递给子组件的数据。子组件通过props接收这些数据，并使用它们来渲染输出。属性是只读的，子组件不能修改它们。 生命周期方法（Lifecycle Methods）： 类组件具有一系列的生命周期方法，这些方法在组件的不同阶段（如挂载、更新、卸载）被调用。生命周期方法允许开发者在组件的不同阶段执行特定的逻辑，如数据获取、副作用处理等。 钩子（Hooks）： Hooks是React 16.8版本中引入的新特性，它们允许开发者在不编写类的情况下使用state以及其他的React特性。通过使用钩子，函数组件可以拥有与类组件相同的功能，同时保持代码的简洁和可维护性。 这些核心概念共同构成了React的基础，使得开发者能够高效地构建出复杂且响应式的用户界面。通过掌握这些概念，开发者可以充分利用React的优势来创建出高质量的Web应用。
+React 示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Hello World&amp;lt;/title&amp;gt; &amp;lt;!-- 引入React 的核心库 --&amp;gt; &amp;lt;script src=&amp;#34;script/react.development.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 引入React 的DOM库 --&amp;gt; &amp;lt;script src=&amp;#34;script/react-dom.development.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;root&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; /* https://unpkg.com/react@18.2.0/umd/react.development.js https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js */ // React 就是用来代替DOM的 // // 通过DOM向页面中添加一个div // // 创建一个div // const div = document.</description>
+    </item>
+    
+    <item>
+      <title>Substrate 区块链开发之本地网络启动</title>
+      <link>https://qiaopengjun5162.github.io/posts/substrate_study/</link>
+      <pubDate>Sun, 17 Mar 2024 10:38:21 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/substrate_study/</guid>
+      <description>Substrate 区块链开发之本地网络启动 What is Substrate? Substrate 是一个软件开发工具包 (SDK)，它使用基于 Rust 的库和工具，使您能够从模块化和可扩展的组件构建特定于应用程序的区块链。使用 Substrate 构建的特定于应用程序的区块链可以作为独立服务运行，也可以与其他链并行运行，以利用 Polkadot 生态系统提供的共享安全性。Substrate 包含区块链基础设施核心组件的默认实现，让您能够专注于应用程序逻辑。
+安装 https://docs.substrate.io/install/macos/ 本地网络启动实操 https://docs.substrate.io/tutorials/build-a-blockchain/build-local-blockchain/ https://github.com/substrate-developer-hub/substrate-node-template 克隆仓库 1 git clone git@github.com:substrate-developer-hub/substrate-node-template.git 切换目录 1 cd substrate-node-template 创建一个新分支 1 git switch -c my-learning-branch-2024-03-16 编译 1 cargo build --release 启动本地 Substrate 节点 1 ./target/release/node-template --dev --tmp 启动第一个区块链节点 alice 1 ./target/release/node-template --chain local --alice --tmp 启动第二个区块链节点 bob 1 ./target/release/node-template --chain local --bob --tmp 将链规范转换为原始格式 Convert the chain specification to raw format https://docs.substrate.io/tutorials/build-a-blockchain/add-trusted-nodes/ 1 ./target/release/node-template build-spec --chain=local --raw &amp;gt; spec.json 读取spec.json文件的内容，搜索包含“boot”的行，并显示这些行以及它们前后各两行的内容 1 cat spec.json | grep boot -C 2 启动第二个区块链节点，此命令包含--bootnodes选项并指定单个引导节点，即由 启动的节点alice 1 ./target/release/node-template --chain local --bob --tmp --bootnodes /ip4/127.0.0.1/tcp/30333/p2p/12D3KooWBGJ3YcEgqt2BjFmWDv2fkqWPkKrDreWiGyreA7z72UnW polkadot.js. 查看 https://polkadot.js.org/apps/#/explorer polkadot.js 查看出块信息 交易之前查询 交易 提交交易 交易之后 查询交易后的值 </description>
+    </item>
+    
+    <item>
+      <title>Solana 开发学习之与Solana合约交互</title>
+      <link>https://qiaopengjun5162.github.io/posts/solana_study03/</link>
+      <pubDate>Thu, 22 Feb 2024 17:19:05 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/solana_study03/</guid>
+      <description>Solana 开发学习之与Solana合约交互 Solana的Web3.js 相关链接 https://github.com/web3/web3.js https://github.com/solana-labs/solana-web3.js https://solana-labs.github.io/solana-web3.js/ 安装 solana-web3.js 1 $ npm install --save @solana/web3.js 通过 WalletAdatper 与钱包交互 https://github.com/anza-xyz/wallet-adapter
+https://bobbyhadz.com/blog/module-not-found-cant-resolve-crypto</description>
+    </item>
+    
     <item>
       <title>Solana 开发学习之通过RPC与Solana交互</title>
       <link>https://qiaopengjun5162.github.io/posts/solana_study02/</link>

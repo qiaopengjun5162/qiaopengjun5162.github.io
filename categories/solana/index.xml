@@ -6,7 +6,17 @@
     <description>Recent content in solana on Qiao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:42:01 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/solana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Feb 2024 17:19:05 +0800</lastBuildDate><atom:link href="https://qiaopengjun5162.github.io/categories/solana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solana 开发学习之与Solana合约交互</title>
+      <link>https://qiaopengjun5162.github.io/posts/solana_study03/</link>
+      <pubDate>Thu, 22 Feb 2024 17:19:05 +0800</pubDate>
+      
+      <guid>https://qiaopengjun5162.github.io/posts/solana_study03/</guid>
+      <description>Solana 开发学习之与Solana合约交互 Solana的Web3.js 相关链接 https://github.com/web3/web3.js https://github.com/solana-labs/solana-web3.js https://solana-labs.github.io/solana-web3.js/ 安装 solana-web3.js 1 $ npm install --save @solana/web3.js 通过 WalletAdatper 与钱包交互 https://github.com/anza-xyz/wallet-adapter
+https://bobbyhadz.com/blog/module-not-found-cant-resolve-crypto</description>
+    </item>
+    
     <item>
       <title>Solana 开发学习之通过RPC与Solana交互</title>
       <link>https://qiaopengjun5162.github.io/posts/solana_study02/</link>
