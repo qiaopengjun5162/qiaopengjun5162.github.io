@@ -50,13 +50,12 @@ jobs:
 
         # Upload the build output as an artifact
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./public
   # Single deploy job since we're just deploying
   deploy:
     needs: build
-    runs-on: ubuntu-latest
 
     permissions:
       pages: write
@@ -64,8 +63,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v2
