@@ -50,7 +50,7 @@ jobs:
 
         # Upload the build output as an artifact
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
   # Single deploy job since we're just deploying
