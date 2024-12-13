@@ -48,11 +48,11 @@ jobs:
       - name: Build with Zola
         run: zola build
 
-      #   # Upload the build output as an artifact
-      # - name: Upload Pages artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     path: ./public
+        # Upload the build output as an artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
   # Single deploy job since we're just deploying
   deploy:
     needs: build
