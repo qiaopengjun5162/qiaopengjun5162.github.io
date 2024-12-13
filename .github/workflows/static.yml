@@ -21,13 +21,51 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
 jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ZOLA_VERSION: 0.19.2
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      # Install Zola
+      - name: Install Zola
+        run: |
+          curl -sL https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin
+
+        # Build the site
+      - name: Build with Zola
+        run: zola build
+
+        # Upload the build output as an artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
   # Single deploy job since we're just deploying
   deploy:
+    needs: build
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,7 +75,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: "."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
