@@ -48,23 +48,22 @@ jobs:
       - name: Build with Zola
         run: zola build
 
-        # Upload the build output as an artifact
-      - name: Upload Pages artifact
-        uses: actions/upload-artifact@v4
-        with:
-          path: ./public
+      #   # Upload the build output as an artifact
+      # - name: Upload Pages artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     path: ./public
   # Single deploy job since we're just deploying
   deploy:
     needs: build
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     permissions:
       pages: write
       id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
