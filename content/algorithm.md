@@ -1,10 +1,10 @@
----
-title: "数据结构与算法（Python版）之概述"
-date: 2023-03-11T10:47:55+08:00
-draft: false
-Tags : ["Python", "算法"]
-Categories : ["算法"]
----
++++
+title = "数据结构与算法（Python版）之概述"
+date= 2023-03-11T10:47:55+08:00
+[taxonomies]
+tags = ["Python", "算法"]
+categories = ["算法"]
++++
 
 # 数据结构与算法（Python版）
 
