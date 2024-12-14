@@ -2,7 +2,7 @@
 title= "Rust 学习之数组和切片的大小问题"
 date= 2023-10-09T00:10:23+08:00
 [taxonomies]
-tag= ["Rust"]
+tags= ["Rust"]
 categories= ["Rust"]
 +++
 
