@@ -18,9 +18,8 @@ generate_feeds = true
 feed_filenames = ["atom.xml"]
 
 taxonomies = [
-    { name = "categories", rss = true, paginate_by = 5 },
-    { name = "tags", rss = true, paginate_by = 5 },
-
+    { name = "categories", rss = true, paginate_by = 10 },
+    { name = "tags", rss = true, paginate_by = 10 },
 ]
 
 
