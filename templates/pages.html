@@ -1,10 +1,13 @@
-{% extends "index.html" %}<!---->
-{% block main %}
+{% extends "index.html" %} {# 继承父模板 index.html #} {% block main %}
 <article>
+  <!-- 文章标题 -->
   <header class="mb-16">
     <h1 class="!my-0 pb-2.5">{{ page.title }}</h1>
+    {# 动态渲染文章标题 #}
   </header>
 
+  <!-- 文章正文内容 -->
   <section>{{ page.content | safe }}</section>
+  {# 保留 HTML 格式，避免转义内容 #}
 </article>
-{% endblock main %}
+{% endblock %}
