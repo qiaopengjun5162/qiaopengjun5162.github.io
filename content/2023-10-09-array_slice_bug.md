@@ -1,9 +1,9 @@
 +++
-title: "Rust 学习之数组和切片的大小问题"
-date: 2023-10-09T00:10:23+08:00
+title= "Rust 学习之数组和切片的大小问题"
+date= 2023-10-09T00:10:23+08:00
 [taxonomies]
-tag: ["Rust"]
-categories: ["Rust"]
+tag= ["Rust"]
+categories= ["Rust"]
 +++
 
 # Rust 学习之数组和切片的大小问题

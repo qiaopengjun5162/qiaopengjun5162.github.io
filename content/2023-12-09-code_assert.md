@@ -1,9 +1,9 @@
 +++
-title: "Python中自带的 assert 的使用"
-date: 2023-12-09T17:57:50+08:00
+title= "Python中自带的 assert 的使用"
+date= 2023-12-09T17:57:50+08:00
 [taxonomies]
-tags: ["Python"]
-categories: ["Python"]
+tags= ["Python"]
+categories= ["Python"]
 +++
 
 # Python中自带的 assert 的使用

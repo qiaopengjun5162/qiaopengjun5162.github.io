@@ -1,19 +1,15 @@
----
-title: "AWS CLI DynamoDB"
-date: 2023-09-01T18:09:43+08:00
-lastmod: 2023-09-01T18:09:43+08:00 
-draft: false
-categories:
-- AWS
-tags:
-- AWS
----
++++
+title= "AWS CLI DynamoDB"
+date= 2023-09-01T18:09:43+08:00
+
+[taxonomies]
+categories= ["AWS"]
+tags= ["AWS"]
++++
 
 # AWS CLI DynamoDB 实操
 
 ## AWS CLI 安装
-
-
 
 ## DynamoDB 实操
 
@@ -94,11 +90,9 @@ aws> dynamodb scan --table-name contact
 aws>
 ```
 
-
-
 ## 如何创建并使用 AWS Cli 管理 ec2实例
 
-https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#Home:
+<https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#Home>:
 
 ### 前置条件
 
@@ -241,9 +235,9 @@ aws>
 
 ## 创建 AWS EC2 实例
 
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
+<https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html>
 
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify_ec2_instances.html
+<https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify_ec2_instances.html>
 
 ```shell
 aws> ec2 run-instances --image-id ami-0cf0e376c672104d6 --count 1 --instance-type t2.micro --key-name kgptalkie --security-group-ids sg-02a39ddd15525edfb --subnet-id subnet-06ea29a210f12daa7
@@ -621,7 +615,7 @@ aws>
 
 存储服务
 
-https://s3.console.aws.amazon.com/s3/get-started?region=us-east-2
+<https://s3.console.aws.amazon.com/s3/get-started?region=us-east-2>
 
 存储桶
 
@@ -667,4 +661,3 @@ remove_bucket failed: Unable to delete all objects in the bucket, bucket will no
 aws>
 
 ```
-
