@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html class="not-ready lg:text-base" lang="en">
+  <!-- Head section: Includes meta tags, styles, and scripts -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    数据结构与算法（Python版）之概述 - Paxon Qiao&#x27;s Tech Blog
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  
+  <!-- Author -->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  <meta name="description" content="数据结构与算法（Python版）之概述" />
+  <meta name="author" content="Paxon Qiao" />
+  <!-- The Open Graph protocol -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="数据结构与算法（Python版）之概述" />
+  <meta property="og:site_name" content="Paxon Qiao&#x27;s Tech Blog" />
+  <meta property="og:description" content="数据结构与算法（Python版）之概述" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;algorithm&#x2F;" />
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <meta property="og:image" content="https://qiaopengjun5162.github.io/icons/github.svg" />
+  
+  <!---->
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="https://qiaopengjun5162.github.io/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="https://qiaopengjun5162.github.io/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () =>
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+      // • rendering keys, e.g.:
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  <!---->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://qiaopengjun5162.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://qiaopengjun5162.github.io/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="https://qiaopengjun5162.github.io/atom.xml"
+  />
+   
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;algorithm&#x2F;" />
+
+  <!-- Head inject -->
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <!-- Header: Navigation and branding -->
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="https://qiaopengjun5162.github.io">Paxon Qiao&#x27;s Tech Blog</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+      <div
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+        role="button"
+        aria-label="Menu"
+      ></div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        if (isDark) {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
+          htmlClass.add("dark");
+        } else {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
+          htmlClass.remove("dark");
+        }
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+    <nav class="flex w-full items-center lg:w-auto">
+      <ul
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
+      >
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//projects"
+            >Projects</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//archive"
+            >Archive</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//tags"
+            >Tags</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//categories"
+            >Categories</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//about"
+            >About</a
+          >
+        </li>
+        
+      </ul>
+      <!-- Header Nav inject -->
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <!-- Body Start: Content injection point -->
+    
+
+    <!-- Main Content -->
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl break-words px-4 pb-16 pt-32 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg"
+    >
+      
+<article>
+  <!-- Page Start inject -->
+  
+
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">数据结构与算法（Python版）之概述</h1>
+    <div class="text-sm antialiased opacity-60">
+  
+  <time>2023-03-11</time>
+  <span class="mx-1">&middot;</span>
+  <span>27min</span>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <span class="mx-1">&middot;</span>
+  <span>Paxon Qiao</span>
+  
+  <!-- Page Info inject -->
+  
+</div>
+
+  </header>
+
+  
+
+  <!-- TOC -->
+  
+<div class="block-bg mb-12 flex rounded-lg p-2 text-lg">
+  <details>
+    <summary class="cursor-pointer py-1 pl-4">
+      <span>Table of Contents</span>
+    </summary>
+    <div class="px-2">
+      <ul>
+        
+        <li>
+          <a
+            class="no-underline hover:underline"
+            href="https://qiaopengjun5162.github.io/algorithm/#shu-ju-jie-gou-yu-suan-fa-pythonban"
+            >数据结构与算法（Python版）</a
+          >
+          
+        </li>
+        
+        <li>
+          <a
+            class="no-underline hover:underline"
+            href="https://qiaopengjun5162.github.io/algorithm/#yi-gai-shu"
+            >一、概述</a
+          >
+          
+          <ul>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#101-yin-zi-shu-ju-shi-dai"
+                >101 引子：数据时代</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#102-wen-ti-qiu-jie-de-ji-suan-zhi-dao"
+                >102 问题求解的计算之道</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#103-tu-ling-ji-ji-suan-mo-xing"
+                >103 图灵机计算模型</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#104-suan-fa-he-ji-suan-fu-za-xing"
+                >104 算法和计算复杂性</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#105-tu-po-ji-suan-ji-xian"
+                >105 突破计算极限</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#106-shen-me-shi-chou-xiang-he-shi-xian"
+                >106 什么是抽象和实现</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#107-wei-shen-me-yan-jiu-shu-ju-jie-gou-yu-suan-fa"
+                >107 为什么研究数据结构与算法</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/algorithm/#108-cong-czhuan-huan-dao-python"
+                >108 从C转换到Python</a
+              >
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+
+
+  <!-- Content -->
+  <section><h1 id="shu-ju-jie-gou-yu-suan-fa-pythonban">数据结构与算法（Python版）</h1>
+<p>课程地址：<a rel="noopener nofollow noreferrer" target="_blank" href="https://www.icourse163.org/learn/PKU-1206307812?tid=1470091590#/learn/content?type=detail&amp;id=1253445962">https://www.icourse163.org/learn/PKU-1206307812?tid=1470091590#/learn/content?type=detail&amp;id=1253445962</a></p>
+<h1 id="yi-gai-shu">一、概述</h1>
+<h2 id="101-yin-zi-shu-ju-shi-dai">101 引子：数据时代</h2>
+<h3 id="shu-ju-jie-gou-yu-suan-fa-shi-jiang-shen-me-de-ke">数据结构与算法是讲什么的课？</h3>
+<ul>
+<li>首先，这是一门关于编程的课
+<ul>
+<li>学了Python语言基础之后的进阶课</li>
+</ul>
+</li>
+<li>但又不仅仅讲编程</li>
+<li>本课为你展示
+<ul>
+<li>如何把数据组织起来</li>
+<li>进行有效的处理</li>
+<li>以解决问题</li>
+</ul>
+</li>
+<li>数据为什么这么重要？</li>
+</ul>
+<p>无处不在的数据</p>
+<h3 id="xin-xi-shi-dai-jiu-shi-shu-ju-de-shi-dai">信息时代就是数据的时代</h3>
+<ul>
+<li>人类在各个领域的生产生活</li>
+<li>无时无刻在产生着巨量的数据</li>
+</ul>
+<h3 id="shu-ju-hua-de-ke-xue-ji-shu-gong-cheng-shang-ye">数据化的科学、技术、工程、商业</h3>
+<ul>
+<li>地球观测系统：地面、地下、空中</li>
+<li>地球观测系统：人造地球卫星</li>
+<li>地球之外的观测系统：火星车</li>
+<li>地球之外的观测系统：太阳探测器</li>
+<li>地球之外的观测系统：冥王星探测器</li>
+<li>地球之外的观测系统：哈勃望远镜</li>
+<li>地球重力场分布数据</li>
+<li>地形高程和地貌数据</li>
+<li>地下岩层结构和矿藏数据</li>
+<li>太阳风和空间气象数据</li>
+<li>高分辨率卫星影像数据</li>
+<li>实时交通流量、路况数据</li>
+<li>引力波探测的突破（2015.9.14）</li>
+</ul>
+<h3 id="shu-ju-zhu-yi-dataism">数据主义（Dataism）</h3>
+<ul>
+<li>整个世界就是数据及其算法</li>
+<li>尤瓦尔·赫拉利：《未来简史》
+<ul>
+<li>将生命活动理解为数据流传输及处理算法，人类智慧和自由意识也无法例外</li>
+</ul>
+</li>
+</ul>
+<h3 id="shu-ju-zhi-qiao-tong-xiang-yu-zhou">数据之桥，通向宇宙</h3>
+<ul>
+<li>超时空接触.Contact.1997  (电影)</li>
+</ul>
+<h2 id="102-wen-ti-qiu-jie-de-ji-suan-zhi-dao">102 问题求解的计算之道</h2>
+<h3 id="wen-ti-wei-zhi-de-shi-wu">问题：未知的事物</h3>
+<ul>
+<li>人们在生活、生产、学习、探索、创造过程中会遇到各种未知的事物(what why how)
+<ul>
+<li>云是什么？</li>
+<li>这种草（虫子）可以吃么？</li>
+<li>什么是无理数？</li>
+<li>什么事万物的起源？</li>
+<li>为什么会下雨？</li>
+<li>为什么事物放久了会发霉？</li>
+<li>为什么✔️2是无理数？</li>
+<li>生命的意义是什么？</li>
+<li>怎么让粮食长得更多？</li>
+<li>怎么将楼房建到101层？</li>
+<li>怎么求最大公约数？</li>
+<li>怎么维护公平与正义？</li>
+</ul>
+</li>
+</ul>
+<h3 id="wen-ti-jie-jue-zhi-dao">问题解决之道</h3>
+<ul>
+<li>如何从未知到已知
+<ul>
+<li>感觉、经验、占卜、求神、逻辑、数学、实验、工程、计算模型、模拟、仿真哲学？</li>
+<li>神农尝百草、部落战争占卜和求神、自然科学工程</li>
+</ul>
+</li>
+<li>有些问题已经解决</li>
+<li>很多问题尚未解决</li>
+<li>有些问题似乎无法完全解决</li>
+<li>尚未解决和无法解决问题的共性
+<ul>
+<li>表述含混、标准不一、涉及主观、结果不确定</li>
+</ul>
+</li>
+</ul>
+<h3 id="shu-xue-jie-jue-wen-ti-de-zhong-ji-gong-ju">数学：解决问题的终极工具</h3>
+<ul>
+<li>在长期的发展过程中，人们把已经解决的问题逐渐表述为属性命题与模型
+<ul>
+<li>尚未解决的问题，人们试图通过数学建模，采用数学工具来解决</li>
+<li>无法解决的问题，人们试图转换表述、明晰问题来部分解决</li>
+</ul>
+</li>
+</ul>
+<h3 id="wei-shen-me-shi-shu-xue">为什么是数学？</h3>
+<ul>
+<li>数学具有清晰明确的符号表述体系</li>
+<li>严密确定的推理系统</li>
+<li>但正如科学不是万能的，数学也不是万能的
+<ul>
+<li>有些问题天然无法明确表述（主观、价值观、意识形态、哲学问题等）</li>
+<li>有些可明确表述的问题仍然无法解决</li>
+<li>伽利略：数学是上帝书写宇宙的文字</li>
+<li>Donald in Mathmagic Land.1959  （数学科普片）</li>
+</ul>
+</li>
+</ul>
+<h3 id="wen-ti-jie-jue-de-ji-suan-zhi-dao">问题解决的“计算”之道</h3>
+<ul>
+<li>20世纪20年代，为了解决数学本身的可检验性问题，大数学家希尔伯特提出“能否找到一种基于有穷观点的能行方法，来判定任何一个数学命题的真假”</li>
+</ul>
+<h3 id="chou-xiang-de-ji-suan-gai-nian-ti-chu">抽象的“计算”概念提出</h3>
+<ul>
+<li>基于有穷观点的能行方法
+<ul>
+<li>由有限数量的明确有限指令构成</li>
+<li>指令执行在有限步骤后终止</li>
+<li>指令每次执行都总能得到唯一结果</li>
+<li>原则上可以由人单独采用纸笔完成，而不依靠其他辅助</li>
+<li>每条指令可以机械地被精确执行，而不需要智慧和灵感</li>
+</ul>
+</li>
+</ul>
+<h3 id="guan-yu-ji-suan-de-shu-xue-mo-xing">关于“计算”的数学模型</h3>
+<ul>
+<li>20世纪30年代，几位逻辑学家各自独立提出了几个关于“计算”的属性模型
+<ul>
+<li>哥德尔和克莱尼的递归函数模型</li>
+<li>丘奇的Lambda演算模型</li>
+<li>波斯特的Post机模型</li>
+<li>图灵的图灵机模型</li>
+</ul>
+</li>
+<li>研究证明，这几个“基于有穷观点的能行方法”的计算模型，全都是等价的</li>
+<li>虽然希尔伯特的计划最终被证明无法实现
+<ul>
+<li>不存在“能行方法”可判定所有数学命题的真假</li>
+<li>总有数学命题，其真假是无法证明的</li>
+</ul>
+</li>
+<li>但“能行可计算”概念成为计算理论的基础
+<ul>
+<li>其中的一些数学模型（如图灵机）也成为现代计算机的理论基础</li>
+<li>计算机是数学家一次失败思考的产物。 ——无名氏</li>
+</ul>
+</li>
+</ul>
+<h2 id="103-tu-ling-ji-ji-suan-mo-xing">103 图灵机计算模型</h2>
+<h3 id="tu-ling-ji-turing-machine">图灵机 Turing Machine</h3>
+<ul>
+<li>1936年，Alan Turing提出的一种抽象计算模型
+<ul>
+<li>基本思想是用机器模拟人们用纸笔进行数学运算的过程，但比数值计算更为简单</li>
+</ul>
+</li>
+</ul>
+<h3 id="tu-ling-ji-turing-machine-ji-ben-gai-nian">图灵机 Turing Machine 基本概念</h3>
+<ul>
+<li>在纸上写上或擦除某个符号</li>
+<li>把注意力从纸的一个位置转向另一个位置</li>
+<li>在每个阶段，要决定下一步动作依赖于：
+<ul>
+<li>此人当前所关注的纸上某个位置的符号和</li>
+<li>此人当前思维的状态</li>
+</ul>
+</li>
+<li>The.Imitation.Game.2014 (电影)</li>
+<li>图灵机由以下几部分构成
+<ul>
+<li>一条无限长的分格纸带，每格可以记录1个符号</li>
+<li>一个读写头，可在纸带上左右移动，能读出和擦写格子的字符</li>
+<li>一个状态寄存器，记录有限状态中的1个状态</li>
+<li>一系列有限的控制规则：（5个）
+<ul>
+<li>某个状态，读入某个字符时</li>
+<li>要改写成什么字符</li>
+<li>要如何移动读写头</li>
+<li>要改变为什么状态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="kan-yi-ge-tu-ling-ji-li-zi">看一个图灵机例子</h3>
+<ul>
+<li>判定 {a^mb^m|m&gt;=0} ：左半部全是a，右半部全是b，且ab数量相等的字符串
+<ul>
+<li>如：ab、aabb、aaaabbbb，进入“接受”状态</li>
+<li>如：b、ba、abb，进入“拒绝”状态</li>
+</ul>
+</li>
+<li>规则思路：读写头来回移，将a和b一一对消，如果最后剩下空白B则接受，否则拒绝
+<ul>
+<li>初始状态s0是读写头停在第一个字符处</li>
+<li>s1状态是读写头正在右移</li>
+<li>s2状态是读写头道字符串最右边</li>
+<li>s3状态是读写头正在向回左移</li>
+</ul>
+</li>
+</ul>
+<p>图灵机模拟软件 Visual Turing</p>
+<h2 id="104-suan-fa-he-ji-suan-fu-za-xing">104 算法和计算复杂性</h2>
+<h3 id="wen-ti-de-fen-lei">问题的分类</h3>
+<ul>
+<li>What：是什么？
+<ul>
+<li>面向判断与分类的问题</li>
+</ul>
+</li>
+<li>Why：为什么？
+<ul>
+<li>面向求因与证明的问题</li>
+</ul>
+</li>
+<li>How：怎么做？
+<ul>
+<li>面向过程与构建的问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="ke-yi-tong-guo-ji-suan-jie-jue-de-wen-ti">可以通过“计算”解决的问题</h3>
+<ul>
+<li>用任何一个“有限能行方法”下的计算模型可以解决的问题，都算是“可计算”的</li>
+<li>What：分类问题
+<ul>
+<li>可以通过树状的判定分支解决</li>
+</ul>
+</li>
+<li>Why：证明问题
+<ul>
+<li>可以通过有限的公式序列来解决</li>
+<li>数学定理证明从不证自明的公理出发，一步步推理得出最后待证明的定理，我们在以往学习过的定理证明即为此类解决方法</li>
+</ul>
+</li>
+<li>How：过程问题
+<ul>
+<li>可以通过算法流程来解决</li>
+<li>解决问题的过程：算法和相应数据结构的研究，即为本课主要内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="shi-jie-shang-zui-zao-de-suan-fa-ou-ji-li-de-suan-fa">世界上最早的算法：欧几里德算法</h3>
+<ul>
+<li>公元前3世纪，记载于《几何原本》
+<ul>
+<li>辗转相除法求最大公约数</li>
+</ul>
+</li>
+<li>辗转相除法处理大数时非常高效</li>
+<li>它需要的步骤不会超过小数位数的5倍
+<ul>
+<li>加百利·拉梅(Gabriel Lame)于1844年证明了这个结论，并开创了计算复杂性理论</li>
+</ul>
+</li>
+</ul>
+<h3 id="ji-suan-fu-za-xing">计算复杂性</h3>
+<ul>
+<li>“基于有穷观点的能行方法”的“可计算”概念
+<ul>
+<li>仅仅涉及到问题的解决是否能在有限资源内（时间/空间）完成</li>
+<li>并不关心具体要花费多少计算步骤或多少存储空间</li>
+</ul>
+</li>
+<li>由于资源（时间/空间）相当有限，对于问题的解决需要考虑其可行性如何</li>
+<li>人们发现各种不同的可计算问题，其难易程度是不一样的
+<ul>
+<li>有些问题非常容易解决，如基本数值计算</li>
+<li>有些问题的解决程度尚能令人满意，如表达式求值、排序等</li>
+<li>有些问题的解决会爆炸性地吞噬资源，虽有解法，但没什么可行性，如哈密顿回路、货郎担问题等</li>
+</ul>
+</li>
+<li>定义一些衡量指标，对问题的难易程度（所需的执行步骤数/存储空间大小）进行分类，是计算复杂性理论的研究范围</li>
+<li>但对于同一个问题，也会有不同的解决方案，其解决效率上也是千差万别</li>
+<li>如排序问题，以n张扑克牌作为排序对象
+<ul>
+<li>一般人们会想到的是“冒泡“排序，即每次从牌堆里选出一张最小的牌，这样全部排完大概会需要n^2量级的比较次数</li>
+</ul>
+</li>
+<li>另一种有趣的”Bogo“排序方法
+<ul>
+<li>洗一次牌，看是否排好序，没有的话，接着洗牌，直到排序成功！这样全部排完，平均需要n^*n!量级的比较次数</li>
+</ul>
+</li>
+</ul>
+<h3 id="ji-suan-fu-za-xing-yu-suan-fa">计算复杂性与算法</h3>
+<ul>
+<li>计算复杂性理论研究问题的本质，将各种问题按照其难易程度分类，研究各类问题的难度级别，并不关心解决问题的具体方案</li>
+<li>而算法则研究问题在不同现实资源约束情况下的不同解决方案，致力于找到效率最高的方案
+<ul>
+<li>不同硬件配置（手持设备、PC设备、超级计算机）</li>
+<li>不同运行环境（单机、多机环境、网络环境、小内存）</li>
+<li>不同应用领域（消费、工业控制、医疗系统、航天领域）</li>
+<li>甚至不同使用状况（正常状况、省电状况）</li>
+</ul>
+</li>
+<li>如何对具体的算法进行分析，并用衡量指标评价其复杂度</li>
+</ul>
+<h3 id="bu-ke-ji-suan-wen-ti">不可计算问题</h3>
+<ul>
+<li>有不少定义清晰，但无法解决的问题
+<ul>
+<li>并不是尚未找到解，而是在”基于有穷观点的能行方法“的条件下，已被证明并不存在解决方案</li>
+</ul>
+</li>
+<li>停机问题：判断任何一个程序在任何一个输入情况下是否能够停机 （不可计算 不可解的问题）</li>
+<li>不可计算数：几乎所有的无理数，都无法通过算法来确定其任意一位是什么数字
+<ul>
+<li>可计算数很少：如圆周率Pi，自然对数的底e</li>
+</ul>
+</li>
+<li>似乎计算之道解决问题存在边界和极限？</li>
+</ul>
+<h2 id="105-tu-po-ji-suan-ji-xian">105 突破计算极限</h2>
+<h3 id="chao-da-gui-mo-fen-bu-shi-ji-suan">超大规模分布式计算</h3>
+<ul>
+<li>SEIT@home 是一项利用全球联网计算机共同搜寻地外文明（SETI）的科学实验计划
+<ul>
+<li>项目组把射电望远镜采集到的海量信息分成一个个小数据包，发送到互联网上</li>
+<li>每台安装了 SETI@home 软件的电脑都可以自动下载这些数据，以运行屏幕保护或者后台程序的方式参与数据分析。</li>
+<li>从1999年5月开始，目前，有170万人、450万台计算机正在参加搜寻</li>
+</ul>
+</li>
+<li>SETI@home 从2005年开始并入BOINC平台</li>
+<li>BOINC也是公众参与科学计算的超大型分布式系统，托管了众多学科的计算搜寻项目
+<ul>
+<li>天文、生命、数学、物理和化学问题</li>
+</ul>
+</li>
+<li>社会公众也能通过贡献计算力参与众包，进行科学探索</li>
+</ul>
+<h3 id="xin-xing-ji-suan-ji-shu-guang-zi-ji-suan">新型计算技术：光子计算</h3>
+<ul>
+<li>用超微透镜取代晶体管、以光信号代替电信号进行运算</li>
+<li>光芯片无需改变二进制计算机的软件原理，但可以轻易实现极高的运算频率，同时能耗非常低，不需要复杂的散热装置</li>
+</ul>
+<h3 id="xin-xing-ji-suan-ji-shu-dnaji-suan">新型计算技术：DNA计算</h3>
+<ul>
+<li>以 DNA分子和酶的相互作用实现逻辑运算和数据存储，获得极高的计算并行度和存储能力。</li>
+</ul>
+<h3 id="xin-xing-ji-suan-ji-shu-liang-zi-ji-suan">新型计算技术：量子计算</h3>
+<ul>
+<li>利用量子力学态叠加原理，让信息单元处于多种可能性的叠加状态，从而实现指数级别的并行计算，根本上解决最高复杂度计算问题。</li>
+</ul>
+<h3 id="tu-po-ji-suan-ji-xian-fen-bu-shi-zhi-hui-zhong-bao">突破计算极限：分布式智慧——众包</h3>
+<ul>
+<li>突破”基于有穷观点的能行方法“？
+<ul>
+<li>”如果无数多的猴子在无数多的打字机上随机地乱敲，并持续无限久的时间，那么在某个时候，必然有只猴子会打出莎士比亚的全部著作。”</li>
+</ul>
+</li>
+<li>如果是具有智慧和直觉的众多人脑一起来共同解决问题呢？</li>
+</ul>
+<h3 id="you-xi-hua-zhong-bao-xue-shu-yan-jiu">游戏化众包学术研究</h3>
+<ul>
+<li>一篇有57000位作者的 Nature论文
+<ul>
+<li>《通过多人在线游戏预测蛋白质结构》2010.8</li>
+</ul>
+</li>
+</ul>
+<h3 id="foldit-you-xi-hua-zhong-bao-dan-bai-zhi-jie-gou-fen-xi">Foldit：游戏化众包蛋白质结构分析</h3>
+<ul>
+<li>多人在线游戏，众多玩家在给定一个目标蛋白的情况下，用各种氨基酸进行组装，最终拼凑出这个蛋白的完全体</li>
+<li>玩家只需要掌握基本方块的拼插技巧，即可跟全世界众多玩家一起协同工作，攻克科研难题，有60万人玩过这个游戏</li>
+</ul>
+<h3 id="geng-duo-zhi-hui-zhong-bao-ke-yan-xiang-mu">更多智慧众包科研项目</h3>
+<ul>
+<li>突破算法的约束
+<ul>
+<li>相比分布式计算的闲置计算力</li>
+<li>革命性地利用了空闲智力</li>
+</ul>
+</li>
+</ul>
+<h2 id="106-shen-me-shi-chou-xiang-he-shi-xian">106 什么是抽象和实现</h2>
+<h3 id="ji-suan-ji-ke-xue-yan-jiu-shen-me">计算机科学研究什么</h3>
+<ul>
+<li>计算机科学不仅仅是对计算机的研究
+<ul>
+<li>虽然计算机是非常重要的计算工具</li>
+</ul>
+</li>
+<li>计算机科学主要研究的是问题、问题解决过程、以及问题的解决方案
+<ul>
+<li>包括了前述的计算复杂性理论以及对算法的研究</li>
+</ul>
+</li>
+</ul>
+<h3 id="chou-xiang-abstraction">抽象（Abstraction）</h3>
+<ul>
+<li>为了更好地处理机器相关性或独立性，引入了“抽象”的概念</li>
+<li>用以从“逻辑 Logical”或者“物理Physical”的不同层次上看待问题及解决方案</li>
+</ul>
+<h3 id="shen-me-shi-chou-xiang-li-zi-qi-che">什么是抽象？例子：汽车</h3>
+<ul>
+<li>从司机观点看来，汽车是一台可以带人去往目的地的代步工具
+<ul>
+<li>司机上车、点火、换挡、踩油门加速、刹车</li>
+</ul>
+</li>
+<li>从抽象角度说，司机看到汽车的“逻辑”层次
+<ul>
+<li>司机可以通过操作各个机构来达到运输的目的</li>
+</ul>
+</li>
+<li>这些操纵机构（方向盘、油门、档位）就称为“接口Interface”</li>
+<li>而从汽车修理工的角度来看同一辆汽车，就会相当不同，他还需要清楚每项功能是如何实现的
+<ul>
+<li>如发动机工作原理，档位操作的机械结构，发动机舱内各处温度如何测量和控制等等</li>
+</ul>
+</li>
+<li>这些内部构造构成了汽车的“物理”层次</li>
+<li>工作过程就称为“实现 Implementation”</li>
+</ul>
+<h3 id="shen-me-shi-chou-xiang-li-zi-ji-suan-ji">什么是抽象？例子：计算机</h3>
+<ul>
+<li>从一般大众用户观点看来，计算机可以用来编辑文档、收发邮件、上网聊天、处理照片等等</li>
+<li>并不需要具备计算机内部如何处理的知识
+<ul>
+<li>利用这些功能是计算机的“逻辑”层次</li>
+</ul>
+</li>
+<li>而对于计算机科学家、程序员、技术支持、系统管理员来说</li>
+<li>就必须要了解从硬件结构、操作系统原理到网络协议等各方面的低层次细节
+<ul>
+<li>内部如何实现，是计算机的“物理层次”</li>
+</ul>
+</li>
+</ul>
+<h3 id="chou-xiang-fa-sheng-zai-ge-ge-bu-tong-ceng-ci-shang">“抽象”发生在各个不同层次上</h3>
+<ul>
+<li>逻辑还是物理是一个相对的概念</li>
+<li>即使对于程序员来说，使用编程语言进行编程，也会涉及到“抽象”</li>
+<li>如计算一个数的平方根
+<ul>
+<li>程序员可以调用库函数 math.sqrt，直接得到结果，而无需关系起内部是如何实现</li>
+<li>这种功能上的“黑盒子”称作“过程抽象 Procedural Abstraction”</li>
+</ul>
+</li>
+</ul>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">import </span><span>math
+</span><span>math.sqrt(</span><span style="color:#ae81ff;">16</span><span>)  </span><span style="color:#75715e;"># 4.0
+</span></code></pre>
+<h3 id="chou-xiang-yu-shi-xian-bian-cheng">抽象与实现：编程</h3>
+<ul>
+<li>编程是通过一种程序设计语言，将抽象的算法实现为计算机可以执行的代码的过程
+<ul>
+<li>没有算法，编程无从谈起</li>
+</ul>
+</li>
+<li>图灵奖获得者Niklaus Wirth 的著名公式：算法 + 数据结构 = 程序
+<ul>
+<li>此公式相当于物理中的 E=mc²</li>
+<li>Pascal 语言设计者</li>
+</ul>
+</li>
+</ul>
+<h3 id="cheng-xu-she-ji-yu-yan-shi-xian-suan-fa-de-ji-ben-ji-zhi">程序设计语言实现算法的基本机制</h3>
+<ul>
+<li>程序设计语言需要为算法的实现提供实现“过程”和“数据”的机制
+<ul>
+<li>具体表现为“控制结构”和“数据类型”</li>
+</ul>
+</li>
+<li>程序设计语言均有语句对应控制结构
+<ul>
+<li>顺序处理、分支选择、循环迭代</li>
+</ul>
+</li>
+<li>程序设计语言也提供最基本的数据类型来表示数据，如整数、字符等
+<ul>
+<li>但对于复杂的问题而言，直接使用这些基本数据类型不利于算法的表达</li>
+</ul>
+</li>
+</ul>
+<h2 id="107-wei-shen-me-yan-jiu-shu-ju-jie-gou-yu-suan-fa">107 为什么研究数据结构与算法</h2>
+<h3 id="qing-xi-gao-xiao-di-biao-da-suan-fa">清晰高效地表达算法</h3>
+<ul>
+<li>为了控制问题和问题解决过程的复杂度，利用抽象来保持问题的“整体感”。而不会陷入到过多的细节中去</li>
+<li>这要求对现实问题进行建模的时候，对算法所要处理的数据，也要保持与问题本身的一致性，不要有太多与问题无关的细节</li>
+</ul>
+<p>系统 问题</p>
+<p>子系统 子问题  子问题</p>
+<p>模块 步骤 1  步骤2  步骤</p>
+<h3 id="shu-ju-chou-xiang-adt-chou-xiang-shu-ju-lei-xing">数据抽象：ADT 抽象数据类型</h3>
+<ul>
+<li>“过程抽象” 启发我们进行“数据抽象”</li>
+<li>相对于程序设计语言中基本数据类型，抽象数据类型（ADT:Abstract Data Type）
+<ul>
+<li>ADT 是对数据进行处理的一种逻辑描述，并不涉及如何实现这些处理</li>
+<li>用户 接口 实现 操作</li>
+</ul>
+</li>
+<li>抽象数据类型ADT建立了一种对数据的“封装 Encapsulation”
+<ul>
+<li>封装技术将可能得处理实现细节隐蔽起来能有效控制算法的复杂度</li>
+</ul>
+</li>
+</ul>
+<h3 id="shu-ju-jie-gou-shi-dui-adtde-ju-ti-shi-xian">数据结构是对ADT的具体实现</h3>
+<ul>
+<li>同一ADT可以采用不同的数据结构来实现</li>
+<li>采用程序设计语言的控制结构和基本数据类型来实现ADT所提供的逻辑接口
+<ul>
+<li>属于ADT的“物理”层次</li>
+</ul>
+</li>
+</ul>
+<h3 id="adt-shu-ju-jie-gou-data-structure">ADT：数据结构Data Structure</h3>
+<ul>
+<li>对数据实现“逻辑”层次和“物理”层次的分离，可以定义复杂的数据模型来解决问题，而不需要立即考虑此模型如何实现</li>
+</ul>
+<h3 id="jie-kou-de-liang-duan-chou-xiang-yu-shi-xian">接口的两端：抽象与实现</h3>
+<ul>
+<li>如电动车与汽油车
+<ul>
+<li>底层动力、能源都不同</li>
+<li>但开车的操作接口（方向盘、油门、刹车、档位）基本都是相同的</li>
+<li>司机无需重新考驾照，而车厂可以持续改进实现技术</li>
+</ul>
+</li>
+<li>由于对抽象数据类型可以有多种实现方案</li>
+<li>独立于实现的数据模型
+<ul>
+<li>让底层开发程序员专注于实现和优化数据处理，又不改变数据的使用接口</li>
+<li>让用户专注于用数据接口来进行问题的解决，而无需考虑如何具体实现这些接口</li>
+</ul>
+</li>
+<li>通过层次抽象，降低问题解决过程的复杂度</li>
+</ul>
+<h3 id="wei-shen-me-yao-yan-jiu-he-xue-xi-suan-fa">为什么要研究和学习算法</h3>
+<ul>
+<li>首先，学习各种不同问题的解决方案
+<ul>
+<li>有助于我们在面对未知问题的时候，能够根据类似问题的解决方案来更好解决</li>
+</ul>
+</li>
+<li>其次，各种算法通常有较大差异
+<ul>
+<li>我们可以通过算法分析技术来评判算法本身特性</li>
+<li>而不仅仅根据实现算法的程序在特定机器和特定数据上运行的表现来评判他</li>
+<li>即使同一个程序，在不同的运行环境和输入数据的情况下，其表现的差异可能也会很大</li>
+</ul>
+</li>
+<li>在某些情况下，当我们碰到棘手的难题
+<ul>
+<li>得能区分这种问题是根本不存在算法</li>
+<li>还是能找到算法，但需要耗费大量的资源</li>
+</ul>
+</li>
+<li>某些问题解决需要一些折衷的处理方式
+<ul>
+<li>我们需要学会在不同算法之间进行选择，以适合当前条件的要求</li>
+</ul>
+</li>
+</ul>
+<h2 id="108-cong-czhuan-huan-dao-python">108 从C转换到Python</h2>
+<h3 id="cong-ji-gai-c-zhuan-shu-suan-python">从 计概C 转 数算Python</h3>
+<ul>
+<li>从Hello World 开始</li>
+</ul>
+<h3 id="c-hello-world">C：Hello World</h3>
+<pre data-lang="c" style="background-color:#272822;color:#f8f8f2;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#f92672;">#include </span><span style="color:#e6db74;">&lt;stdio.h&gt;
+</span><span>
+</span><span style="font-style:italic;color:#66d9ef;">int </span><span style="color:#a6e22e;">main</span><span>()
+</span><span>{
+</span><span>  </span><span style="color:#75715e;">// say hello
+</span><span>  </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;Hello World!</span><span style="color:#ae81ff;">\n</span><span style="color:#e6db74;">&quot;</span><span>);
+</span><span>}
+</span></code></pre>
+<p>1- Compile 编译到机器码</p>
+<p>2- Link 与各种库链接</p>
+<p>3- Execute 执行目标程序</p>
+<h3 id="python-hello-world">Python：Hello World</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">main</span><span>():
+</span><span>  </span><span style="color:#75715e;"># say hello
+</span><span>  </span><span style="color:#66d9ef;">print</span><span>(</span><span style="color:#e6db74;">&quot;Hello World!&quot;</span><span>)
+</span><span>  
+</span><span>  
+</span><span>main()
+</span></code></pre>
+<p>1- Run! 跑代码</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#75715e;"># say hello
+</span><span style="color:#66d9ef;">print</span><span>(</span><span style="color:#e6db74;">&quot;Hello World!&quot;</span><span>)
+</span></code></pre>
+<p>main 都是太啰嗦，一行OK</p>
+<ul>
+<li>帮高斯的同学回家</li>
+</ul>
+<pre data-lang="c" style="background-color:#272822;color:#f8f8f2;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#f92672;">#include </span><span style="color:#e6db74;">&lt;stdio.h&gt;
+</span><span>
+</span><span style="font-style:italic;color:#66d9ef;">int </span><span style="color:#a6e22e;">main</span><span>()
+</span><span>{
+</span><span>  </span><span style="font-style:italic;color:#66d9ef;">int</span><span> s, i;
+</span><span>  s </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>;
+</span><span>  </span><span style="color:#75715e;">// adding numbers i to 100
+</span><span>  </span><span style="color:#f92672;">for </span><span>(i </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>; i </span><span style="color:#f92672;">&lt; </span><span style="color:#ae81ff;">100</span><span>; i</span><span style="color:#f92672;">++</span><span>)
+</span><span>  {
+</span><span>    s </span><span style="color:#f92672;">+= </span><span>(i </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1</span><span>);
+</span><span>  }
+</span><span>  </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;Sum= </span><span style="color:#ae81ff;">%d</span><span style="color:#e6db74;">&quot;</span><span>, s);
+</span><span>}
+</span></code></pre>
+<p>Python ：也帮高斯的同学回家</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span>s </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0
+</span><span style="color:#75715e;"># adding numbers 1 to 100
+</span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#ae81ff;">100</span><span>):
+</span><span>  s </span><span style="color:#f92672;">+= </span><span>(i </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1</span><span>)
+</span><span style="color:#66d9ef;">print</span><span>(</span><span style="color:#e6db74;">&quot;Sum=&quot;</span><span>, s)
+</span></code></pre>
+<ul>
+<li>检验素数</li>
+</ul>
+<pre data-lang="c" style="background-color:#272822;color:#f8f8f2;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#f92672;">#include </span><span style="color:#e6db74;">&lt;stdio.h&gt;
+</span><span style="color:#f92672;">#include </span><span style="color:#e6db74;">&lt;math.h&gt;
+</span><span>
+</span><span style="font-style:italic;color:#66d9ef;">int </span><span style="color:#a6e22e;">main</span><span>()
+</span><span>{
+</span><span>  </span><span style="font-style:italic;color:#66d9ef;">int</span><span> n, i, flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>;
+</span><span>  </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;Please input number:&quot;</span><span>);
+</span><span>  </span><span style="color:#66d9ef;">scanf</span><span>(</span><span style="color:#e6db74;">&quot;</span><span style="color:#ae81ff;">%d</span><span style="color:#e6db74;">&quot;</span><span>, </span><span style="color:#f92672;">&amp;</span><span>n);  </span><span style="color:#75715e;">// 输入
+</span><span>  </span><span style="color:#f92672;">for </span><span>(i </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">2</span><span>; i </span><span style="color:#f92672;">&lt; </span><span style="color:#66d9ef;">sqrt</span><span>(n); i</span><span style="color:#f92672;">++</span><span>)  </span><span style="color:#75715e;">// sqrt 开平方
+</span><span>    </span><span style="color:#f92672;">if </span><span>(n </span><span style="color:#f92672;">%</span><span> i </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">0</span><span>)
+</span><span>    {
+</span><span>      flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">1</span><span>;
+</span><span>      </span><span style="color:#f92672;">break</span><span>;
+</span><span>    }
+</span><span>  </span><span style="color:#f92672;">if </span><span>(flag </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">1</span><span>)
+</span><span>    </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;</span><span style="color:#ae81ff;">%d</span><span style="color:#e6db74;"> is NOT a prime number.&quot;</span><span>, n);
+</span><span>  </span><span style="color:#f92672;">else
+</span><span>    </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;</span><span style="color:#ae81ff;">%d</span><span style="color:#e6db74;"> is a prime number.&quot;</span><span>, n);
+</span><span>}
+</span></code></pre>
+<p>Python：检验素数</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">from </span><span>math </span><span style="color:#f92672;">import </span><span>sqrt
+</span><span>n </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">int</span><span>(</span><span style="color:#66d9ef;">input</span><span>(</span><span style="color:#e6db74;">&quot;Please input number:&quot;</span><span>))
+</span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#ae81ff;">2</span><span>, </span><span style="font-style:italic;color:#66d9ef;">int</span><span>(sqrt(n))):
+</span><span>  </span><span style="color:#f92672;">if </span><span>n </span><span style="color:#f92672;">% </span><span>i </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">0</span><span>:
+</span><span>    </span><span style="color:#66d9ef;">print</span><span>(</span><span style="font-style:italic;color:#66d9ef;">f</span><span style="color:#e6db74;">&quot;</span><span>{n}</span><span style="color:#e6db74;"> is NOT a prime number.&quot;</span><span>)
+</span><span>    </span><span style="color:#f92672;">break
+</span><span style="color:#f92672;">else</span><span>:
+</span><span>  </span><span style="color:#66d9ef;">print</span><span>(</span><span style="font-style:italic;color:#66d9ef;">f</span><span style="color:#e6db74;">&quot;</span><span>{n}</span><span style="color:#e6db74;"> is a prime number.&quot;</span><span>)
+</span></code></pre>
+<ul>
+<li>打印一个朴素的三角形</li>
+</ul>
+<pre data-lang="c" style="background-color:#272822;color:#f8f8f2;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#f92672;">#include </span><span style="color:#e6db74;">&lt;stdio.h&gt;
+</span><span>
+</span><span style="font-style:italic;color:#66d9ef;">int </span><span style="color:#a6e22e;">main</span><span>()
+</span><span>{
+</span><span>  </span><span style="font-style:italic;color:#66d9ef;">int</span><span> n, i, j;
+</span><span>  </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;Please input number:&quot;</span><span>);
+</span><span>  </span><span style="color:#66d9ef;">scanf</span><span>(</span><span style="color:#e6db74;">&quot;</span><span style="color:#ae81ff;">%d</span><span style="color:#e6db74;">&quot;</span><span>, </span><span style="color:#f92672;">&amp;</span><span>n);
+</span><span>  </span><span style="color:#f92672;">for </span><span>(i </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>; i </span><span style="color:#f92672;">&lt;</span><span> n; i</span><span style="color:#f92672;">++</span><span>)
+</span><span>  {
+</span><span>    </span><span style="color:#f92672;">for </span><span>(j </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>; j </span><span style="color:#f92672;">&lt;</span><span> i; j</span><span style="color:#f92672;">++</span><span>)
+</span><span>      </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;*&quot;</span><span>);
+</span><span>    </span><span style="color:#66d9ef;">printf</span><span>(</span><span style="color:#e6db74;">&quot;</span><span style="color:#ae81ff;">\n</span><span style="color:#e6db74;">&quot;</span><span>);
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>Python：打印一个朴素的三角形</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span>n </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">int</span><span>(</span><span style="color:#66d9ef;">input</span><span>(</span><span style="color:#e6db74;">&quot;Please input number:&quot;</span><span>))
+</span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(n):
+</span><span>  </span><span style="color:#66d9ef;">print</span><span>(</span><span style="color:#e6db74;">&quot;*&quot; </span><span style="color:#f92672;">* </span><span>i)
+</span></code></pre>
+<ul>
+<li>进一步洗白
+<ul>
+<li>从c口音转到Python不太容易</li>
+<li>&lt;地空数算的PyLn编程学习平台  <a rel="noopener nofollow noreferrer" target="_blank" href="http://gis4g.pku.edu.cn">http://gis4g.pku.edu.cn</a>&gt;</li>
+<li>B站学习 <strong>av87882118</strong></li>
+</ul>
+</li>
+</ul>
+<p>人生苦短我用Python</p>
+</section>
+
+  <hr />
+
+  <!-- Post Taxonomies -->
+  
+<footer class="mt-12 flex flex-col">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Categories </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/categories/suan-fa/"
+      >算法</a
+    >
+    
+  </div>
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Tags </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/tags/python/"
+      >Python</a
+    >
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/tags/suan-fa/"
+      >算法</a
+    >
+    
+  </div>
+  
+</footer>
+
+
+
+  <!-- Post Nav -->
+  
+<nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
+  
+  <a
+    class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;algorithm2&#x2F;"
+  >
+    <span class="ml-1.5">←</span>
+    <span>数据结构与算法（Python版）之算法分析</span>
+  </a>
+   
+  <a
+    class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;shortcodes&#x2F;"
+  >
+    <span>Shortcodes</span>
+    <span class="mr-1.5">→</span>
+  </a>
+  
+</nav>
+
+
+
+  <!-- Comment -->
+   
+<div class="giscus mt-12"></div>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="qiaopengjun5162&#x2F;qiaopengjun5162.github.io"
+  data-repo-id="R_kgDOI8edYQ"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI8edYc4ClMMv"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!---->
+ 
+
+  <!-- Page End inject -->
+  
+</article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    <!---->
+    <!---->
+    &copy; 2020 - 2024<!---->
+    
+    <a class="link" href="https://qiaopengjun5162.github.io">
+      Paxon Qiao
+    </a>
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank">
+      Powered by Zola
+    </a>
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+  <!-- Footer inject -->
+  
+</footer>
+
+
+    <!-- Body End: Additional scripts or markup -->
+    
+  </body>
+</html>

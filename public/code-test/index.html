@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="not-ready lg:text-base" lang="en">
+  <!-- Head section: Includes meta tags, styles, and scripts -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    测试的几个基本原则 - Paxon Qiao&#x27;s Tech Blog
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  
+  <!-- Author -->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  <meta name="description" content="测试的几个基本原则" />
+  <meta name="author" content="Paxon Qiao" />
+  <!-- The Open Graph protocol -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="测试的几个基本原则" />
+  <meta property="og:site_name" content="Paxon Qiao&#x27;s Tech Blog" />
+  <meta property="og:description" content="测试的几个基本原则" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-test&#x2F;" />
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <meta property="og:image" content="https://qiaopengjun5162.github.io/icons/github.svg" />
+  
+  <!---->
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="https://qiaopengjun5162.github.io/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="https://qiaopengjun5162.github.io/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () =>
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+      // • rendering keys, e.g.:
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  <!---->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://qiaopengjun5162.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://qiaopengjun5162.github.io/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="https://qiaopengjun5162.github.io/atom.xml"
+  />
+   
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-test&#x2F;" />
+
+  <!-- Head inject -->
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <!-- Header: Navigation and branding -->
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="https://qiaopengjun5162.github.io">Paxon Qiao&#x27;s Tech Blog</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+      <div
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+        role="button"
+        aria-label="Menu"
+      ></div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        if (isDark) {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
+          htmlClass.add("dark");
+        } else {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
+          htmlClass.remove("dark");
+        }
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+    <nav class="flex w-full items-center lg:w-auto">
+      <ul
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
+      >
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//projects"
+            >Projects</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//archive"
+            >Archive</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//tags"
+            >Tags</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//categories"
+            >Categories</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//about"
+            >About</a
+          >
+        </li>
+        
+      </ul>
+      <!-- Header Nav inject -->
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <!-- Body Start: Content injection point -->
+    
+
+    <!-- Main Content -->
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl break-words px-4 pb-16 pt-32 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg"
+    >
+      
+<article>
+  <!-- Page Start inject -->
+  
+
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">测试的几个基本原则</h1>
+    <div class="text-sm antialiased opacity-60">
+  
+  <time>2023-12-09</time>
+  <span class="mx-1">&middot;</span>
+  <span>6min</span>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <span class="mx-1">&middot;</span>
+  <span>Paxon Qiao</span>
+  
+  <!-- Page Info inject -->
+  
+</div>
+
+  </header>
+
+  
+
+  <!-- TOC -->
+  
+<div class="block-bg mb-12 flex rounded-lg p-2 text-lg">
+  <details>
+    <summary class="cursor-pointer py-1 pl-4">
+      <span>Table of Contents</span>
+    </summary>
+    <div class="px-2">
+      <ul>
+        
+        <li>
+          <a
+            class="no-underline hover:underline"
+            href="https://qiaopengjun5162.github.io/code-test/#xie-ce-shi-de-yi-xie-ji-ben-yuan-ze"
+            >写测试的一些基本原则</a
+          >
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+
+
+  <!-- Content -->
+  <section><h1 id="xie-ce-shi-de-yi-xie-ji-ben-yuan-ze">写测试的一些基本原则</h1>
+<p>测试的核心只有一个——确认你的代码运行结果和期待结果是一致的。</p>
+<p>因此，当你写测试的时候，你脑子里只需要考虑两个事情</p>
+<ul>
+<li>我如何得到这段代码的运行结果</li>
+<li>我这段代码的期待结果是什么？
+根据得到运行结果方式的不同，我们有很多的测试分类，比如黑盒或者白盒。不需要去对这些分类死记硬背，你脑海中其实只需要想我怎么拿到结果。</li>
+</ul>
+<p>比如在Python中，你可以通过直接调用你写的函数求值。如果用这种方法，你就会发现，你写的代码好坏，很大程度上影响了你测试的难易。side effect越小的代码，越好测试。比如一个函数，它一个输入永远对应一个输出，这代码就非常好测试。这个函数是个method，它依赖instance的一些属性，就难测一些，需要建立一个instance。它依赖一些全局变量，更难测了。依赖远端的数据库之类的，那就难测炸了。一段代码，依赖的东西越多越复杂，测试就越困难。所以很多人会发现，只有自己开始写测试了，才能意识到自己的代码写的有什么毛病。</p>
+<p>除了直接调用，也可以通过subprocess去开一个新的进程。有时候这是必须的，比如viztracer这种命令行工具，你是不能通过完全的直接调用去做测试的。那这里你就需要对怎么开一个新进程做一个了解，或许还需要自己整理一个小小的framework来测试你的工具。</p>
+<p>得到了实际运行结果之后，就要和期待结果进行比对。你的程序一定得有个期待结果才能去测试，不然你光跑一下程序是几乎没有意义的（倒是能确认不报错）。</p>
+<p>在设计期待结果的时候，要注意一下这个结果是不是稳定的。比如我去读我的stdout打印某一串字符串——那它未来的输出是不是可能变？我在写pdb的代码的时候，经常会涉及测试中显示代码在文件中行数的问题，这就是一个很重要的考量。你把测试写死了，后面就总得调整，改一下代码就得改测试，你的测试就失去了价值。</p>
+<p>既然聊到了测试的价值，我们就说一下——为什么要写测试？
+测试当然是确认此时此刻，你的程序是正常工作的。但是它更大的意义在于——增强了未来你对程序做修改的时候你对程序还工作的信心。</p>
+<p>在你刚开始开发某个功能的时候，可能手动做了非常多的测试，一步一步地把它弄得正常工作。这时候你可能觉得我为什么要写那些我已经做过的测试？浪费时间啊。但这些自动化测试的意义在于，在未来你改动代码的时候，随时保证你之前的那些功能还正常工作。因为你不会在未来修改代码的时候再这么详细地测试你之前开发的功能了。</p>
+<p>如果你的代码缺少测试，你会很快陷入一个开发瓶颈——完全不敢重构和做大型的修改，只敢做新功能。因为根本不知道改之后我这东西还工作不工作。随着你项目复杂度的增加，各个模块之间耦合度变大，任何一个部分的修改都可能影响到很多内容，你就没法接着写了，然后项目就烂尾了。</p>
+<p>所以，如果你想做一个相对长期稳定维护的项目，测试是不可少的。具体的测试上的技术细节，其实并没有那么重要。就像我前面说的，无非就是想办法运行你的代码，再和期待值做比较。测试的代码经常没那么“漂亮”，甚至有不少冗余，这都完全是可被接受的。甚至很多时候，要适度减少测试代码中的抽象，以保证每个单独的测试的完整性（读测试代码的时候不用几个函数之间来回切）。</p>
+</section>
+
+  <hr />
+
+  <!-- Post Taxonomies -->
+  
+<footer class="mt-12 flex flex-col">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Categories </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/categories/python/"
+      >Python</a
+    >
+    
+  </div>
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Tags </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/tags/python/"
+      >Python</a
+    >
+    
+  </div>
+  
+</footer>
+
+
+
+  <!-- Post Nav -->
+  
+<nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
+  
+  <a
+    class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-pr&#x2F;"
+  >
+    <span class="ml-1.5">←</span>
+    <span>开发中 PR 注意事项</span>
+  </a>
+   
+  <a
+    class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;jupyter-notebook&#x2F;"
+  >
+    <span>量化学习之 jupyter notebook 环境配置</span>
+    <span class="mr-1.5">→</span>
+  </a>
+  
+</nav>
+
+
+
+  <!-- Comment -->
+   
+<div class="giscus mt-12"></div>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="qiaopengjun5162&#x2F;qiaopengjun5162.github.io"
+  data-repo-id="R_kgDOI8edYQ"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI8edYc4ClMMv"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!---->
+ 
+
+  <!-- Page End inject -->
+  
+</article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    <!---->
+    <!---->
+    &copy; 2020 - 2024<!---->
+    
+    <a class="link" href="https://qiaopengjun5162.github.io">
+      Paxon Qiao
+    </a>
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank">
+      Powered by Zola
+    </a>
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+  <!-- Footer inject -->
+  
+</footer>
+
+
+    <!-- Body End: Additional scripts or markup -->
+    
+  </body>
+</html>

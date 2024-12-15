@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="not-ready lg:text-base" lang="en">
+  <!-- Head section: Includes meta tags, styles, and scripts -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    Python中自带的 assert 的使用 - Paxon Qiao&#x27;s Tech Blog
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  
+  <!-- Author -->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  <meta name="description" content="Python中自带的 assert 的使用" />
+  <meta name="author" content="Paxon Qiao" />
+  <!-- The Open Graph protocol -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Python中自带的 assert 的使用" />
+  <meta property="og:site_name" content="Paxon Qiao&#x27;s Tech Blog" />
+  <meta property="og:description" content="Python中自带的 assert 的使用" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-assert&#x2F;" />
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <meta property="og:image" content="https://qiaopengjun5162.github.io/icons/github.svg" />
+  
+  <!---->
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="https://qiaopengjun5162.github.io/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="https://qiaopengjun5162.github.io/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () =>
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+      // • rendering keys, e.g.:
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  <!---->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://qiaopengjun5162.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://qiaopengjun5162.github.io/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="https://qiaopengjun5162.github.io/atom.xml"
+  />
+   
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-assert&#x2F;" />
+
+  <!-- Head inject -->
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <!-- Header: Navigation and branding -->
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="https://qiaopengjun5162.github.io">Paxon Qiao&#x27;s Tech Blog</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+      <div
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+        role="button"
+        aria-label="Menu"
+      ></div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        if (isDark) {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
+          htmlClass.add("dark");
+        } else {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
+          htmlClass.remove("dark");
+        }
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+    <nav class="flex w-full items-center lg:w-auto">
+      <ul
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
+      >
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//projects"
+            >Projects</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//archive"
+            >Archive</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//tags"
+            >Tags</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//categories"
+            >Categories</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://qiaopengjun5162.github.io//about"
+            >About</a
+          >
+        </li>
+        
+      </ul>
+      <!-- Header Nav inject -->
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <!-- Body Start: Content injection point -->
+    
+
+    <!-- Main Content -->
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl break-words px-4 pb-16 pt-32 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg"
+    >
+      
+<article>
+  <!-- Page Start inject -->
+  
+
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Python中自带的 assert 的使用</h1>
+    <div class="text-sm antialiased opacity-60">
+  
+  <time>2023-12-09</time>
+  <span class="mx-1">&middot;</span>
+  <span>5min</span>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <span class="mx-1">&middot;</span>
+  <span>Paxon Qiao</span>
+  
+  <!-- Page Info inject -->
+  
+</div>
+
+  </header>
+
+  
+
+  <!-- TOC -->
+  
+<div class="block-bg mb-12 flex rounded-lg p-2 text-lg">
+  <details>
+    <summary class="cursor-pointer py-1 pl-4">
+      <span>Table of Contents</span>
+    </summary>
+    <div class="px-2">
+      <ul>
+        
+        <li>
+          <a
+            class="no-underline hover:underline"
+            href="https://qiaopengjun5162.github.io/code-assert/#pythonzhong-zi-dai-de-assert-de-shi-yong"
+            >Python中自带的 assert 的使用</a
+          >
+          
+          <ul>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#1-gai-shu"
+                >1. 概述</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#2-yu-fa"
+                >2. 语法</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#3-shi-li"
+                >3. 实例</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#4-zhu-yi-shi-xiang"
+                >4. 注意事项</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#5-duan-yan-de-yong-fa"
+                >5. 断言的用法</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#6-duan-yan-de-zhi-xing"
+                >6. 断言的执行</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#7-duan-yan-de-zhi-xing-guo-cheng"
+                >7. 断言的执行过程</a
+              >
+            </li>
+            
+            <li>
+              <a
+                class="no-underline hover:underline"
+                href="https://qiaopengjun5162.github.io/code-assert/#8-duan-yan-de-shi-yong-shuo-ming"
+                >8. 断言的使用说明</a
+              >
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+
+
+  <!-- Content -->
+  <section><h1 id="pythonzhong-zi-dai-de-assert-de-shi-yong">Python中自带的 assert 的使用</h1>
+<h2 id="1-gai-shu">1. 概述</h2>
+<p>assert 语句用于判断一个表达式，在表达式条件为 false 的时候触发异常。</p>
+<h2 id="2-yu-fa">2. 语法</h2>
+<p>assert expression [, arguments]</p>
+<h2 id="3-shi-li">3. 实例</h2>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#75715e;"># 判断一个变量是否为空
+</span><span style="color:#f92672;">assert </span><span>a </span><span style="color:#f92672;">is not </span><span style="color:#ae81ff;">None
+</span></code></pre>
+<h2 id="4-zhu-yi-shi-xiang">4. 注意事项</h2>
+<p>assert 语句只在调试模式开启时起作用，在发布模式时，assert 语句将被忽略。</p>
+<h2 id="5-duan-yan-de-yong-fa">5. 断言的用法</h2>
+<h3 id="5-1-duan-yan-biao-da-shi-wei-zhen">5.1 断言表达式为真</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">assert </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">1
+</span></code></pre>
+<h3 id="5-2-duan-yan-biao-da-shi-wei-jia">5.2 断言表达式为假</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">assert </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">2
+</span></code></pre>
+<h3 id="5-3-duan-yan-biao-da-shi-wei-jia-bing-pao-chu-yi-chang">5.3 断言表达式为假，并抛出异常</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">assert </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">2</span><span>, </span><span style="color:#e6db74;">&quot;1 is not equal to 2&quot;
+</span></code></pre>
+<h3 id="5-4-duan-yan-biao-da-shi-wei-jia-bing-pao-chu-yi-chang-bing-fu-jia-e-wai-de-can-shu">5.4 断言表达式为假，并抛出异常，并附加额外的参数</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">assert </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">2</span><span>, </span><span style="color:#e6db74;">&quot;1 is not equal to 2&quot;</span><span>, </span><span style="color:#ae81ff;">100
+</span></code></pre>
+<h3 id="5-5-duan-yan-biao-da-shi-wei-jia-bing-pao-chu-yi-chang-bing-fu-jia-e-wai-de-can-shu-bing-fu-jia-e-wai-de-can-shu">5.5 断言表达式为假，并抛出异常，并附加额外的参数，并附加额外的参数</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#f92672;">assert </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">2</span><span>, </span><span style="color:#e6db74;">&quot;1 is not equal to 2&quot;</span><span>, </span><span style="color:#ae81ff;">100</span><span>, </span><span style="color:#ae81ff;">200
+</span></code></pre>
+<h2 id="6-duan-yan-de-zhi-xing">6. 断言的执行</h2>
+<p>assert 语句只在调试模式开启时起作用，在发布模式时，assert 语句将被忽略。</p>
+<h2 id="7-duan-yan-de-zhi-xing-guo-cheng">7. 断言的执行过程</h2>
+<p>断言的执行过程如下：</p>
+<ol>
+<li>执行 assert 语句</li>
+<li>如果断言失败，则触发 AssertionError 异常</li>
+<li>异常被触发时，assert 语句后面的语句将不会执行</li>
+</ol>
+<h2 id="8-duan-yan-de-shi-yong-shuo-ming">8. 断言的使用说明</h2>
+<p>首先，在python中，assert expression 在不开-O（即使用debug mode）的情况下，等价于if not expression: raise AssertionError 。python里的assert就是raise了一个exception而已。但是我们看待assert的时候，要从语言的层面去理解，背后的实现反而没那么重要。</p>
+<p>assert的语义其实是非常清晰的——这个事情它压根不该发生。你永远不应该用assert处理任何错误，如果你能想到一个当前情况下assert不成立的可能性，你这里就不应该写这个assert。你不应该依赖assert的任何behavior，任何assert不成立的时候，你就应该接受你的程序可能发生任何事情。事实上，在使用-O（production mode）的时候，所有的assert都会被变成noop，也就是没有任何行为。</p>
+<p>那为什么要写assert？当然还是有原因的。</p>
+<p>第一，当你在对程序进行开发的时候，可以更快地发现一些程序的错误。比如你这个函数是个内部函数，只有自己的代码调用，你觉得传进来的都应该是int，你不需要对传入数据进行类型判断，这里可以加一个assert isinstance(arg, int) ，万一你在开发的时候出了一些比较蠢的错误，可以及时发现。这个用法其实大家相对熟悉一些，有的人在开发的时候会用这个方式调试。</p>
+<p>第二，是一个被很多人忽略的点——assert是有注释含义的。它可以提醒后来的开发者（和一周后的你自己），这个地方我确认某个事情是成立的，你不需要去思考其他的可能性。这样的assert在开发时起到一个测试的作用，而在开发后维护的时候起到一个注释的作用。在assert起注释作用的时候，它的可信度是更高的。我相信大家都会有读代码的时候看到一段注释，不知道该不该信的时候（可能时间久远了）。但是如果是assert，说服力明显就更强。</p>
+<p>最后再次强调一下，不要把assert当成一个正常的exception来用！不要去catch AssertionError！尽管在Python实现的层面上它就是一个exception，但是大家一定要习惯把语义和实现区分开这个事情，因为你写的代码在被别人阅读的时候是有隐含意的。</p>
+</section>
+
+  <hr />
+
+  <!-- Post Taxonomies -->
+  
+<footer class="mt-12 flex flex-col">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Categories </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/categories/python/"
+      >Python</a
+    >
+    
+  </div>
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Tags </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://qiaopengjun5162.github.io/tags/python/"
+      >Python</a
+    >
+    
+  </div>
+  
+</footer>
+
+
+
+  <!-- Post Nav -->
+  
+<nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
+  
+  <a
+    class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-init-new&#x2F;"
+  >
+    <span class="ml-1.5">←</span>
+    <span>如果我们要打印一个class的signature（比如使用help命令的时候），我们是应该优先__new__，还是__init__？</span>
+  </a>
+   
+  <a
+    class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;qiaopengjun5162.github.io&#x2F;code-pr&#x2F;"
+  >
+    <span>开发中 PR 注意事项</span>
+    <span class="mr-1.5">→</span>
+  </a>
+  
+</nav>
+
+
+
+  <!-- Comment -->
+   
+<div class="giscus mt-12"></div>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="qiaopengjun5162&#x2F;qiaopengjun5162.github.io"
+  data-repo-id="R_kgDOI8edYQ"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI8edYc4ClMMv"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!---->
+ 
+
+  <!-- Page End inject -->
+  
+</article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    <!---->
+    <!---->
+    &copy; 2020 - 2024<!---->
+    
+    <a class="link" href="https://qiaopengjun5162.github.io">
+      Paxon Qiao
+    </a>
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank">
+      Powered by Zola
+    </a>
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+  <!-- Footer inject -->
+  
+</footer>
+
+
+    <!-- Body End: Additional scripts or markup -->
+    
+  </body>
+</html>
