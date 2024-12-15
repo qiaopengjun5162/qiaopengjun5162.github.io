@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Allow: /
-Sitemap: https://qiaopengjun5162.github.io/sitemap.xml
