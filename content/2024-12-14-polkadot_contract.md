@@ -4,6 +4,7 @@ date = "2024-12-14"
 description = "如何在Polkadot部署智能合约"
 [taxonomies]
 tags = ["Polkadot", "智能合约"]
+categories = ["Polkadot", "智能合约"]
 +++
 
 # 如何在Polkadot部署智能合约
