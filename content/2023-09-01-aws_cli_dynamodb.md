@@ -1,7 +1,6 @@
 +++
 title= "AWS CLI DynamoDB"
 date= 2023-09-01T18:09:43+08:00
-
 [taxonomies]
 categories= ["AWS"]
 tags= ["AWS"]
@@ -13,7 +12,7 @@ tags= ["AWS"]
 
 ## DynamoDB 实操
 
-![image-20230829230450833](../../../../../Library/Application Support/typora-user-images/image-20230829230450833.png)
+![image-20230829230450833](/images/image-20230829230450833.png)
 
 ### dynamodb 创建表
 
@@ -110,7 +109,7 @@ aws>
 
 ```
 
-![image-20230902170750838](assets/image-20230902170750838.png)
+![image-20230902170750838](/images/image-20230902170750838.png)
 
 ### 2 添加只读权限
 
@@ -190,7 +189,7 @@ aws>
 
 ```
 
-![image-20230903110335120](assets/image-20230903110335120.png)
+![image-20230903110335120](/images/image-20230903110335120.png)
 
 ### 查询安全组描述
 
@@ -368,7 +367,7 @@ aws> ec2 run-instances --image-id ami-0cf0e376c672104d6 --count 1 --instance-typ
 aws>
 ```
 
-![image-20230903153634099](assets/image-20230903153634099.png)
+![image-20230903153634099](/images/image-20230903153634099.png)
 
 ## 连接 EC2 实例
 
@@ -605,7 +604,7 @@ aws>
 
 ```
 
-![image-20230904002032691](assets/image-20230904002032691.png)
+![image-20230904002032691](/images/image-20230904002032691.png)
 
 ## Amazon S3 和 AWS cli
 
@@ -631,7 +630,7 @@ aws>
 
 ```
 
-![image-20230904003140980](assets/image-20230904003140980.png)
+![image-20230904003140980](/images/image-20230904003140980.png)
 
 ### 查看所有存储桶
 
