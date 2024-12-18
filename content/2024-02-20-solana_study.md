@@ -21,7 +21,7 @@ categories = ["Solana"]
 
 - 安装
 
-```shell
+```bash
 sh -c "$(curl -sSfL https://release.solana.com/v1.18.2/install)"
 
 downloading v1.18.2 installer
@@ -33,7 +33,7 @@ export PATH="/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$
 Adding
 export PATH="/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH" to /Users/qiaopengjun/.bash_profile
 
-Close and reopen your terminal to apply the PATH changes or run the following in your existing shell:
+Close and reopen your terminal to apply the PATH changes or run the following in your existing bash:
 
 export PATH="/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$PATH"
 
@@ -41,7 +41,7 @@ export PATH="/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$
 
 - 配置环境变量
 
-```shell
+```bash
 vim .zshrc
 
 # 复制并粘贴下面命令以更新 PATH
@@ -50,7 +50,7 @@ export PATH="/Users/qiaopengjun/.local/share/solana/install/active_release/bin:$
 
 - 通过运行以下命令确认您已安装了所需的 Solana 版本：
 
-```shell
+```bash
 solana --version
 
 # 实操
@@ -60,7 +60,7 @@ solana-cli 1.18.2 (src:13656e30; feat:3352961542, client:SolanaLabs)
 
 - 切换版本
 
-```shell
+```bash
 solana-install init 1.16.4
 ```
 
@@ -78,7 +78,7 @@ solana-install init 1.16.4
 
 ### 实操
 
-```shell
+```bash
 solana config set --url https://api.devnet.solana.com
 
 Config File: /Users/qiaopengjun/.config/solana/cli/config.yml
@@ -98,7 +98,7 @@ Commitment: confirmed
 
 运行以下命令检查 solana-keygen 是否安装正确:
 
-```shell
+```bash
 solana-keygen --version
 
 # 实操
@@ -112,7 +112,7 @@ solana-keygen 1.18.2 (src:13656e30; feat:3352961542, client:SolanaLabs)
 
 For full usage details, run:
 
-```shell
+```bash
 solana-keygen new --help
 
 solana-keygen-new
@@ -161,7 +161,7 @@ OPTIONS:
 
 ### 实操
 
-```shell
+```bash
 sosolana-keygen new --force
 
 Generating a new keypair
@@ -184,13 +184,13 @@ Save this seed phrase and your BIP39 passphrase to recover your new keypair:
 
 查看当前账号的地址，Keypair文件的中的公钥：
 
-```shell
+```bash
 solana-keygen pubkey
 ```
 
 ## 申请水龙头
 
-```shell
+```bash
 solana airdrop 1
 
 Requesting airdrop of 1 SOL
@@ -204,7 +204,7 @@ Signature: GTVSLYa9Vm1FfjBSDVxf8cBL6D47caXHuETRbdD3eQ5C36ZA261MLJXBxzWU2HoiaedAA
 
 ### 查看当前账号的余额
 
-```shell
+```bash
 solana balance
 1 SOL
 ```
@@ -214,7 +214,7 @@ solana balance
 
 ### 查看 config
 
-```shell
+```bash
 cat .config/solana/cli/config.yml
 ---
 json_rpc_url: https://api.devnet.solana.com
@@ -227,7 +227,7 @@ commitment: confirmed
 
 ## 转账
 
-```shell
+```bash
 solana transfer --allow-unfunded-recipient H6Su7YsGK5mMASrZvJ51nt7oBzD88V8FKSBPNnRG1u3k 0.01
 
 Signature: 5t9ysYELu2Gv1jc7SDXzmZotLUDhkUwuSd48tH2QSqJy8iTYkXD7Sf9fNVxXhkcUZsCy7s7WvsddRbxrfK3tKmEg
@@ -236,11 +236,11 @@ Signature: 5t9ysYELu2Gv1jc7SDXzmZotLUDhkUwuSd48tH2QSqJy8iTYkXD7Sf9fNVxXhkcUZsCy7
 
 - <https://explorer.solana.com/tx/5t9ysYELu2Gv1jc7SDXzmZotLUDhkUwuSd48tH2QSqJy8iTYkXD7Sf9fNVxXhkcUZsCy7s7WvsddRbxrfK3tKmEg?cluster=devnet>
 
-![image-20240220211328531](assets/image-20240220211328531.png)
+![image-20240220211328531](/images/image-20240220211328531.png)
 
 - <https://solscan.io/tx/5t9ysYELu2Gv1jc7SDXzmZotLUDhkUwuSd48tH2QSqJy8iTYkXD7Sf9fNVxXhkcUZsCy7s7WvsddRbxrfK3tKmEg?cluster=devnet>
 
-![image-20240220211135148](assets/image-20240220211135148.png)
+![image-20240220211135148](/images/image-20240220211135148.png)
 
 ## 练习
 
@@ -252,7 +252,7 @@ Signature: 5t9ysYELu2Gv1jc7SDXzmZotLUDhkUwuSd48tH2QSqJy8iTYkXD7Sf9fNVxXhkcUZsCy7
 3. 申请水龙头
 4. 创建Token
 
-```shell
+```bash
 spl-token create-token
 Creating token E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx under program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
 
@@ -268,7 +268,7 @@ Signature: 51yuJ91agCKxYWEbLgMfEq5BWBTaFZoezxfnKVoTmrGi59S44q7nKkfVjsCpMJNVLwW8A
 
 5. 创建Token Account
 
-```shell
+```bash
 spl-token create-account E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 Creating account HDv1RgdHjrjSdnTFJsMqQGPcKTiuF7zLjhNaSd7ihbKh
 
@@ -280,7 +280,7 @@ Signature: 3shwWeUAiFYTE2qfARofhyPRtHvtGBRNf2oB8AoxsAX11mEbUsxk2q35YSmWBcBQEnhS2
 
 6. Token Account Mint
 
-```shell
+```bash
 spl-token mint E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx 100 HDv1RgdHjrjSdnTFJsMqQGPcKTiuF7zLjhNaSd7ihbKh
 Minting 100 tokens
   Token: E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
@@ -294,14 +294,14 @@ Signature: 4XdNt4yotJdcKN1JGSqm4CL8tQ8vELzGLNGT8ChucQWmofSBpSz2jU8gHmET18PBu2Z3Z
 
 7. 查询余额
 
-```shell
+```bash
 spl-token balance E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 100
 ```
 
 8. 转账
 
-```shell
+```bash
 spl-token transfer --fund-recipient E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx 10 H6Su7YsGK5mMASrZvJ51nt7oBzD88V8FKSBPNnRG1u3k
 Transfer 10 tokens
   Sender: HDv1RgdHjrjSdnTFJsMqQGPcKTiuF7zLjhNaSd7ihbKh
@@ -317,9 +317,9 @@ Signature: 4jbcoJYS6ZGPcUmHpqTnxeLHfQxvUqQQnzgoJCgWWA1LpKkKWRA5y2FZ7rDQ2v4NBBcuU
 
 9. 查询余额
 
-```shell
+```bash
 spl-token balance E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 90
 ```
 
-![image-20240221150547872](assets/image-20240221150547872.png)
+![image-20240221150547872](/images/image-20240221150547872.png)

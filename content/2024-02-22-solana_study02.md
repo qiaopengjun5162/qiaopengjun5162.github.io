@@ -26,7 +26,7 @@ JSON-RPC 是一种无状态、轻量级远程过程调用 (RPC) 协议。该规�
 
 通过getClusterNodes方法可以获得当前网络内，集群节点的相关信息，比如验证者的key，节点IP，节点版本等。
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0", "id": 1,
@@ -48,7 +48,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getblockheight>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc":"2.0","id":1,
@@ -62,7 +62,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getlatestblockhash>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "id":1,
@@ -82,7 +82,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getblock>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0","id":1,
@@ -104,7 +104,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getblockcommitment>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0", "id": 1,
@@ -119,7 +119,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getblocks>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0", "id": 1,
@@ -136,7 +136,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getblockswithlimit>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
@@ -156,7 +156,7 @@ epoch在一般POS中比较常见，表示这个周期内，一些参与验证的
 
 - <https://solana.com/docs/rpc/http/getepochinfo>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {"jsonrpc":"2.0","id":1, "method":"getEpochInfo"}
     '
@@ -167,7 +167,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getepochschedule>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc":"2.0","id":1,
@@ -181,7 +181,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getslot>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
         {"jsonrpc":"2.0","id":1, "method":"getSlot"}
     '
@@ -194,7 +194,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getaccountinfo>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0",
@@ -222,7 +222,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getbalance>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
     {
         "jsonrpc": "2.0", "id": 1,
@@ -239,7 +239,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/getprogramaccounts>
 
-```shell
+```bash
 curl  https://api.devnet.solana.com  -X POST -H "Content-Type: application/json" -d '
         {
             "jsonrpc": "2.0",
@@ -264,7 +264,7 @@ curl  https://api.devnet.solana.com  -X POST -H "Content-Type: application/json"
 
 #### 获取某个Token Account账号的余额
 
-```shell
+```bash
 curl  https://api.devnet.solana.com  -X POST -H "Content-Type: application/json" -d '
         {
             "jsonrpc": "2.0", "id": 1,
@@ -283,7 +283,7 @@ curl  https://api.devnet.solana.com  -X POST -H "Content-Type: application/json"
 
 - <https://solana.com/docs/rpc/http/gettransactioncount>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getTransactionCount"}
 '
@@ -294,7 +294,7 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 - <https://solana.com/docs/rpc/http/gettransaction>
 
-```shell
+```bash
 curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
@@ -321,13 +321,13 @@ curl https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -
 
 安装wscat
 
-```shell
+```bash
 npm install -g ws wscat
 ```
 
 建立连接
 
-```shell
+```bash
 wscat -c wss://api.devnet.solana.com
 ```
 
@@ -336,7 +336,7 @@ wscat -c wss://api.devnet.solana.com
 
 ### 订阅合约所属于Account事件
 
-```shell
+```bash
 {
         "jsonrpc": "2.0",
         "id": 1,
@@ -350,7 +350,7 @@ wscat -c wss://api.devnet.solana.com
     }
 ```
 
-![image-20240222154944082](assets/image-20240222154944082.png)
+![image-20240222154944082](/images/image-20240222154944082.png)
 
 ## 练习
 
@@ -368,7 +368,7 @@ wscat -c wss://api.devnet.solana.com
 
 #### 获取1sol
 
-```shell
+```bash
 solana airdrop 1
 Requesting airdrop of 1 SOL
 
@@ -379,7 +379,7 @@ Signature: 4ZWQHwNYVWcs6THZ5A3C6ccHfovJi3HVgZ55LV8NAcZA95iLjyX9Ey6cUnGV7T4JnZnv9
 
 #### 订阅Account变化
 
-```shell
+```bash
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -394,18 +394,18 @@ Signature: 4ZWQHwNYVWcs6THZ5A3C6ccHfovJi3HVgZ55LV8NAcZA95iLjyX9Ey6cUnGV7T4JnZnv9
 }
 ```
 
-![image-20240222160607354](assets/image-20240222160607354.png)
+![image-20240222160607354](/images/image-20240222160607354.png)
 
 ### 列出已知SPL-Token的余额
 
-```shell
+```bash
 spl-token balance E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 90
 ```
 
 获取SPL-Token下有多少 Token Account:
 
-```shell
+```bash
 curl  https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
         {
             "jsonrpc": "2.0",
@@ -427,7 +427,7 @@ curl  https://api.devnet.solana.com -X POST -H "Content-Type: application/json" 
 
 ### 实时展示SPL-Token余额变化
 
-```shell
+```bash
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -444,7 +444,7 @@ curl  https://api.devnet.solana.com -X POST -H "Content-Type: application/json" 
 
 #### 转账交易
 
-```shell
+```bash
 spl-token transfer --fund-recipient E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx 1 H6Su7YsGK5mMASrZvJ51nt7oBzD88V8FKSBPNnRG1u3k
 Transfer 1 tokens
   Sender: HDv1RgdHjrjSdnTFJsMqQGPcKTiuF7zLjhNaSd7ihbKh
@@ -468,14 +468,14 @@ Signature: 5gamUZFLAiXraD3DCQ9XEyaqodDX6iQuvLqapyeLokbdot4HAQEqUvBndXgr1uXa6owcR
 
 #### 查询余额
 
-```shell
+```bash
 spl-token balance E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 88
 ```
 
 #### websocket 监控收到
 
-```shell
+```bash
 {
   "jsonrpc": "2.0",
   "method": "accountNotification",
@@ -516,4 +516,4 @@ spl-token balance E7eHC3g4QsFXuaBe3X2wVr54yEvHK8K8fq6qrgB64djx
 }
 ```
 
-![image-20240222162859547](assets/image-20240222162859547.png)
+![image-20240222162859547](/images/image-20240222162859547.png)

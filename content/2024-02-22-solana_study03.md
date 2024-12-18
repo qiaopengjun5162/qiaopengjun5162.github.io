@@ -18,7 +18,7 @@ categories = ["Solana"]
 
 ### 安装 solana-web3.js
 
-```shell
+```bash
 npm install --save @solana/web3.js
 ```
 
