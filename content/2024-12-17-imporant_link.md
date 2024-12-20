@@ -14,3 +14,7 @@ categories = ["相关链接"]
 ## Web3
 
 - [从 4337 到 7702：深入解读以太坊账户抽象赛道的过去与未来](https://mp.weixin.qq.com/s/WYnqC5rOslmp3KgLcP_1fw)
+
+## Blog
+
+- [使用 pagefind 添加博客搜索功能](https://taxodium.ink/use-pagefind-to-search-blog)

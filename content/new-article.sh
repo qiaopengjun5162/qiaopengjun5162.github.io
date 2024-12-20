@@ -36,8 +36,8 @@ title = "${ARTICLE}"
 description = ""
 date = ${TIMESTAMPE}
 [taxonomies]
-categories = []
-tags = []
+categories = [""]
+tags = [""]
 +++
 
 <!-- more -->
