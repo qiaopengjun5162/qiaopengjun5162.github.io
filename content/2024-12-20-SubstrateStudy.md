@@ -1,6 +1,6 @@
 +++
 title = "Substrate 学习笔记"
-description = ""
+description = "Substrate 学习笔记"
 date = 2024-12-20 16:28:06+08:00
 [taxonomies]
 categories = ["Substrate"]

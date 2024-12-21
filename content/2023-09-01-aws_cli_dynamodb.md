@@ -1,5 +1,5 @@
 +++
-title= "AWS CLI DynamoDB"
+title= "AWS CLI DynamoDB 实操"
 date= 2023-09-01T18:09:43+08:00
 [taxonomies]
 categories= ["AWS"]

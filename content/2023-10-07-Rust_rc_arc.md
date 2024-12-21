@@ -1,6 +1,7 @@
 +++
 title = "Rust 学习之所有权 Rc"
 date = 2023-10-07T13:00:03+08:00
+description = "Rust 学习笔记之所有权 Rc"
 [taxonomies]
 tags = ["Rust"]
 categories = ["Rust"]

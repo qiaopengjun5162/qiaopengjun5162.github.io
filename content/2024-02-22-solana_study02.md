@@ -1,6 +1,7 @@
 +++
 title = "Solana 开发学习之通过RPC与Solana交互"
 date = 2024-02-22T12:42:01+08:00
+description = "Solana 开发学习之通过RPC与Solana交互"
 [taxonomies]
 tags = ["Solana"]
 categories = ["Solana"]

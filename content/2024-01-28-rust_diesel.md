@@ -1,6 +1,7 @@
 +++
 title = "Rust学习之Diesel setup报错解决"
 date = 2024-01-28T17:02:08+08:00
+description = "Rust学习之Diesel setup报错解决"
 [taxonomies]
 tags = ["Rust"]
 categories = ["Rust"]
