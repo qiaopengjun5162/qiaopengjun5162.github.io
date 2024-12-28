@@ -2,8 +2,9 @@
 title = "算法 in Go：Binary Search（二分查找）"
 date = 2023-06-05T20:49:48+08:00
 description = "Go 语言中实现二分查找算法"
-tags = ["Go"]
-categories = ["Go"]
+[taxonomies]
+tags = ["Go", "算法"]
+categories = ["Go","算法"]
 +++
 
 # 算法 in Go：Binary Search（二分查找）

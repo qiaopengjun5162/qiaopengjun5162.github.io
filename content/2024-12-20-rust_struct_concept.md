@@ -1,6 +1,6 @@
 +++
 title = "Rust 中概念层次结构梳理图"
-description = ""
+description = "Rust 中概念层次结构梳理图"
 date = 2024-12-20 16:42:03+08:00
 [taxonomies]
 categories = ["Rust"]
