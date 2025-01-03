@@ -1,6 +1,6 @@
 +++
-title = "实操：Starknet Dojo 入门之 Dojo 安装、编译、部署和交互"
-description = "实操：Starknet Dojo 入门之 Dojo 安装、编译、部署和交互"
+title = "Starknet Dojo 入门：安装、编译、部署与交互"
+description = "Starknet Dojo 入门：安装、编译、部署与交互"
 date = 2025-01-01 12:48:11+08:00
 [taxonomies]
 categories = ["Starknet", "Dojo"]
@@ -8,7 +8,7 @@ tags = ["Starknet", "Dojo"]
 +++
 
 <!-- more -->
-# 实操：Starknet Dojo 入门之 Dojo 安装、编译、部署和交互
+# Starknet Dojo 入门：安装、编译、部署与交互
 
 Dojo 是一个社区驱动的开源项目，旨在为开发者提供构建、部署和管理 Starknet 链上游戏的基础设施。它提供了一套工具和框架，帮助开发者快速构建和部署复杂的链上游戏，同时提供了一套丰富的 API 和组件，帮助开发者实现各种游戏功能。
 
