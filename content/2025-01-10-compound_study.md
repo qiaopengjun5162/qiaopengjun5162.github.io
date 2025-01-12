@@ -1,13 +1,14 @@
 +++
-title = "compound_study"
-description = ""
+title = "Compound 研究"
+description = "Compound 研究"
 date = 2025-01-10 14:13:38+08:00
 [taxonomies]
-categories = [""]
-tags = [""]
+categories = ["Web3", "DeFi"]
+tags = ["Web3", "DeFi"]
 +++
 
 <!-- more -->
+# Compound 研究
 
 <https://defillama.com/protocol/compound-finance#information>
 
