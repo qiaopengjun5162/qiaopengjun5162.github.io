@@ -1,6 +1,6 @@
 +++
-title = "**《数据结构》**"
-description = "**《数据结构》学习笔记**"
+title = "《数据结构》"
+description = "《数据结构》学习笔记"
 date = 2025-01-04 20:27:14+08:00
 [taxonomies]
 categories = ["自考"]
