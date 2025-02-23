@@ -3,3 +3,5 @@
 .DS_Store
 
 .codegpt
+static/.DS_Store
+.vscode
