@@ -18,9 +18,9 @@ tags = ["Go"]
 
 - **`eface` 和 `iface` 定义**：
   - 文件：runtime/runtime2.go
-  -  GitHub 链接：[runtime/runtime2.go](https://github.com/golang/go/blob/master/src/runtime/runtime2.go)
-    - [iface](https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L179)
-    - [eface](https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L184)
+  - GitHub 链接：[runtime/runtime2.go](https://github.com/golang/go/blob/master/src/runtime/runtime2.go)
+  - [iface](https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L179)
+  - [eface](https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L184)
 
 - **`_type` 定义**：
   - 文件：`runtime/type.go`  
@@ -35,12 +35,12 @@ tags = ["Go"]
 
 - **定义**：
 
-https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L184
+<https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L184>
 
 ```go
 type eface struct {
-	_type *_type
-	data  unsafe.Pointer
+ _type *_type
+ data  unsafe.Pointer
 }
 ```
 
@@ -53,7 +53,7 @@ type eface struct {
       - 在 Go 的运行时，类型元数据是对某种数据类型的描述，例如 int、string、结构体等。
       - 这些信息包括类型的大小、对齐方式、种类（kind，如 int、struct）等。
     - **指针**：
-      - *_type 表示这个字段存储的是一个地址（指针），指向内存中某个 _type 类型的数据。
+      - *_type 表示这个字段存储的是一个地址（指针），指向内存中某个_type 类型的数据。
 
   - _type 包含类型的大小、对齐方式、种类（kind）等信息。
 
@@ -66,7 +66,7 @@ type eface struct {
 
   - 作用：存储实际数据的指针。
 
-https://github.com/golang/go/blob/master/src/runtime/type.go#L21
+<https://github.com/golang/go/blob/master/src/runtime/type.go#L21>
 
 ```go
 type _type = abi.Type
@@ -84,7 +84,7 @@ type _type = abi.Type
   - `abi.Type` 是定义在 `internal/abi/type.go` 中的结构体，表示类型元数据的具体实现。
   - 源码（`internal/abi/type.go`）：
 
-https://github.com/golang/go/blob/master/src/internal/abi/type.go
+<https://github.com/golang/go/blob/master/src/internal/abi/type.go>
 
 ```go
 // Type is the runtime representation of a Go type.
@@ -97,30 +97,30 @@ https://github.com/golang/go/blob/master/src/internal/abi/type.go
 // (TODO: this admonition applies to every type in this package.
 // Put it in some shared location?)
 type Type struct {
-	Size_       uintptr
-	PtrBytes    uintptr // number of (prefix) bytes in the type that can contain pointers
-	Hash        uint32  // hash of type; avoids computation in hash tables
-	TFlag       TFlag   // extra type information flags
-	Align_      uint8   // alignment of variable with this type
-	FieldAlign_ uint8   // alignment of struct field with this type
-	Kind_       Kind    // enumeration for C
-	// function for comparing objects of this type
-	// (ptr to object A, ptr to object B) -> ==?
-	Equal func(unsafe.Pointer, unsafe.Pointer) bool
-	// GCData stores the GC type data for the garbage collector.
-	// Normally, GCData points to a bitmask that describes the
-	// ptr/nonptr fields of the type. The bitmask will have at
-	// least PtrBytes/ptrSize bits.
-	// If the TFlagGCMaskOnDemand bit is set, GCData is instead a
-	// **byte and the pointer to the bitmask is one dereference away.
-	// The runtime will build the bitmask if needed.
-	// (See runtime/type.go:getGCMask.)
-	// Note: multiple types may have the same value of GCData,
-	// including when TFlagGCMaskOnDemand is set. The types will, of course,
-	// have the same pointer layout (but not necessarily the same size).
-	GCData    *byte
-	Str       NameOff // string form
-	PtrToThis TypeOff // type for pointer to this type, may be zero
+ Size_       uintptr
+ PtrBytes    uintptr // number of (prefix) bytes in the type that can contain pointers
+ Hash        uint32  // hash of type; avoids computation in hash tables
+ TFlag       TFlag   // extra type information flags
+ Align_      uint8   // alignment of variable with this type
+ FieldAlign_ uint8   // alignment of struct field with this type
+ Kind_       Kind    // enumeration for C
+ // function for comparing objects of this type
+ // (ptr to object A, ptr to object B) -> ==?
+ Equal func(unsafe.Pointer, unsafe.Pointer) bool
+ // GCData stores the GC type data for the garbage collector.
+ // Normally, GCData points to a bitmask that describes the
+ // ptr/nonptr fields of the type. The bitmask will have at
+ // least PtrBytes/ptrSize bits.
+ // If the TFlagGCMaskOnDemand bit is set, GCData is instead a
+ // **byte and the pointer to the bitmask is one dereference away.
+ // The runtime will build the bitmask if needed.
+ // (See runtime/type.go:getGCMask.)
+ // Note: multiple types may have the same value of GCData,
+ // including when TFlagGCMaskOnDemand is set. The types will, of course,
+ // have the same pointer layout (but not necessarily the same size).
+ GCData    *byte
+ Str       NameOff // string form
+ PtrToThis TypeOff // type for pointer to this type, may be zero
 }
 
 // A Kind represents the specific kind of type that a Type represents.
@@ -154,7 +154,7 @@ type TypeOff int32
 
 #### **3. 完整链条**
 
-- `eface` 中的` _type *_type`：
+- `eface` 中的`_type *_type`：
   - 字段名：_type。
   - 类型：`*_type`，即指向 `_type` 的指针。
 - `runtime/type.go` 中的 `_type`：
@@ -170,12 +170,12 @@ type TypeOff int32
 
 - 定义
 
-https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L179
+<https://github.com/golang/go/blob/e7cd4979bec709b6d9c7428912e66348405e2a51/src/runtime/runtime2.go#L179>
 
 ```go
 type iface struct {
-	tab  *itab
-	data unsafe.Pointer
+ tab  *itab
+ data unsafe.Pointer
 }
 ```
 
@@ -204,7 +204,7 @@ type iface struct {
 type itab = abi.ITab
 ```
 
-https://github.com/golang/go/blob/fba83cdfc6c4818af5b773afa39e457d16a6db7a/src/runtime/runtime2.go#L952
+<https://github.com/golang/go/blob/fba83cdfc6c4818af5b773afa39e457d16a6db7a/src/runtime/runtime2.go#L952>
 
 ```go
 // The first word of every non-empty interface type contains an *ITab.
@@ -213,20 +213,18 @@ https://github.com/golang/go/blob/fba83cdfc6c4818af5b773afa39e457d16a6db7a/src/r
 //
 // allocated in non-garbage-collected memory
 type ITab struct {
-	Inter *InterfaceType // 接口类型
-	Type  *Type  				// 具体类型
-	Hash  uint32     		// copy of Type.Hash. Used for type switches.
-	Fun   [1]uintptr 		// variable sized. fun[0]==0 means Type does not implement Inter.
+ Inter *InterfaceType // 接口类型
+ Type  *Type      // 具体类型
+ Hash  uint32       // copy of Type.Hash. Used for type switches.
+ Fun   [1]uintptr   // variable sized. fun[0]==0 means Type does not implement Inter.
 }
 ```
 
-https://github.com/golang/go/blob/fba83cdfc6c4818af5b773afa39e457d16a6db7a/src/internal/abi/iface.go#L14
-
-
+<https://github.com/golang/go/blob/fba83cdfc6c4818af5b773afa39e457d16a6db7a/src/internal/abi/iface.go#L14>
 
 ## 参考
 
-- https://go.dev/doc/effective_go#interfaces
-- https://research.swtch.com/interfaces
-- https://github.com/golang/go/blob/master/src/runtime/iface.go
-- https://github.com/golang/go/blob/master/src/runtime/runtime2.go
+- <https://go.dev/doc/effective_go#interfaces>
+- <https://research.swtch.com/interfaces>
+- <https://github.com/golang/go/blob/master/src/runtime/iface.go>
+- <https://github.com/golang/go/blob/master/src/runtime/runtime2.go>
