@@ -5,24 +5,43 @@ date= 2023-09-01T18:09:43+08:00
 categories= ["AWS"]
 tags= ["AWS"]
 +++
+# AWS CLI 实战指南：从 DynamoDB 到 EC2 实例管理全流程
 
-# AWS CLI DynamoDB 实操
+随着云计算的普及，AWS 提供了强大的云服务，而 AWS CLI（命令行界面）作为高效管理 AWS 资源的工具，深受开发者和运维人员的喜爱。本文将通过实际操作，带你掌握 AWS CLI 的核心用法，从 DynamoDB 表的创建与数据管理，到 EC2 实例的部署与连接，再到 S3 存储桶的简单操作，助你在云端游刃有余！
 
-## AWS CLI 安装
+本文详细介绍了如何通过 AWS CLI 完成以下任务：  
 
-## DynamoDB 实操
+1. 安装 AWS CLI 并验证版本；  
+2. 使用 AWS CLI 创建并管理 DynamoDB 表，包含数据添加与查询；  
+3. 通过 AWS CLI 创建密钥对、安全组，并启动与连接 EC2 实例；  
+4. 简单操作 Amazon S3，创建与删除存储桶。
+
+通过图文结合与命令示例，本文旨在为读者提供一个清晰、直观的 AWS CLI 实战教程，适合初学者与进阶用户。
+
+## AWS CLI DynamoDB 实操
+
+### AWS CLI 安装
+
+- <https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html>
+
+```bash
+aws --version
+aws-cli/1.29.36 Python/3.10.8 Darwin/24.3.0 botocore/1.31.36
+```
+
+### DynamoDB 实操
 
 ![image-20230829230450833](/images/image-20230829230450833.png)
 
 ### dynamodb 创建表
 
-```shell
+```bash
 dynamodb create-table --table-name contact --attribute-definitions AttributeName=name,AttributeType=S AttributeName=email,AttributeType=S --key-schema AttributeName=name,KeyType=HASH AttributeName=email,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
 ```
 
 ### dynamodb 创建项目 添加数据
 
-```shell
+```bash
 aws> dynamodb put-item --table-name contact --item '{"name":{"S":"xiao qiao"},"email":{"S":"qpj4812@gmail.com"}}' --return-consumed-capacity TOTAL
 ----------------------------------
 |             PutItem            |
@@ -51,7 +70,7 @@ aws>
 
 ### dynamodb 查看数据
 
-```shell
+```bash
 aws> dynamodb list-tables
 ---------------
 | ListTables  |
@@ -103,7 +122,7 @@ aws>
 
 ### 1 创建一个密钥对
 
-```shell
+```bash
 aws> ec2 create-key-pair --key-name kgptalkie --query 'KeyMaterial' --output text > kgptalkie.pem
 aws>
 
@@ -123,7 +142,7 @@ aws>
 
 ### 3 描述密钥对
 
-```shell
+```bash
 ~ via 🅒 base
 ➜ aws-shell
 aws> ec2 describe-key-pairs --key-names kgptalkie
@@ -143,7 +162,7 @@ aws>
 
 ### 4 删除密钥对
 
-```shell
+```bash
 aws> ec2 delete-key-pair --key-name kgptalkie
 -------------------------------------
 |           DeleteKeyPair           |
@@ -158,7 +177,7 @@ aws>
 
 ## 使用 Aws 创建安全组并更新
 
-```shell
+```bash
 aws> ec2 create-security-group --group-name my-sg --description "my sg group" --vpc-id vpc-0202e1374ee1fbf85
 -------------------------------------
 |        CreateSecurityGroup        |
@@ -531,7 +550,7 @@ aws>
 
 ### 连接失败 权限拒绝
 
-```shell
+```bash
 ~ via 🅒 base
 ➜ ssh -i kgptalkie.pem ubuntu@18.216.156.171
 The authenticity of host '18.216.156.171 (18.216.156.171)' can't be established.
@@ -548,7 +567,7 @@ ubuntu@18.216.156.171: Permission denied (publickey,gssapi-keyex,gssapi-with-mic
 
 ### 成功连接
 
-```shell
+```bash
 ~ via 🅒 base took 9.9s
 ➜ ssh -i kgptalkie.pem ec2-user@18.216.156.171
    ,     #_
@@ -576,7 +595,7 @@ Connection to 18.216.156.171 closed.
 
 ### 关闭终止运行实例
 
-```shell
+```bash
 aws> ec2 terminate-instances --instance-ids i-01c751f6c8019edd3
 -------------------------------
 |     TerminateInstances      |
@@ -620,7 +639,7 @@ aws>
 
 ### 创建存储桶
 
-```shell
+```bash
 aws> s3 help
 aws> s3 mb s3://kgptalkie
 make_bucket failed: s3://kgptalkie An error occurred (BucketAlreadyExists) when calling the CreateBucket operation: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
@@ -634,7 +653,7 @@ aws>
 
 ### 查看所有存储桶
 
-```shell
+```bash
 aws> s3 ls
 2023-09-04 00:30:49 kgptalkie1
 aws> s3 ls kgptalkie1
@@ -644,7 +663,7 @@ aws>
 
 ### 删除存储桶
 
-```shell
+```bash
 aws> s3 rb s3://kgptalkie1
 remove_bucket: kgptalkie1
 aws>
@@ -652,7 +671,7 @@ aws>
 
 ### 删除不存在的存储桶
 
-```shell
+```bash
 aws> s3 rb s3://kgptalkie1 --force
 fatal error: An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The specified bucket does not exist
 
@@ -660,3 +679,19 @@ remove_bucket failed: Unable to delete all objects in the bucket, bucket will no
 aws>
 
 ```
+
+## 总结
+
+通过本文的实操演练，我们从 AWS CLI 的安装开始，逐步掌握了 DynamoDB 的表管理、EC2 实例的创建与连接，以及 S3 存储桶的基本操作。这些技能不仅提升了我们对 AWS 服务的使用效率，也为后续的自动化运维奠定了基础。AWS CLI 的强大之处在于其灵活性和命令行的高效性，希望你能通过本文的指导，快速上手并应用到实际项目中。继续探索 AWS 的更多功能吧！
+
+## 参考
+
+- <https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install>.
+- <https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#Home>
+- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html>
+- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify_ec2_instances.html>
+- <https://us-east-2.console.aws.amazon.com/s3/get-started?region=us-east-2>
+- <https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html>
+- <https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html>
+- <https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html#aws-cloudhsm>
+- <https://aws.amazon.com/cn/cloudhsm/>
