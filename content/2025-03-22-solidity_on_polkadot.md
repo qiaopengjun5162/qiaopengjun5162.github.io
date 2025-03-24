@@ -20,6 +20,8 @@ Asset Hub 是系统平行链。在 Westend 的 Asset Hub 上可以支持 Solidit
 
 ## 实操
 
+Write a ERC20 contract according to IERC20 from scratch. Don't use library.
+
 ```bash
 1. fork the project
 2. create a folder with your ID like `homework-2/001`
