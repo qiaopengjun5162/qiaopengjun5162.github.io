@@ -6,10 +6,15 @@ description = "数据库系统原理之数据库编程"
 tags = ["数据库", "MySQL"]
 categories = ["数据库", "MySQL"]
 +++
+# 数据库编程必杀技：解锁存储过程与函数的秘密
 
-# 数据库编程
+数据库编程看似高深莫测，但掌握了存储过程与存储函数，你就能轻松驾驭复杂的业务逻辑，提高效率，甚至让数据库“听你指挥”！这些隐藏在数据库中的“必杀技”不仅能优化性能，还能让代码更优雅、安全性更高。本文将带你揭开存储过程与函数的神秘面纱，从基础到实战，手把手教你解锁它们的秘密，助你在数据库编程的道路上一飞冲天！
 
-## 第一节 存储过程
+本文为你献上一套数据库编程的“必杀技”——存储过程与存储函数的全面解析！存储过程是一组预编译的SQL“武器”，能高效完成特定任务，兼具高性能与安全性；而存储函数则以灵活的返回值，解决精准计算需求。我们将从基本概念入手，深入讲解创建方法、流程控制、游标操作等技巧，并通过MySQL实战案例带你上手。想知道如何用最少的代码实现最大的效率？这里有你想要的所有秘密！
+
+## 数据库编程
+
+## 存储过程
 
 ### 一、存储过程的基本概念
 
@@ -26,35 +31,35 @@ categories = ["数据库", "MySQL"]
 
 DELIMITER 命令的使用语法格式是：
 
-```mysql
+```sql
 DELIMITER $$
 ```
 
-- $$ 是用户定义的结束符，通常这个符号可以是一些特殊的符号，例如两个“#”，或两个“￥”等
-- 当使用 DELIMITER 命令时，应该避免使用反斜杠（“\”）字符，因为它是MySQL的转义字符
+- `$$` 是用户定义的结束符，通常这个符号可以是一些特殊的符号，例如两个“#”，或两个“￥”等
+- 当使用 `DELIMITER` 命令时，应该避免使用反斜杠（“\”）字符，因为它是MySQL的转义字符
 
 例子：将 MySQL 结束符修改为两个感叹号“!!”。
 
-```mysql
+```sql
 mysql> DELIMITER !!
 ```
 
 换回默认的分行“;”
 
-```mysql
+```sql
 mysql> DELIMITER ;
 ```
 
 创建存储过程
 
-```mysql
+```sql
 CREATE PROCEDURE sp_name ([proc_parameter[,...]])
  routine_body
 ```
 
 "proc_parameter" 的语法格式：
 
-```mysql
+```sql
 [IN | OUT | INOUT] param_name type
 
 # 参数的取名不要与数据表的列名相同
@@ -67,7 +72,7 @@ CREATE PROCEDURE sp_name ([proc_parameter[,...]])
 
 例子：在数据库 mysql_test 中创建一个存储过程，用于实现给定表 customers 中一个客户 id 号即可修改表 customers 中该客户的性别为一个指定的性别。
 
-```mysql
+```sql
 ➜ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -103,13 +108,13 @@ mysql>
 
 - 用来存储存储过程体中的临时结果
 
-```mysql
+```sql
 DECLARE var_name[,...] type [DEFAULT value]
 ```
 
 例子：声明一个整形局部变量 cid。
 
-```mysql
+```sql
 DECLARE cid INT(10);
 ```
 
@@ -122,13 +127,13 @@ DECLARE cid INT(10);
 
 #### 2 SET 语句
 
-```mysql
+```sql
 SET var_name = expr [, var_name = expr] ...
 ```
 
 例子：为声明的局部变量 cid 赋予一个整数值 910
 
-```mysql
+```sql
 SET cid=910;
 ```
 
@@ -136,7 +141,7 @@ SET cid=910;
 
 - 把选定列的值直接存储到局部变量中
 
-```mysql
+```sql
 SELECT col_name [,...] INTO var_name[,...] table_expr
 ```
 
@@ -166,7 +171,7 @@ SELECT col_name [,...] INTO var_name[,...] table_expr
 
 ##### （1）声明游标
 
-```mysql
+```sql
 DECLARE cursor_name CURSOR FOR select_statement
 ```
 
@@ -174,13 +179,13 @@ DECLARE cursor_name CURSOR FOR select_statement
 
 ##### （2）打开游标
 
-```mysql
+```sql
 OPEN cursor_name
 ```
 
 ##### （3）读取数据
 
-```mysql
+```sql
 FETCH cursor_name INTO var_name [, var_name] ...
 ```
 
@@ -188,7 +193,7 @@ FETCH cursor_name INTO var_name [, var_name] ...
 
 ##### （4）关闭游标
 
-```mysql
+```sql
 CLOSE cursor_name
 ```
 
@@ -200,7 +205,7 @@ CLOSE cursor_name
 
 首先，在MySQL命令行客户端输入如下 SQL语句创建存储过程 sq_sumofrow：
 
-```mysql
+```sql
 ➜ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -279,7 +284,7 @@ mysql>
 
 然后，在 MySQL 命令行客户端输入如下 SQL语句对存储过程 sp_sumofrow 进行调用：
 
-```mysql
+```sql
 mysql> call sp_sumofrow(@rows);
     ->
     ->
@@ -301,7 +306,7 @@ mysql>
 
 最后，查看调用存储过程 sp_sumofrow后的结果：
 
-```mysql
+```sql
 mysql> select @rows;
 +-------+
 | @rows |
@@ -326,7 +331,7 @@ mysql>
 
 ### 四、调用存储过程
 
-```mysql
+```sql
 CALL sp_name([parameter[,...]])
 CALL sp_name[()]
 ```
@@ -335,7 +340,7 @@ CALL sp_name[()]
 
 例子：调用数据库 mysql_test 中的存储过程 sp_update_sex，将客户 id 号位 909 的客户性别修改为男性“M”。
 
-```mysql
+```sql
 mysql> call sp_update_sex(909,'M');
 Query OK, 0 rows affected (0.00 sec)
 
@@ -345,20 +350,20 @@ mysql>
 
 ### 五、删除存储过程
 
-```mysql
+```sql
 DROP PROCEDURE [IF EXISTS] sp_name
 ```
 
 例子：删除数据库 mysql_test 中的存储过程 sp_update_sex。
 
-```mysql
+```sql
 mysql> DROP PROCEDURE sp_update_sex;
 Query OK, 0 rows affected (0.01 sec)
 
 mysql>
 ```
 
-## 第二节 存储函数
+## 存储函数
 
 存储函数与存储过程的区别：
 
@@ -368,7 +373,7 @@ mysql>
 
 ### 一、创建存储函数
 
-```mysql
+```sql
 CREATE FUNCTION sp_name ([func_parameter[,...]])
  RETURNS type
  routine_body
@@ -376,7 +381,7 @@ CREATE FUNCTION sp_name ([func_parameter[,...]])
 
 其中，语法项“func_parameter”的语法格式是：
 
-```mysql
+```sql
 param_name type
 ```
 
@@ -385,7 +390,7 @@ param_name type
 
 例子：在数据库 mysql_test 中创建一个存储函数，要求该函数能根据给定的客户 id 号返回客户的性别，如果数据库中没有给定的 id 号，则返回“没有该客户”。
 
-```mysql
+```sql
 ➜ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -429,13 +434,13 @@ mysql>
 
 ### 二、调用存储函数
 
-```mysql
+```sql
 SELECT sp_name ([func_parameter[,...]])
 ```
 
 例子：调用数据库 mysql_test 中的存储函数 fn_search。
 
-```mysql
+```sql
 mysql> delimiter ;
 mysql> SELECT fn_search(904);
 +----------------+
@@ -450,16 +455,20 @@ mysql>
 
 ### 三、删除存储函数
 
-```mysql
+```sql
 DROP FUNCTION [IF EXISTS] sp_name
 ```
 
 例子：删除数据库 mysql_test 中的存储函数 fn_search。
 
-```mysql
+```sql
 mysql> DROP FUNCTION IF EXISTS fn_search;
 Query OK, 0 rows affected (0.00 sec)
 
 mysql>
 
 ```
+
+## 总结
+
+存储过程与存储函数，堪称数据库编程中的“双剑合璧”。通过本文，你不仅掌握了它们的创建与调用，还学会了用游标、变量等技巧解锁更复杂的操作。存储过程让你批量处理如虎添翼，存储函数让结果返回精准高效。无论是优化性能、减少流量，还是提升安全性，这些“必杀技”都能助你事半功倍。赶快将这些秘密应用到你的项目中，开启数据库编程的新篇章吧！
