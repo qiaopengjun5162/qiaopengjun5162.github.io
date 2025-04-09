@@ -3,7 +3,7 @@ title = "Rust 如何优雅实现冒泡排序"
 description = "Rust 如何优雅实现冒泡排序"
 date = 2025-04-09 20:22:04+08:00
 [taxonomies]
-categories = ["Rust"，"算法"]
+categories = ["Rust", "算法"]
 tags = ["Rust", "冒泡排序", "算法"]
 +++
 
