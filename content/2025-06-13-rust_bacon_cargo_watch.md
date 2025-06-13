@@ -183,7 +183,7 @@ RustJourney/rust-bacon on  main [?] is 📦 0.1.0 via 🦀 1.89.0 on 🐳 v28
 ➜ bacon run -- -q --example simple
 ```
 
-![image-20250612105331447](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612105331447.png)
+![image-20250612105331447](/images/image-20250612105331447.png)
 
 ### 小技巧：设置 bre 快捷命令
 
@@ -199,7 +199,7 @@ function bre() {
 
 通过在 ~/.zshrc 中定义 bre 函数，创建了一个便捷的命令，用于在 Rust 项目中以静默模式运行指定示例的测试，简化了使用 Bacon 的工作流程。
 
-![image-20250612110014783](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612110014783.png)
+![image-20250612110014783](/images/image-20250612110014783.png)
 
 运行示例：
 
@@ -352,7 +352,7 @@ RustJourney/rust-bacon on  main [?] is 📦 0.1.0 via 🦀 1.89.0 on 🐳 v28
 ➜ bacon test -- test_simple      
 ```
 
-![image-20250612112955370](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612112955370.png)
+![image-20250612112955370](/images/image-20250612112955370.png)
 
 #### 明确指定测试文件中测试方法进行测试
 
@@ -363,7 +363,7 @@ RustJourney/rust-bacon on  main [?] is 📦 0.1.0 via 🦀 1.89.0 on 🐳 v28
 ➜ bacon test -- --test tests_p_simple test_simple_with_headers
 ```
 
-![image-20250612113214272](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612113214272.png)
+![image-20250612113214272](/images/image-20250612113214272.png)
 
 #### 明确指定测试文件中测试方法进行测试并显示打印输出
 
@@ -374,7 +374,7 @@ RustJourney/rust-bacon on  main [?] is 📦 0.1.0 via 🦀 1.89.0 on 🐳 v28
 ➜ bacon test -- --test tests_p_simple test_simple_with_headers -- --nocapture
 ```
 
-![image-20250612114318019](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612114318019.png)
+![image-20250612114318019](/images/image-20250612114318019.png)
 
 ### 小技巧：设置`bt`快捷命令
 
@@ -404,7 +404,7 @@ function bt() {
 }
 ```
 
-![image-20250612114523149](/Users/qiaopengjun/Library/Application Support/typora-user-images/image-20250612114523149.png)
+![image-20250612114523149](/images/image-20250612114523149.png)
 
 #### 验证测试命令
 
