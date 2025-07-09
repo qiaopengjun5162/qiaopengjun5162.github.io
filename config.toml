@@ -75,6 +75,10 @@ name = "twitter"
 url = "https://x.com/qiaopengjun"
 
 [[extra.profile.social]]
+name = "wechat"
+url = "/images/wechat.jpeg"
+
+[[extra.profile.social]]
 name = "rss"
 url = "$BASE_URL/atom.xml"
 
