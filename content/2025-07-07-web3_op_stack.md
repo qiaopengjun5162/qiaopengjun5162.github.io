@@ -2,6 +2,7 @@
 title = "【硬核实操】从零到一：最新 OP Stack 本地启动全流程完整指南"
 description = "本文是一篇详尽的 OP Stack 本地部署实战教程。内容涵盖环境依赖检查、钱包生成、环境变量配置、L1 合约部署、创世文件生成，直至启动 `op-geth`, `op-node`, `op-batcher`, `op-proposer` 全套节点组件。通过17个清晰步骤和详实的命令行实操记录，手把手教你从零开始搭建一个完整的 OP Stack 开发网络，是开发者入门和实践 L2 技术的必备指南。"
 date = 2025-07-07T08:54:08Z
+draft = true
 [taxonomies]
 categories = ["Web3", "区块链", "OP Stack", "OpStack", "以太坊", "L2"]
 tags = ["Web3", "区块链", "OP Stack", "OpStack", "以太坊", "L2"]
